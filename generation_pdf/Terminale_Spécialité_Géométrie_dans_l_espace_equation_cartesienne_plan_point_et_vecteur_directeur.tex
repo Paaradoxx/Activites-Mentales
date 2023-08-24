@@ -1,0 +1,207 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On considère le vecteur $\vv{n}\begin{pmatrix}3\\-5\\1\end{pmatrix}$ et le point $M (-7~;~-3~;~9)$.
+
+	Déterminer une équation cartésienne du plan $\mathcal{P}$ passant par $M$ et de vecteur normal $\vv{n}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On considère le vecteur $\vv{n}\begin{pmatrix}1\\5\\1\end{pmatrix}$ et le point $M (-9~;~-5~;~-8)$.
+
+	Déterminer une équation cartésienne du plan $\mathcal{P}$ passant par $M$ et de vecteur normal $\vv{n}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On considère le vecteur $\vv{n}\begin{pmatrix}1\\1\\1\end{pmatrix}$ et le point $M (4~;~-9~;~2)$.
+
+	Déterminer une équation cartésienne du plan $\mathcal{P}$ passant par $M$ et de vecteur normal $\vv{n}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On considère le vecteur $\vv{n}\begin{pmatrix}-5\\3\\0\end{pmatrix}$ et le point $M (-1~;~7~;~5)$.
+
+	Déterminer une équation cartésienne du plan $\mathcal{P}$ passant par $M$ et de vecteur normal $\vv{n}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On considère le vecteur $\vv{n}\begin{pmatrix}2\\0\\-2\end{pmatrix}$ et le point $M (0~;~-4~;~-5)$.
+
+	Déterminer une équation cartésienne du plan $\mathcal{P}$ passant par $M$ et de vecteur normal $\vv{n}$.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+On a $\vv{n}\begin{pmatrix}3\\-5\\1\end{pmatrix}$ et $M (-7~;~-3~;~9)$. Une équation cartésienne de $\mathcal{P}$ est de la forme \[ax + by + cz + d = 0 \quad \Rightarrow \quad 3x-5y+z+d = 0 \] avec $d \in \mathbb{R}$ un réel à déterminer. On a alors  
+\begin{align*} 
+	M (-7~;~-3~;~9) \in \mathcal{P} &\Leftrightarrow 3\times\left(-7\right)+\left(-5\right)\times\left(-3\right)9+d = 0 \\
+	&\Leftrightarrow 3+d = 0 \\
+	&\Leftrightarrow d = -3.
+\end{align*}
+
+Finalement, on a $\mathcal{P}:~3x-5y+z-3=0 $.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+On a $\vv{n}\begin{pmatrix}1\\5\\1\end{pmatrix}$ et $M (-9~;~-5~;~-8)$. Une équation cartésienne de $\mathcal{P}$ est de la forme \[ax + by + cz + d = 0 \quad \Rightarrow \quad x+5y+z+d = 0 \] avec $d \in \mathbb{R}$ un réel à déterminer. On a alors  
+\begin{align*} 
+	M (-9~;~-5~;~-8) \in \mathcal{P} &\Leftrightarrow -9+5\times\left(-5\right)-8+d = 0 \\
+	&\Leftrightarrow -42+d = 0 \\
+	&\Leftrightarrow d = 42.
+\end{align*}
+
+Finalement, on a $\mathcal{P}:~x+5y+z+42=0 $.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+On a $\vv{n}\begin{pmatrix}1\\1\\1\end{pmatrix}$ et $M (4~;~-9~;~2)$. Une équation cartésienne de $\mathcal{P}$ est de la forme \[ax + by + cz + d = 0 \quad \Rightarrow \quad x+y+z+d = 0 \] avec $d \in \mathbb{R}$ un réel à déterminer. On a alors  
+\begin{align*} 
+	M (4~;~-9~;~2) \in \mathcal{P} &\Leftrightarrow 4-92+d = 0 \\
+	&\Leftrightarrow -3+d = 0 \\
+	&\Leftrightarrow d = 3.
+\end{align*}
+
+Finalement, on a $\mathcal{P}:~x+y+z+3=0 $.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+On a $\vv{n}\begin{pmatrix}-5\\3\\0\end{pmatrix}$ et $M (-1~;~7~;~5)$. Une équation cartésienne de $\mathcal{P}$ est de la forme \[ax + by + cz + d = 0 \quad \Rightarrow \quad -5x+3y+d = 0 \] avec $d \in \mathbb{R}$ un réel à déterminer. On a alors  
+\begin{align*} 
+	M (-1~;~7~;~5) \in \mathcal{P} &\Leftrightarrow \left(-5\right)\times\left(-1\right)+3\times7+0\times5+d = 0 \\
+	&\Leftrightarrow 26+d = 0 \\
+	&\Leftrightarrow d = -26.
+\end{align*}
+
+Finalement, on a $\mathcal{P}:~-5x+3y-26=0 $.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+On a $\vv{n}\begin{pmatrix}2\\0\\-2\end{pmatrix}$ et $M (0~;~-4~;~-5)$. Une équation cartésienne de $\mathcal{P}$ est de la forme \[ax + by + cz + d = 0 \quad \Rightarrow \quad 2x-2z+d = 0 \] avec $d \in \mathbb{R}$ un réel à déterminer. On a alors  
+\begin{align*} 
+	M (0~;~-4~;~-5) \in \mathcal{P} &\Leftrightarrow 2\times0+\left(-2\right)\times\left(-5\right)+d = 0 \\
+	&\Leftrightarrow 10+d = 0 \\
+	&\Leftrightarrow d = -10.
+\end{align*}
+
+Finalement, on a $\mathcal{P}:~2x-2z-10=0 $.\end{frame}
+
+
+
+
+\end{document}

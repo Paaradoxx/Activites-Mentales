@@ -1,0 +1,272 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+
+
+On pose $\forall n \in \mathbb{N}, \;\begin{cases} u_{n+1} = 9u_n+16 \\ u_0 = -10\end{cases}$.
+
+\begin{enumerate}
+	\item Montrer que $(v_n)$ définie par $v_n = u_n+2$ est une suite géométrique de raison $9$.
+
+	\item Donner alors $v_n$ en fonction de $n$ et en déduire l'expression de $u_n$.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+
+
+On pose $\forall n \in \mathbb{N}, \;\begin{cases} u_{n+1} = 3u_n+20 \\ u_0 = -3\end{cases}$.
+
+\begin{enumerate}
+	\item Montrer que $(v_n)$ définie par $v_n = u_n+10$ est une suite géométrique de raison $3$.
+
+	\item Donner alors $v_n$ en fonction de $n$ et en déduire l'expression de $u_n$.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+
+
+On pose $\forall n \in \mathbb{N}, \;\begin{cases} u_{n+1} = 4u_n+9 \\ u_0 = -4\end{cases}$.
+
+\begin{enumerate}
+	\item Montrer que $(v_n)$ définie par $v_n = u_n+3$ est une suite géométrique de raison $4$.
+
+	\item Donner alors $v_n$ en fonction de $n$ et en déduire l'expression de $u_n$.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+
+
+On pose $\forall n \in \mathbb{N}, \;\begin{cases} u_{n+1} = 6u_n+10 \\ u_0 = -5\end{cases}$.
+
+\begin{enumerate}
+	\item Montrer que $(v_n)$ définie par $v_n = u_n+2$ est une suite géométrique de raison $6$.
+
+	\item Donner alors $v_n$ en fonction de $n$ et en déduire l'expression de $u_n$.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+
+
+On pose $\forall n \in \mathbb{N}, \;\begin{cases} u_{n+1} = 9u_n+16 \\ u_0 = -6\end{cases}$.
+
+\begin{enumerate}
+	\item Montrer que $(v_n)$ définie par $v_n = u_n+2$ est une suite géométrique de raison $9$.
+
+	\item Donner alors $v_n$ en fonction de $n$ et en déduire l'expression de $u_n$.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\vspace{0.5cm}\begin{enumerate}
+	\item  Montrons que $\forall n \in \mathbb{N}$, $v_{n+1} = 9v_n$ avec $\forall n \in \mathbb{N}, \; \begin{cases}u_n = 9u_n+16\\ u_0 = -10\end{cases}$ et $v_n = u_n +2$.
+	\begin{align*}
+		v_{n+1} &= u_{n+1}+2\\
+		&=9u_n+16+2\\
+		&=9u_n+18\\
+		&=9(v_n-2)+18 \quad \text{car} \; u_n = v_n-2\\
+		&=9v_n-18+18\\
+		&=9v_n
+	\end{align*}
+		\item On a $v_0 = u_0+2=-10+2=-8$ et $\forall n \in \mathbb{N}, \; v_n = v_0 \times q^n  = -8\times9^n$.
+
+		Or comme $u_n = v_n-2$, on a finalement, $\forall n \in \mathbb{N}, \; u_n = v_n-2= -8\times9^n-2$.
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\vspace{0.5cm}\begin{enumerate}
+	\item  Montrons que $\forall n \in \mathbb{N}$, $v_{n+1} = 3v_n$ avec $\forall n \in \mathbb{N}, \; \begin{cases}u_n = 3u_n+20\\ u_0 = -3\end{cases}$ et $v_n = u_n +10$.
+	\begin{align*}
+		v_{n+1} &= u_{n+1}+10\\
+		&=3u_n+20+10\\
+		&=3u_n+30\\
+		&=3(v_n-10)+30 \quad \text{car} \; u_n = v_n-10\\
+		&=3v_n-30+30\\
+		&=3v_n
+	\end{align*}
+		\item On a $v_0 = u_0+10=-3+10=7$ et $\forall n \in \mathbb{N}, \; v_n = v_0 \times q^n  = 7\times3^n$.
+
+		Or comme $u_n = v_n-10$, on a finalement, $\forall n \in \mathbb{N}, \; u_n = v_n-10= 7\times3^n-10$.
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+\vspace{0.5cm}\begin{enumerate}
+	\item  Montrons que $\forall n \in \mathbb{N}$, $v_{n+1} = 4v_n$ avec $\forall n \in \mathbb{N}, \; \begin{cases}u_n = 4u_n+9\\ u_0 = -4\end{cases}$ et $v_n = u_n +3$.
+	\begin{align*}
+		v_{n+1} &= u_{n+1}+3\\
+		&=4u_n+9+3\\
+		&=4u_n+12\\
+		&=4(v_n-3)+12 \quad \text{car} \; u_n = v_n-3\\
+		&=4v_n-12+12\\
+		&=4v_n
+	\end{align*}
+		\item On a $v_0 = u_0+3=-4+3=-1$ et $\forall n \in \mathbb{N}, \; v_n = v_0 \times q^n  = -1\times4^n$.
+
+		Or comme $u_n = v_n-3$, on a finalement, $\forall n \in \mathbb{N}, \; u_n = v_n-3= -4^n-3$.
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\vspace{0.5cm}\begin{enumerate}
+	\item  Montrons que $\forall n \in \mathbb{N}$, $v_{n+1} = 6v_n$ avec $\forall n \in \mathbb{N}, \; \begin{cases}u_n = 6u_n+10\\ u_0 = -5\end{cases}$ et $v_n = u_n +2$.
+	\begin{align*}
+		v_{n+1} &= u_{n+1}+2\\
+		&=6u_n+10+2\\
+		&=6u_n+12\\
+		&=6(v_n-2)+12 \quad \text{car} \; u_n = v_n-2\\
+		&=6v_n-12+12\\
+		&=6v_n
+	\end{align*}
+		\item On a $v_0 = u_0+2=-5+2=-3$ et $\forall n \in \mathbb{N}, \; v_n = v_0 \times q^n  = -3\times6^n$.
+
+		Or comme $u_n = v_n-2$, on a finalement, $\forall n \in \mathbb{N}, \; u_n = v_n-2= -3\times6^n-2$.
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\vspace{0.5cm}\begin{enumerate}
+	\item  Montrons que $\forall n \in \mathbb{N}$, $v_{n+1} = 9v_n$ avec $\forall n \in \mathbb{N}, \; \begin{cases}u_n = 9u_n+16\\ u_0 = -6\end{cases}$ et $v_n = u_n +2$.
+	\begin{align*}
+		v_{n+1} &= u_{n+1}+2\\
+		&=9u_n+16+2\\
+		&=9u_n+18\\
+		&=9(v_n-2)+18 \quad \text{car} \; u_n = v_n-2\\
+		&=9v_n-18+18\\
+		&=9v_n
+	\end{align*}
+		\item On a $v_0 = u_0+2=-6+2=-4$ et $\forall n \in \mathbb{N}, \; v_n = v_0 \times q^n  = -4\times9^n$.
+
+		Or comme $u_n = v_n-2$, on a finalement, $\forall n \in \mathbb{N}, \; u_n = v_n-2= -4\times9^n-2$.
+\end{enumerate}\end{frame}
+
+
+
+
+\end{document}

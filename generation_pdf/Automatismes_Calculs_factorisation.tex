@@ -1,0 +1,172 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+Factoriser l'expression suivante : $$ A(x)=(x+4)(-3x+5)-(x+4)(8x-10)$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+Factoriser l'expression suivante : $$ A(x)=(-5x+7)(-5x-5)-(-5x+7)(-8x+1)$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+Factoriser l'expression suivante : $$ A(x)=(8x-3)(-7x+9)-(8x-3)(2x+1)$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+Factoriser l'expression suivante : $$ A(x)=(8x+7)(7x-9)-(8x+7)(5x+1)$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+Factoriser l'expression suivante : $$ A(x)=(2x+9)(-x-4)-(2x+9)(-4x-10)$$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+	\begin{align*} A(x) &= \underbrace{(x+4)}_{\textcolor{red}{facteur}} \underbrace{(-3x+5)}_{\textcolor{blue}{colis}}- \underbrace{(x+4)}_{\textcolor{red}{facteur}} \underbrace{(8x-10)}_{\textcolor{bordeaux}{lettres}}  \\ &= \underbrace{(x+4)}_{\textcolor{red}{facteur}} [ \underbrace{(-3x+5)}_{\textcolor{blue}{colis}} - \underbrace{ (8x-10)}_{\textcolor{bordeaux}{lettres}} ] \\ &= (x+4)(-3x+5-8x+10) \\ &= (x+4)(-11x+15)
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+	\begin{align*} A(x) &= \underbrace{(-5x+7)}_{\textcolor{red}{facteur}} \underbrace{(-5x-5)}_{\textcolor{blue}{colis}}- \underbrace{(-5x+7)}_{\textcolor{red}{facteur}} \underbrace{(-8x+1)}_{\textcolor{bordeaux}{lettres}}  \\ &= \underbrace{(-5x+7)}_{\textcolor{red}{facteur}} [ \underbrace{(-5x-5)}_{\textcolor{blue}{colis}} - \underbrace{ (-8x+1)}_{\textcolor{bordeaux}{lettres}} ] \\ &= (-5x+7)(-5x-5+8x-1) \\ &= (-5x+7)(3x-6)
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+	\begin{align*} A(x) &= \underbrace{(8x-3)}_{\textcolor{red}{facteur}} \underbrace{(-7x+9)}_{\textcolor{blue}{colis}}- \underbrace{(8x-3)}_{\textcolor{red}{facteur}} \underbrace{(2x+1)}_{\textcolor{bordeaux}{lettres}}  \\ &= \underbrace{(8x-3)}_{\textcolor{red}{facteur}} [ \underbrace{(-7x+9)}_{\textcolor{blue}{colis}} - \underbrace{ (2x+1)}_{\textcolor{bordeaux}{lettres}} ] \\ &= (8x-3)(-7x+9-2x-1) \\ &= (8x-3)(-9x+8)
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+	\begin{align*} A(x) &= \underbrace{(8x+7)}_{\textcolor{red}{facteur}} \underbrace{(7x-9)}_{\textcolor{blue}{colis}}- \underbrace{(8x+7)}_{\textcolor{red}{facteur}} \underbrace{(5x+1)}_{\textcolor{bordeaux}{lettres}}  \\ &= \underbrace{(8x+7)}_{\textcolor{red}{facteur}} [ \underbrace{(7x-9)}_{\textcolor{blue}{colis}} - \underbrace{ (5x+1)}_{\textcolor{bordeaux}{lettres}} ] \\ &= (8x+7)(7x-9-5x-1) \\ &= (8x+7)(2x-10)
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+	\begin{align*} A(x) &= \underbrace{(2x+9)}_{\textcolor{red}{facteur}} \underbrace{(-x-4)}_{\textcolor{blue}{colis}}- \underbrace{(2x+9)}_{\textcolor{red}{facteur}} \underbrace{(-4x-10)}_{\textcolor{bordeaux}{lettres}}  \\ &= \underbrace{(2x+9)}_{\textcolor{red}{facteur}} [ \underbrace{(-x-4)}_{\textcolor{blue}{colis}} - \underbrace{ (-4x-10)}_{\textcolor{bordeaux}{lettres}} ] \\ &= (2x+9)(-x-4+4x+10) \\ &= (2x+9)(3x+6)
+	\end{align*}
+\end{frame}
+
+
+
+
+\end{document}

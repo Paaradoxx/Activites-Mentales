@@ -1,0 +1,50 @@
+b = randint(-15, 15)
+while b == 0:
+    b = randint(-10, 10)    
+
+b = Fraction(b, 1)
+
+self.frame_init()
+
+self.add("Factoriser l'expression suivante en considérant que celle-ci est le début de développement d'une identité remarquable \\[A(x) = x^2", cor = False)
+self.add_frac_somme(b, coef = True, cor = False)
+self.add("x", cor = False)
+self.add(".\\]", cor = False)
+
+self.add("\\begin{align*} A(x) &= ")
+self.add("x^2")
+self.add_frac_somme(b, coef = True)
+self.add("x")
+self.add("\\\\ \n&=")
+self.add("x^2")
+if b > 0:
+    self.add("+2\\times x \\times ")
+    self.add_frac(b/2)
+
+else:
+    self.add("-2\\times x \\times ")
+    self.add_frac(-b/2)
+
+if Fraction((b/(2))).denominator != 1:
+    self.add("+\\left(")
+    self.add_frac(Fraction(abs((b/(2)).numerator), (b/(2)).denominator))
+    self.add("\\right)^2")
+    self.add("- \\left(")
+    self.add_frac(Fraction(abs((b/(2)).numerator), (b/(2)).denominator))
+    self.add("\\right)^2")
+else:
+    self.add("+")
+    self.add_frac(Fraction(abs((b/(2)).numerator), (b/(2)).denominator))
+    self.add("^2-")
+    self.add_frac(Fraction(abs((b/(2)).numerator), (b/(2)).denominator))
+    self.add("^2")
+self.add("\\\\ \n&=")
+
+self.add("\\left( x")
+self.add_frac_somme(b/(2))
+self.add("\\right)^2")
+self.add_frac_somme(-(b/(2))**2)
+self.add("\n \\end{align*} \n\n \\bigskip")
+
+
+self.frame_end()

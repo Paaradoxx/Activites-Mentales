@@ -1,0 +1,58 @@
+a=randint(-10,10)
+b=randint(-10,10)
+c=randint(-10,10)
+d=randint(-10,10)
+e=randint(-10,10)
+while a==0 or b==0 or c==0:
+    a=randint(-10,10)
+    b=randint(-10,10)
+    c=randint(-10,10)
+s=a*d+b*e+c
+self.frame_init()
+self.add("On considère une droite $d$ d'équation cartésienne $",False)
+self.add_coef(a,False)
+self.add("x",False)
+self.add_coef_somme(b,False)
+self.add("y",False)
+self.add_nombre_somme(c,False)
+self.add("=0$. \n \n Le point de coordoonnées $(",False)
+self.add_nombre(d,False)
+self.add(";",False)
+self.add_nombre(e,False)
+self.add(")$ appartient-il à la droite $d$ ?",False)
+
+self.add("On considère une droite $d$ d'équation cartésienne $")
+self.add_coef(a)
+self.add("x")
+self.add_coef_somme(b)
+self.add("y")
+self.add_nombre_somme(c)
+self.add("=0$. \n \n Le point de coordoonnées $(")
+self.add_nombre(d)
+self.add(";")
+self.add_nombre(e)
+self.add(")$ appartient-il à la droite $d$ ? \n \n  \\bigskip \n On remplace $(x; y)$ par les coordonnées du point dans l'équation de la droite $d$ : $$ ")
+self.add_nombre(a)
+self.add("\\times ")
+self.add_nombre_produit(d)
+self.add_nombre_somme(b)
+self.add("\\times")
+self.add_nombre_produit(e)
+self.add_nombre_somme(c)
+self.add("= ")
+self.add_nombre(a*d)
+self.add_nombre_somme(b*e)
+self.add_nombre_somme(c)
+self.add("=")
+self.add_nombre(s)
+if s==0: 
+    self.add("$$ \n Les coordonnées du point vérifient l’équation de la droite $d$, le point appartient donc à la droite $d$.")
+else :
+        self.add("\\neq 0 $$ \n Les coordonnées du point ne vérifient pas l'équation de la droite $d$, le point n'appartient donc pas à la droite $d$.")
+
+self.frame_end()
+
+        
+
+
+

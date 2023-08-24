@@ -1,0 +1,297 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+Résoudre l'inéquation \[-7(2x+4)(15x-9)<0\]\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+Résoudre l'inéquation \[8(x-9)(-3x+10)>0\]\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+Résoudre l'inéquation \[13(7x-4)(-8x+4)\leq0\]\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+Résoudre l'inéquation \[15(6x+13)(-15x-4)<0\]\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+Résoudre l'inéquation \[-7(-14x-1)(-3x-7)>0\]\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+On pose $A(x) = -7(2x+4)(15x-9) = -7\times f(x) \times g(x)$ avec $f(x) = 2x+4$ et $g(x) = 15x-9$.
+
+\begin{itemize}
+	\item $f$ est une fonction affine avec $m =2>0$. $f$ est donc croissante sur $\mathbb{R}$.
+
+	 De plus $f(x) = 0 \Leftrightarrow x = -2$.
+	\item $g$ est une fonction affine avec $m =15>0$. $g$ est donc croissante sur $\mathbb{R}$.
+
+	 De plus $g(x) = 0 \Leftrightarrow x = \dfrac{3}{5}$.
+\end{itemize}
+
+ \end{frame}
+
+
+\begin{frame}On rappelle que $f(x) = 2x+4$ et $g(x) = 15x-9$ et $A(x) = -7(2x+4)(15x-9)$. Son tableau de signe est alors 
+
+\medskip \hfil
+\begin{tikzpicture}[scale = 0.75]
+	\tkzTabInit[lgt = 1.5]{$x$/1.25, $-7$/ 1, $f(x)$ / 1, $g(x)$ / 1, $A(x)$/1}{$-\infty$, $-2$, $\dfrac{3}{5}$, $+\infty$}
+	\tkzTabLine{ , -, t, -, t, -, }
+	\tkzTabLine{ , -, z, +, t, +, }
+	\tkzTabLine{ , -, t, -, z, +, }
+	\tkzTabLine{ , -, z, +, z, -, }
+	\end{tikzpicture}
+
+ Finalement l'ensemble de solutions de $-7(2x+4)(15x-9)<0$ est\[S = \left]-\infty;-2\right[\cup\left]\dfrac{3}{5};+\infty\right[\]
+
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+On pose $A(x) = 8(x-9)(-3x+10) = 8\times f(x) \times g(x)$ avec $f(x) = x-9$ et $g(x) = -3x+10$.
+
+\begin{itemize}
+	\item $f$ est une fonction affine avec $m =1>0$. $f$ est donc croissante sur $\mathbb{R}$.
+
+	 De plus $f(x) = 0 \Leftrightarrow x = 9$.
+	\item $g$ est une fonction affine avec $m =-3<0$. $g$ est donc décroissante sur $\mathbb{R}$.
+
+	 De plus $g(x) = 0 \Leftrightarrow x = \dfrac{10}{3}$.
+\end{itemize}
+
+ \end{frame}
+
+
+\begin{frame}On rappelle que $f(x) = x-9$ et $g(x) = -3x+10$ et $A(x) = 8(x-9)(-3x+10)$. Son tableau de signe est alors 
+
+\medskip \hfil
+\begin{tikzpicture}[scale = 0.75]
+	\tkzTabInit[lgt = 1.5]{$x$/1.25, $8$/ 1, $f(x)$ / 1, $g(x)$ / 1, $A(x)$/1}{$-\infty$, $\dfrac{10}{3}$, $9$, $+\infty$}
+	\tkzTabLine{ , +, t, +, t, +, }
+	\tkzTabLine{ , -, t, -, z, +, }
+	\tkzTabLine{ , +, z, -, +, -, }
+	\tkzTabLine{ , -, z, +, z, -, }
+	\end{tikzpicture}
+
+ Finalement l'ensemble de solutions de $8(x-9)(-3x+10)>0$ est\[S = \left]-\infty;\dfrac{10}{3}\right[\cup\left]9;+\infty\right[\]
+
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+On pose $A(x) = 13(7x-4)(-8x+4) = 13\times f(x) \times g(x)$ avec $f(x) = 7x-4$ et $g(x) = -8x+4$.
+
+\begin{itemize}
+	\item $f$ est une fonction affine avec $m =7>0$. $f$ est donc croissante sur $\mathbb{R}$.
+
+	 De plus $f(x) = 0 \Leftrightarrow x = \dfrac{4}{7}$.
+	\item $g$ est une fonction affine avec $m =-8<0$. $g$ est donc décroissante sur $\mathbb{R}$.
+
+	 De plus $g(x) = 0 \Leftrightarrow x = \dfrac{1}{2}$.
+\end{itemize}
+
+ \end{frame}
+
+
+\begin{frame}On rappelle que $f(x) = 7x-4$ et $g(x) = -8x+4$ et $A(x) = 13(7x-4)(-8x+4)$. Son tableau de signe est alors 
+
+\medskip \hfil
+\begin{tikzpicture}[scale = 0.75]
+	\tkzTabInit[lgt = 1.5]{$x$/1.25, $13$/ 1, $f(x)$ / 1, $g(x)$ / 1, $A(x)$/1}{$-\infty$, $\dfrac{1}{2}$, $\dfrac{4}{7}$, $+\infty$}
+	\tkzTabLine{ , +, t, +, t, +, }
+	\tkzTabLine{ , -, t, -, z, +, }
+	\tkzTabLine{ , +, z, -, +, -, }
+	\tkzTabLine{ , -, z, +, z, -, }
+	\end{tikzpicture}
+
+ Finalement l'ensemble de solutions de $13(7x-4)(-8x+4)\leq0$ est\[S = \left]-\infty;\dfrac{1}{2}\right]\cup\left[\dfrac{4}{7};+\infty\right[\]
+
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+On pose $A(x) = 15(6x+13)(-15x-4) = 15\times f(x) \times g(x)$ avec $f(x) = 6x+13$ et $g(x) = -15x-4$.
+
+\begin{itemize}
+	\item $f$ est une fonction affine avec $m =6>0$. $f$ est donc croissante sur $\mathbb{R}$.
+
+	 De plus $f(x) = 0 \Leftrightarrow x = \dfrac{-13}{6}$.
+	\item $g$ est une fonction affine avec $m =-15<0$. $g$ est donc décroissante sur $\mathbb{R}$.
+
+	 De plus $g(x) = 0 \Leftrightarrow x = \dfrac{-4}{15}$.
+\end{itemize}
+
+ \end{frame}
+
+
+\begin{frame}On rappelle que $f(x) = 6x+13$ et $g(x) = -15x-4$ et $A(x) = 15(6x+13)(-15x-4)$. Son tableau de signe est alors 
+
+\medskip \hfil
+\begin{tikzpicture}[scale = 0.75]
+	\tkzTabInit[lgt = 1.5]{$x$/1.25, $15$/ 1, $f(x)$ / 1, $g(x)$ / 1, $A(x)$/1}{$-\infty$, $\dfrac{-13}{6}$, $\dfrac{-4}{15}$, $+\infty$}
+	\tkzTabLine{ , +, t, +, t, +, }
+	\tkzTabLine{ , -, z, +, t, +, }
+	\tkzTabLine{ , +, t, +, z, -, }
+	\tkzTabLine{ , -, z, +, z, -, }
+	\end{tikzpicture}
+
+ Finalement l'ensemble de solutions de $15(6x+13)(-15x-4)<0$ est\[S = \left]-\infty;\dfrac{-13}{6}\right[\cup\left]\dfrac{-4}{15};+\infty\right[\]
+
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+On pose $A(x) = -7(-14x-1)(-3x-7) = -7\times f(x) \times g(x)$ avec $f(x) = -14x-1$ et $g(x) = -3x-7$.
+
+\begin{itemize}
+	\item $f$ est une fonction affine avec $m =-14<0$. $f$ est donc décroissante sur $\mathbb{R}$.
+
+	 De plus $f(x) = 0 \Leftrightarrow x = \dfrac{-1}{14}$.
+	\item $g$ est une fonction affine avec $m =-3<0$. $g$ est donc décroissante sur $\mathbb{R}$.
+
+	 De plus $g(x) = 0 \Leftrightarrow x = \dfrac{-7}{3}$.
+\end{itemize}
+
+ \end{frame}
+
+
+\begin{frame}On rappelle que $f(x) = -14x-1$ et $g(x) = -3x-7$ et $A(x) = -7(-14x-1)(-3x-7)$. Son tableau de signe est alors 
+
+\medskip \hfil
+\begin{tikzpicture}[scale = 0.75]
+	\tkzTabInit[lgt = 1.5]{$x$/1.25, $-7$/ 1, $f(x)$ / 1, $g(x)$ / 1, $A(x)$/1}{$-\infty$, $\dfrac{-7}{3}$, $\dfrac{-1}{14}$, $+\infty$}
+	\tkzTabLine{ , -, t, -, t, -, }
+	\tkzTabLine{ , +, t, +, z, -, }
+	\tkzTabLine{ , +, z, -, t, -, }
+	\tkzTabLine{ , -, z, +, z, -, }
+	\end{tikzpicture}
+
+ Finalement l'ensemble de solutions de $-7(-14x-1)(-3x-7)>0$ est\[S = \left]\dfrac{-7}{3};\dfrac{-1}{14}\right[\]
+
+\end{frame}
+
+
+
+
+\end{document}

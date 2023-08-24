@@ -1,0 +1,262 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|} 
+ \hline 
+ $x_i$ & 6 & 2 \\ 
+ \hline $\Prem(X=x_i)$ & $0.4$ & $0.6$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=3.6$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|} 
+ \hline 
+ $x_i$ & 1 & -4 \\ 
+ \hline $\Prem(X=x_i)$ & $0.3$ & $0.7$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=-2.5$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|c|} 
+ \hline 
+ $x_i$ & -10 & -9  & 3 \\ 
+ \hline $\Prem(X=x_i)$ & $0.2$ & $0.5$ & $0.3$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=-5.6$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|} 
+ \hline 
+ $x_i$ & 10 & -6 \\ 
+ \hline $\Prem(X=x_i)$ & $0.2$ & $0.8$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=-2.8$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|c|} 
+ \hline 
+ $x_i$ & 6 & 1  & -6 \\ 
+ \hline $\Prem(X=x_i)$ & $0.4$ & $0.2$ & $0.4$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=0.2$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|} 
+ \hline 
+ $x_i$ & 6 & 2 \\ 
+ \hline $\Prem(X=x_i)$ & $0.4$ & $0.6$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=3.6$ 
+ 
+ On a $\mathbb{E}(X)=6\times 0.4+2 \times 0.6=3.6$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|} 
+ \hline 
+ $x_i$ & 1 & -4 \\ 
+ \hline $\Prem(X=x_i)$ & $0.3$ & $0.7$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=-2.5$ 
+ 
+ On a $\mathbb{E}(X)=1\times 0.3-4 \times 0.7=-2.5$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|c|} 
+ \hline 
+ $x_i$ & -10 & -9 & 3 \\ 
+ \hline $\Prem(X=x_i)$ & $0.2$ & $0.5$& $0.3$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=-5.6$ 
+ 
+ On a $\mathbb{E}(X)=-10\times 0.2-9 \times 0.5+3 \times 0.3=-5.6$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|} 
+ \hline 
+ $x_i$ & 10 & -6 \\ 
+ \hline $\Prem(X=x_i)$ & $0.2$ & $0.8$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=-2.8$ 
+ 
+ On a $\mathbb{E}(X)=10\times 0.2-6 \times 0.8=-2.8$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+La loi de probabilité d'une variable aléatoire $X$ est donnée par le tableau suivant : 
+ \begin{center} 
+ \begin{tabular}{|c|c|c|c|} 
+ \hline 
+ $x_i$ & 6 & 1 & -6 \\ 
+ \hline $\Prem(X=x_i)$ & $0.4$ & $0.2$& $0.4$ \\ 
+ \hline 
+ \end{tabular} 
+ \end{center} 
+ Vérifier que $\mathbb{E}(X)=0.2$ 
+ 
+ On a $\mathbb{E}(X)=6\times 0.4+1 \times 0.2-6 \times 0.4=0.2$\end{frame}
+
+
+
+
+\end{document}

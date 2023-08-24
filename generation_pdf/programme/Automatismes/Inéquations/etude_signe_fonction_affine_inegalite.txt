@@ -1,0 +1,106 @@
+m = randint(-40, 40)
+while m == 0:
+    m = randint(-40, 40)
+p = randint(-40, 40)
+while p == 0:
+    p = randint(-40, 40)
+    
+if randint(0, 1) == 0:
+    symb = ["\\leq", "\\geq"]
+else:
+    symb = ["<", ">"]
+
+i = randint(0, 1)
+
+self.frame_init()
+self.add("Résoudre dans $\\mathbb{R}$ l'inéquation \\[", False)
+self.add_coef(m, False)
+self.add("x", False)
+self.add_nombre_somme(p, False)
+self.add(symb[i], False)
+#i = (i+1)%2
+self.add(" 0.\\]", False)
+
+if m!=1 :
+    self.add("On a:\n\n\\begin{align*}\n\t")
+    self.add_coef(m)
+    self.add("x")
+    self.add_nombre_somme(p)
+    self.add(symb[i])
+    self.add(" 0 & \\Leftrightarrow ")
+    self.add_coef(m)
+    self.add("x")
+    self.add(symb[i])
+    self.add_nombre(-p)            
+    self.add("\\\\\n\t & \\Leftrightarrow ")
+    if m > 0:
+        self.add("x" + symb[i] + "\\dfrac{")
+        self.add_nombre(-p)
+        self.add("}{")
+        self.add_nombre(m)
+        self.add("} \\quad \\text{On ne change pas le sens car $" + str(m) + ">0$}")
+    else:
+        i = (i+1)%2
+        self.add("x" + symb[i] + "\\dfrac{")
+        self.add_nombre(-p)
+        self.add("}{")
+        self.add_nombre(m)
+        self.add("} \\quad \\text{On change le sens car $" + str(m) + "<0$}")
+    
+    reponse = Fraction(-p, m)
+    if reponse.denominator != m:
+        self.add("\\\\\n\t & \\Leftrightarrow x" + symb[i])
+        self.add_frac(reponse)
+    self.add("\n\\end{align*}")
+    self.add("Finalement on a $S = ")
+    if i == 0:
+        if len(symb[i]) > 1: 
+            self.add("\\left]-\\infty;")
+            self.add_frac(reponse)
+            self.add("\\right]$.")
+        else: 
+            self.add("\\left]-\\infty;")
+            self.add_frac(reponse)
+            self.add("\\right[$.")
+    else:
+        if len(symb[i]) > 1:
+            self.add("\\left[") 
+            self.add_frac(reponse)
+            self.add(";+\\infty\\right[$.")
+        else: 
+            self.add("\\left]") 
+            self.add_frac(reponse)
+            self.add(";+\\infty\\right[$.")
+else:
+    self.add("On a \\[")
+    self.add_coef(m)
+    self.add("x")
+    self.add_nombre_somme(p)
+    self.add(symb[i])
+    self.add(" 0 \\Leftrightarrow ")
+    self.add_coef(m)
+    self.add("x")
+    self.add(symb[i])
+    self.add_nombre(-p)
+    self.add(".\\]\n\n")
+    self.add("Finalement $S = ")
+    reponse = Fraction(-p, 1)
+    if i == 0:
+        if len(symb[i]) > 1: 
+            self.add("\\left]-\\infty;")
+            self.add_frac(reponse)
+            self.add("\\right]$.")
+        else: 
+            self.add("\\left]-\\infty;")
+            self.add_frac(reponse)
+            self.add("\\right[$.")
+    else:
+        if len(symb[i]) > 1:
+            self.add("\\left[") 
+            self.add_frac(reponse)
+            self.add(";+\\infty\\right[$.")
+        else: 
+            self.add("\\left]") 
+            self.add_frac(reponse)
+            self.add(";+\\infty\\right[$.")
+self.frame_end()

@@ -1,0 +1,499 @@
+type_exo = randint(0, 3)
+#A(x) = \dfrac{bx+c}{dx+e}
+b = randint(-15, 15)
+c = randint(-15, 15)
+d = randint(-15, 15)
+e = randint(-15, 15)
+while b == 0:
+    b = randint(-15, 15)
+while d == 0:
+    d = randint(-15, 15)
+while c == 0:
+    c = randint(-15, 15)
+while e == 0 or c == e:
+    e = randint(-15, 15)
+
+self.frame_init()
+self.add("Résoudre l'inéquation \\[ \\dfrac{", False)
+self.add_coef(b, False)
+self.add("x", False)
+self.add_nombre_somme(c, False)
+self.add("}{", False)
+self.add_coef(d, False)
+self.add("x", False)
+self.add_nombre_somme(e, False)
+self.add("}", False)
+if type_exo == 0:
+    self.add("\geq", False)        
+elif type_exo == 1:
+    self.add("\leq", False)
+elif type_exo == 2:
+    self.add(">", False)
+else:
+    self.add("<", False)
+self.add("0\\]", False)
+
+self.add("\\vspace*{1cm} \n  On pose $A(x) = \\dfrac{")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("}{")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("} = \\dfrac{f(x)}{g(x)}$ avec $f(x) = ")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("$ et $g(x) = ")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("$.\n\n On cherche quand le quotient s'annule et les potentielles valeurs interdites. Pour cela, on résout $A(x)=0$ en utilisant la Règle du quotient nul : \n \n $\\begin{array}{crclcrcl} \n \n \t  & \\dfrac{")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("}{")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("} & = & 0 \\\ \n \t  \\Leftrightarrow & ")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add(" & =& 0 & \\text{et} & ")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("\\neq & 0 \\\ \n \t \\Leftrightarrow & ")
+self.add_coef(b)
+self.add("x&=&")
+self.add_nombre(-c)
+self.add("& \\text{et} & ")
+self.add_coef(d)
+self.add("x & \\neq & ")
+self.add_nombre(-e)
+self.add(" \\\ \n \t \\Leftrightarrow & x&=&")
+H=Fraction(-c,b)
+if H.denominator==1:
+    self.add_nombre(H.numerator)
+else :
+    self.add("\\dfrac{")
+    self.add_nombre(H.numerator)
+    self.add("}{")
+    self.add_nombre(H.denominator)
+    self.add("}")
+self.add(" & \\text{et} & x &\\neq&")
+F=Fraction(-e,d)
+if F.denominator==1:
+    self.add_nombre(F.numerator)
+else :
+    self.add("\\dfrac{")
+    self.add_nombre(F.numerator)
+    self.add("}{")
+    self.add_nombre(F.denominator)
+    self.add("}")
+self.add("\n \n \\end{array}$ ")
+self.add("\n \t \\begin{itemize} \n\t\\item  $f$ est une fonction affine avec $m =")
+self.add_nombre(b)
+if b > 0:
+    self.add(">0")
+else:
+    self.add("<0")
+self.add("$. $f$ est donc ")
+if b > 0:
+    self.add("croissante")
+else:
+    self.add("décroissante")
+self.add(" sur $\\mathbb{R}$.\n\t\\item $g$ est une fonction affine avec $m =")
+self.add_nombre(d)
+if d > 0:
+    self.add(">0")
+else:
+    self.add("<0")
+self.add("$. $g$ est donc ")
+if d > 0:
+    self.add("croissante")
+else:
+    self.add("décroissante")
+self.add(" sur $\\mathbb{R}$.\n\n\t \\end{itemize}\n\n \\end{frame}\n\n\n\\begin{frame}")
+self.add("On rappelle que $f(x) = ")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("$ et $g(x) = ")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("$ et $A(x) = \\dfrac{")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("}{")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("}$. Son tableau de signe est alors \n\n\\medskip ")
+self.add("\hfil\n\\begin{tikzpicture}[scale = 0.75]\n\t\\tkzTabInit[lgt = 1.5]{$x$/1.25, $f(x)")
+self.add("$ / 1, $g(x)")
+self.add("$ / 1, $A(x)$/1}{$-\\infty$, $")
+if Fraction(-c, b) < Fraction(-e, d):
+    self.add_frac(Fraction(-c, b))
+    self.add("$, $")
+    self.add_frac(Fraction(-e, d))
+elif Fraction(-c, b) > Fraction(-e, d):
+    self.add_frac(Fraction(-e, d))
+    self.add("$, $")
+    self.add_frac(Fraction(-c, b))
+else:
+    self.add_frac(Fraction(-c, b))
+self.add("$, $+\\infty$}\n\t")
+if Fraction(-c, b) == Fraction(-e, d):
+    if b>0 and d>0:
+        self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , +, d, +, }\n\t")
+    elif b>0 and d<0:
+        self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , -, d, -, }\n\t")
+    elif b<0 and d>0:
+        self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , -, d, -, }\n\t")
+    else:
+        self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , +, d, +, }\n\t")
+elif Fraction(-c, b) <= Fraction(-e, d):
+    if b>0 and d>0:
+        self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+        self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , +, z, -, d, +, }\n\t")
+    elif b>0 and d<0:
+        self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+        self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , -, z, +, d, -, }\n\t")
+    elif b<0 and d>0:
+        self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+        self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , -, z, +, d, -, }\n\t")
+    else:
+        self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+        self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , +, z, -, d, +, }\n\t")
+else:
+    if b>0 and d>0:
+        self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+        self.add("\\tkzTabLine{ , +, d, -, z, +, }\n\t")
+
+    elif b>0 and d<0:
+        self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+        self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+        self.add("\\tkzTabLine{ , -, d, +, z, -, }\n\t")
+    elif b<0 and d>0:
+        self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+        self.add("\\tkzTabLine{ , -, d, +, z, -, }\n\t")
+    else:
+        self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+        self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+        self.add("\\tkzTabLine{ , +, d, -, z, +, }\n\t")
+self.add("\\end{tikzpicture}\n\n Finalement l'ensemble de solutions de $\\dfrac{")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("}{")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("}")
+if type_exo == 0:
+    self.add("\geq")        
+elif type_exo == 1:
+    self.add("\leq")
+elif type_exo == 2:
+    self.add(">")
+else:
+    self.add("<")
+self.add("0$ est")
+
+self.add("\\[S = ")
+if Fraction(-c, b) == Fraction(-e, d):
+    if b>0 and d>0:
+        if type_exo == 0:
+            self.add("\\mathbb{R}\\setminus")    
+            self.add("\\left\\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right\\}")  
+        elif type_exo == 1:
+            self.add("\\emptyset")
+
+        elif type_exo == 3:
+            self.add("\\emptyset")
+        else:
+            self.add("\\mathbb{R}\\setminus \\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\}")
+
+
+    elif b>0 and d<0:
+        if type_exo == 0:
+            self.add("\\emptyset")
+        elif type_exo == 1:
+            self.add("\\mathbb{R}\\setminus \\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\}") 
+        elif type_exo == 3:
+            self.add("\\mathbb{R}\\setminus \\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\}")
+        else:
+            self.add("\\emptyset")
+
+    elif b<0 and d>0:
+        if type_exo == 0:
+            self.add("\\emptyset")
+        elif type_exo == 1:
+            self.add("\\mathbb{R}\\setminus \\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\}") 
+        elif type_exo == 3:
+            self.add("\\mathbb{R}\\setminus \\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\}")
+        else:
+            self.add("\\emptyset")             
+    else:
+        if type_exo == 0:
+            self.add("\\mathbb{R}\\setminus")    
+            self.add("\\left\\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right\\}")  
+        elif type_exo == 1:
+            self.add("\\emptyset")
+
+        elif type_exo == 3:
+            self.add("\\emptyset")
+        else:
+            self.add("\\mathbb{R}\\setminus \\{")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\}")      
+            
+elif Fraction(-c, b) <= Fraction(-e, d):
+    if b>0 and d>0:
+        if type_exo == 0:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right]\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 1:
+            self.add("\\left[") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+
+        elif type_exo == 2:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[")   
+
+    elif b>0 and d<0:
+        if type_exo == 1:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right]\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 0:
+            self.add("\\left[") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+
+        elif type_exo == 3:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+    elif b<0 and d>0:
+        if type_exo == 1:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right]\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 0:
+            self.add("\\left[") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+
+        elif type_exo == 3:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+    else:
+        if type_exo == 0:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right]\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 1:
+            self.add("\\left[") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+
+        elif type_exo == 2:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[")               
+else:
+    c, e = e, c
+    b, d = d, b            
+    if b>0 and d>0:
+        if type_exo == 0:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left[")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 1:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right]") 
+
+        elif type_exo == 2:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[")   
+
+    elif b>0 and d<0:
+        if type_exo == 1:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left[")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 0:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right]") 
+
+        elif type_exo == 3:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+    elif b<0 and d>0:
+        if type_exo == 1:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left[")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 0:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right]") 
+
+        elif type_exo == 2:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[") 
+    else:
+        if type_exo == 0:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left[")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        elif type_exo == 1:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right]") 
+
+        elif type_exo == 2:
+            self.add("\\left]-\\infty;")
+            self.add_frac(Fraction(-c, b))
+            self.add("\\right[\\cup\left]")
+            self.add_frac(Fraction(-e, d))
+            self.add(";+\\infty\\right[")
+        else:
+            self.add("\\left]") 
+            self.add_frac(Fraction(-c, b))
+            self.add(";") 
+            self.add_frac(Fraction(-e, d))
+            self.add("\\right[")               
+self.add("\\]\n\n")
+self.frame_end()

@@ -1,0 +1,91 @@
+xmin = -5
+xmax = 5
+ymin = -6
+ymax = 6
+
+p1 = [-4, -3.5, -3, -2.5]
+p2 = [-1.5, -1, -0.5, 0, 0.5, 1, 1.5]
+p3 = [4, 3.5, 3, 2.5]
+a = p1[randint(0, len(p1)-1)]
+b = p2[randint(0, len(p2)-1)]
+c = p3[randint(0, len(p3)-1)]
+if b-a == 1:
+    a -= 0.5
+elif c-b == 1:
+    c += 0.5
+val_f = [[a, randint(-3, 3)], [b, randint(-4, 4)], [c, randint(-3, 3)]]
+val_ff = [[a, 3]]
+val_fff = []
+
+symboles = ["\\leq", "\\geq", "<", ">"]
+
+symbole = symboles[randint(0, 3)]
+
+self.frame_init()
+
+self.add("\\hfil\\begin{minipage}{0.4\\linewidth}Déterminer graphiquement les solutions réelles de l'inéquation $\\textcolor{propcolor}{f(x)}" + symbole + "\\textcolor{thcolor}{g(x)}$.\\end{minipage}", False)
+
+
+
+self.graphique_init(xmin, xmax, ymin, ymax, step = "0.5", resize = 0.4)
+self.tracer_fonction_interpolation(val_f, [], [], color ="propcolor")
+self.tracer_fonction_interpolation(val_f, val_ff, val_fff)
+
+index = self.graphique.tex.index("s {(") + 9
+index2 = self.graphique.tex.index(")", index + 1)-1
+
+index3 = self.graphique.tex.index("s {(", index2 + 1) + 9
+index4 = self.graphique.tex.index(")", index3 + 1)-1
+
+val_1 = float(self.graphique.tex[index: index2])
+val_2 = float(self.graphique.tex[index3: index4])
+
+self.add("\\hfil\\begin{minipage}{0.4\\linewidth}Les solutions réelles de l'inéquation $\\textcolor{propcolor}{f(x)}" + symbole + "\\textcolor{thcolor}{g(x)}$ sont: $$")
+if val_1 < val_2: #à gauche du premier point f < g
+    if symbole == "\\leq":
+        self.add("]-\\infty; " + str(a) + "] \\cup [" + str(b) + " ; " + str(c) + "]")
+    elif symbole == "<":
+        self.add("]-\\infty; " + str(a) + "[ \\cup ]" + str(b) + " ; " + str(c) + "[")
+    elif symbole == "\\geq":
+        self.add("[" + str(a) + " ; " + str(b) + "] \\cup [" + str(c) + "; +\\infty[")
+    elif symbole == ">":
+        self.add("]" + str(a) + " ; " + str(b) + "[ \\cup ]" + str(c) + "; +\\infty[")
+else:
+    if symbole == "\\leq":
+        self.add("[" + str(a) + " ; " + str(b) + "] \\cup [" + str(c) + "; +\\infty[")
+    elif symbole == "<":
+        self.add("]" + str(a) + " ; " + str(b) + "[ \\cup ]" + str(c) + "; +\\infty[")
+    elif symbole == "\\geq":
+        self.add("]-\\infty; " + str(a) + "] \\cup [" + str(b) + " ; " + str(c) + "]")
+    elif symbole == ">":
+        self.add("]-\\infty; " + str(a) + "[ \\cup ]" + str(b) + " ; " + str(c) + "[")   
+
+
+self.add("$$\\end{minipage}")
+
+self.graphique_end()
+
+mon_tikz = self.graphique.tex
+index_fin = self.graphique.tex.index("\\end{tikzpicture}")-1
+if val_1 < -5:
+    val_1 = -5
+elif val_1 > 5:
+    val_1 = 5        
+if val_2 < -5:
+    val_2 = -5
+elif val_2 > 5:
+    val_2 = 5
+ajout_1 = "\\draw (-5, " + str(val_1) + ") node[left] {$\\mathcal{C}_f$};"
+ajout_2 = "\\draw (-5, " + str(val_2) + ") node[left] {$\\mathcal{C}_g$};"
+self.graphique.tex = self.graphique.tex[:index_fin] + ajout_1 + ajout_2 + self.graphique.tex[index_fin:]
+
+
+self.graphique_write(False)
+self.graphique_write()
+
+
+
+
+
+self.graphique_reset()
+self.frame_end()

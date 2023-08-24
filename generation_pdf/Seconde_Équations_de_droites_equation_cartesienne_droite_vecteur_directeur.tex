@@ -1,0 +1,237 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On considère le point $M\left(-4~;~5\right)$ et le vecteur $\vv{u}\vco{-1}{9}$.
+
+\bigskip
+
+Déterminer une équation cartésienne de la droite passant par $M$ et de vecteur directeur $\vv{u}$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On considère le point $M\left(-8~;~3\right)$ et le vecteur $\vv{u}\vco{9}{-6}$.
+
+\bigskip
+
+Déterminer une équation cartésienne de la droite passant par $M$ et de vecteur directeur $\vv{u}$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On considère le point $M\left(-3~;~-1\right)$ et le vecteur $\vv{u}\vco{3}{-9}$.
+
+\bigskip
+
+Déterminer une équation cartésienne de la droite passant par $M$ et de vecteur directeur $\vv{u}$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On considère le point $M\left(0~;~-4\right)$ et le vecteur $\vv{u}\vco{4}{8}$.
+
+\bigskip
+
+Déterminer une équation cartésienne de la droite passant par $M$ et de vecteur directeur $\vv{u}$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On considère le point $M\left(-8~;~-3\right)$ et le vecteur $\vv{u}\vco{7}{8}$.
+
+\bigskip
+
+Déterminer une équation cartésienne de la droite passant par $M$ et de vecteur directeur $\vv{u}$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\vspace*{2em}
+$d$ est de vecteur directeur $\vv{u}\vco{-1}{9}$ et passant par $M\left(-4~;~5\right)$.
+
+Une équation cartésienne de la droite est de la forme $ax+by+c=0$.
+
+Comme  $\vv{u}\vco{-1}{9}$ est un vecteur directeur de $d$, il est de la forme 
+
+\smallskip
+
+\hfil $\vco{-1}{9}=\vco{-b}{a} \Leftrightarrow \begin{cases} -1& = -b \\ 9&=a \end{cases} \Leftrightarrow \begin{cases} b &= 1\\ a &=9\end{cases}.$\smallskip
+
+ L'équation est alors de la forme $9x+y + c = 0$. Or \[M(-4~;~5) \in d \Leftrightarrow 9\times \left(-4\right)+5+c=0 \Leftrightarrow -31+c = 0 \Leftrightarrow c = 31.\] Finalement une équation cartésienne de la droite passant par $M\left(-4~;~5\right)$ et de vecteur directeur $\vv{u}\vco{-1}{9}$ est $d:~9x+y+31=0.$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\vspace*{2em}
+$d$ est de vecteur directeur $\vv{u}\vco{9}{-6}$ et passant par $M\left(-8~;~3\right)$.
+
+Une équation cartésienne de la droite est de la forme $ax+by+c=0$.
+
+Comme  $\vv{u}\vco{9}{-6}$ est un vecteur directeur de $d$, il est de la forme 
+
+\smallskip
+
+\hfil $\vco{9}{-6}=\vco{-b}{a} \Leftrightarrow \begin{cases} 9& = -b \\ -6&=a \end{cases} \Leftrightarrow \begin{cases} b &= -9\\ a &=-6\end{cases}.$\smallskip
+
+ L'équation est alors de la forme $-6x-9y + c = 0$. Or \[M(-8~;~3) \in d \Leftrightarrow -6\times \left(-8\right)-9\times 3+c=0 \Leftrightarrow 21+c = 0 \Leftrightarrow c = -21.\] Finalement une équation cartésienne de la droite passant par $M\left(-8~;~3\right)$ et de vecteur directeur $\vv{u}\vco{9}{-6}$ est $d:~-6x-9y-21=0.$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+\vspace*{2em}
+$d$ est de vecteur directeur $\vv{u}\vco{3}{-9}$ et passant par $M\left(-3~;~-1\right)$.
+
+Une équation cartésienne de la droite est de la forme $ax+by+c=0$.
+
+Comme  $\vv{u}\vco{3}{-9}$ est un vecteur directeur de $d$, il est de la forme 
+
+\smallskip
+
+\hfil $\vco{3}{-9}=\vco{-b}{a} \Leftrightarrow \begin{cases} 3& = -b \\ -9&=a \end{cases} \Leftrightarrow \begin{cases} b &= -3\\ a &=-9\end{cases}.$\smallskip
+
+ L'équation est alors de la forme $-9x-3y + c = 0$. Or \[M(-3~;~-1) \in d \Leftrightarrow -9\times \left(-3\right)-3\times \left(-1\right)+c=0 \Leftrightarrow 30+c = 0 \Leftrightarrow c = -30.\] Finalement une équation cartésienne de la droite passant par $M\left(-3~;~-1\right)$ et de vecteur directeur $\vv{u}\vco{3}{-9}$ est $d:~-9x-3y-30=0.$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\vspace*{2em}
+$d$ est de vecteur directeur $\vv{u}\vco{4}{8}$ et passant par $M\left(0~;~-4\right)$.
+
+Une équation cartésienne de la droite est de la forme $ax+by+c=0$.
+
+Comme  $\vv{u}\vco{4}{8}$ est un vecteur directeur de $d$, il est de la forme 
+
+\smallskip
+
+\hfil $\vco{4}{8}=\vco{-b}{a} \Leftrightarrow \begin{cases} 4& = -b \\ 8&=a \end{cases} \Leftrightarrow \begin{cases} b &= -4\\ a &=8\end{cases}.$\smallskip
+
+ L'équation est alors de la forme $8x-4y + c = 0$. Or \[M(0~;~-4) \in d \Leftrightarrow 8\times 0-4\times \left(-4\right)+c=0 \Leftrightarrow 16+c = 0 \Leftrightarrow c = -16.\] Finalement une équation cartésienne de la droite passant par $M\left(0~;~-4\right)$ et de vecteur directeur $\vv{u}\vco{4}{8}$ est $d:~8x-4y-16=0.$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\vspace*{2em}
+$d$ est de vecteur directeur $\vv{u}\vco{7}{8}$ et passant par $M\left(-8~;~-3\right)$.
+
+Une équation cartésienne de la droite est de la forme $ax+by+c=0$.
+
+Comme  $\vv{u}\vco{7}{8}$ est un vecteur directeur de $d$, il est de la forme 
+
+\smallskip
+
+\hfil $\vco{7}{8}=\vco{-b}{a} \Leftrightarrow \begin{cases} 7& = -b \\ 8&=a \end{cases} \Leftrightarrow \begin{cases} b &= -7\\ a &=8\end{cases}.$\smallskip
+
+ L'équation est alors de la forme $8x-7y + c = 0$. Or \[M(-8~;~-3) \in d \Leftrightarrow 8\times \left(-8\right)-7\times \left(-3\right)+c=0 \Leftrightarrow -43+c = 0 \Leftrightarrow c = 43.\] Finalement une équation cartésienne de la droite passant par $M\left(-8~;~-3\right)$ et de vecteur directeur $\vv{u}\vco{7}{8}$ est $d:~8x-7y+43=0.$\end{frame}
+
+
+
+
+\end{document}

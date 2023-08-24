@@ -1,0 +1,643 @@
+a = randint(-6,6)
+b = randint(-6,6)
+c = randint(-6,6)
+d = randint(-6,6)
+e = randint(-6,6)
+
+while a == 0 or a == 1 or a == -1 or b==0 or c==0 or c*b<0 or a*b*d%3!=0 or a*(e*b+c*d)%2!=0 or e*d>0 or d==0 or e==0:
+    a = randint(-6,6)
+    b = randint(-6,6)
+    d = randint(-6,6)
+    c = randint(-6,6)
+    e = randint(-6,6)
+
+f=a*b*d
+g=a*(e*b+c*d)
+h=a*c*e 
+
+l=f//3
+m=g//2 
+k=randint(-30,30)
+while k==0:
+    k=randint(-30,30)
+
+self.frame_init()
+self.add("On considère la fonction $f$ définie sur $\R$ par $f(x)=",False)
+self.add_coef(l,False)
+self.add("x^3 ",False)
+self.add_coef_somme(m,False)
+self.add("x^2",False)
+self.add_coef_somme(h,False)
+self.add("x",False)
+self.add_nombre_somme(k,False)
+self.add("$. \\begin{enumerate} \n \t \\item Donner l'expression de la dérivée de la fonction $f$ que l'on notera $f'$. \n \t \\item Montrer que pour tout $x \in \R$, on a $", False)
+self.add_coef(a, False)
+self.add("(", False)
+self.add_coef(b, False)
+self.add("x", False)
+self.add_nombre_somme(c, False)
+self.add(")(", False)
+self.add_coef(d, False)
+self.add("x", False)
+self.add_nombre_somme(e, False)
+self.add(")=",False)
+self.add_coef(f,False)
+self.add("x^2",False)
+self.add_coef_somme(g,False)
+self.add("x",False)
+self.add_nombre_somme(h,False)
+self.add("$. \n \t \\item ",False)
+
+self.add("Construire le tableau de signe de la fonction définie sur $\R$ par \n \\hfil$", False)
+self.add_coef(a, False)
+self.add("(", False)
+self.add_coef(b, False)
+self.add("x", False)
+self.add_nombre_somme(c, False)
+self.add(")(", False)
+self.add_coef(d, False)
+self.add("x", False)
+self.add_nombre_somme(e, False)
+self.add(")$", False)
+self.add(" \n \t \\item En déduire les variations de la fonction $f$. \n \n \\end{enumerate} \n \n ",False)
+
+self.add("\\begin{enumerate} \n \t \\item ")
+self.add("Soit $x \in \R$, on a ")
+if l==0:
+    if m==0:
+        if h==0: 
+            self.add("$$f(x)=\\textcolor{blue}{")
+            self.add_nombre(k)
+            self.add("}$$")
+        else:
+            if k==0:
+                self.add("$$f(x)=")
+                self.add_coef(h)
+                self.add("\\textcolor{blue}{x}$$")
+            else :
+                self.add("$$f(x)=")
+                self.add_coef(h)
+                self.add("\\textcolor{blue}{x")
+                self.add_nombre_somme(k)
+                self.add("}$$")
+    else: 
+        if h==0: 
+            self.add("$$f(x)=")
+            self.add_coef(m)
+            self.add("\\textcolor{blue}{x^2")
+            self.add_nombre_somme(k)
+            self.add("}$$")
+        else:
+            if k==0:
+                self.add("$$f(x)=")
+                self.add_coef(m)
+                self.add("\\textcolor{blue}{x^2}")
+                self.add_coef_somme(h)
+                self.add("\\textcolor{blue}{x}$$")
+            else :
+                self.add("$$f(x)=")
+                self.add_coef(m)
+                self.add("\\textcolor{blue}{x^2}")
+                self.add_coef_somme(h)
+                self.add("\\textcolor{blue}{x")
+                self.add_nombre_somme(k)
+                self.add("}$$")
+else:
+    if m==0:
+        if h==0: 
+            if k==0: 
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add("$$")
+            else :
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3")
+                self.add_nombre_somme(k)
+                self.add("}$$")
+        else:
+            if k==0:
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add_coef_somme(h)
+                self.add("\\textcolor{blue}{x}$$")
+            else :
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add_coef_somme(h)
+                self.add("\\textcolor{blue}{x}")
+                self.add_nombre_somme(k)
+                self.add("$$")
+    else: 
+        if h==0: 
+            if k==0:
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add_coef_somme(m)
+                self.add("\\textcolor{blue}{x^2}")
+                self.add("$$")
+            else:
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add_coef_somme(m)
+                self.add("\\textcolor{blue}{x^2")
+                self.add_nombre_somme(k)
+                self.add("}$$")
+        else:
+            if k==0:
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add_coef_somme(m)
+                self.add("\\textcolor{blue}{x^2}")
+                self.add_coef_somme(h)
+                self.add("\\textcolor{blue}{x}$$")
+            else :
+                self.add("$$f(x)=")
+                self.add_coef(l)
+                self.add("\\textcolor{blue}{x^3}")
+                self.add_coef_somme(m)
+                self.add("\\textcolor{blue}{x^2}")
+                self.add_coef_somme(h)
+                self.add("\\textcolor{blue}{x")
+                self.add_nombre_somme(k)
+                self.add("}$$")
+self.add("\n \n On a alors pour tout $x \in  \R$, $$")
+if l==0:
+    if m==0:
+        if h==0: 
+            self.add("f'(x)=\\textcolor{blue}{0}=0 $$")
+        else:
+            if k==0:
+                self.add("f'(x)=")
+                self.add_nombre(h)
+                self.add("\\times \\textcolor{blue}{1}=")
+                self.add_coef(h)
+                self.add("$$")
+            else :
+                self.add("f'(x)=")
+                self.add_nombre(h)
+                self.add("\\times \\textcolor{blue}{1}+\\textcolor{blue}{0}=")
+                self.add_coef(h)
+                self.add("$$")
+    else: 
+        if h==0: 
+            self.add("f'(x)=")
+            self.add_nombre(m)
+            self.add("\\times \\textcolor{blue}{2x}=")
+            self.add_coef(2*m)
+            self.add("x")
+            self.add("$$")
+        else:
+            if k==0:
+                self.add("f'(x)=")
+                self.add_nombre(m)
+                self.add("\\times \\textcolor{blue}{2x} ")
+                self.add_nombre_somme(h)
+                self.add("\\times \\textcolor{blue}{1}=")
+                self.add_coef(2*m)
+                self.add("x ")
+                self.add_coef_somme(h)
+                self.add("$$")
+            else :
+                self.add("f'(x)=")
+                self.add_nombre(m)
+                self.add("\\times \\textcolor{blue}{2x}")
+                self.add_nombre_somme(h)
+                self.add("\\times \\textcolor{blue}{1}+\\textcolor{blue}{0}=")
+                self.add_coef(2*m)
+                self.add("x")
+                self.add_coef_somme(h)
+                self.add("$$")
+else:
+    if m==0:
+        if h==0: 
+            if k==0: 
+                self.add("f'(x)=")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2}")
+                self.add("= ")
+                self.add_coef(3*l)
+                self.add("x^2")
+                self.add("$$")
+            else :
+                self.add("f'(x)=")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2}+\\textcolor{blue}{0}")
+                self.add("= ")
+                self.add_coef(3*l)
+                self.add("x^2")
+                self.add("$$")
+        else:
+            if k==0:
+                self.add("f'(x)= ")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2}")
+                self.add_nombre_somme(h)
+                self.add("\\times \\textcolor{blue}{1}=")
+                self.add_coef(3*l)
+                self.add("x^2")
+                self.add_nombre_somme(h)
+                self.add("$$")
+            else :
+                self.add("f'(x)= ")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2}")
+                self.add_nombre_somme(h)
+                self.add("\\times \\textcolor{blue}{1}+\\textcolor{blue}{0}=")
+                self.add_coef(3*l)
+                self.add("x^2")
+                self.add_nombre_somme(h)
+                self.add("$$")
+    else: 
+        if h==0: 
+            if k==0:
+                self.add("f'(x)=")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2} ")
+                self.add_nombre_somme(m)
+                self.add("\\times \\textcolor{blue}{2x}")
+                self.add("=")
+                self.add_coef(3*l)
+                self.add("x^2 ")
+                self.add_coef_somme(2*m)
+                self.add("x")
+                self.add("$$")
+            else:
+                self.add("f'(x)= ")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2} ")
+                self.add_nombre_somme(m)
+                self.add("\\times \\textcolor{blue}{2x}+\\textcolor{blue}{0}")
+                self.add("=")
+                self.add_coef(3*l)
+                self.add("x^2")
+                self.add_coef_somme(2*m)
+                self.add("x")
+                self.add("$$")
+        else:
+            if k==0:
+                self.add("f'(x)=")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2}  ")
+                self.add_nombre_somme(m)
+                self.add("\\times \\textcolor{blue}{2x}")
+                self.add_nombre_somme(h)
+                self.add("\\times \\textcolor{blue}{1}=")
+                self.add_coef(3*l)
+                self.add("x^2 ")
+                self.add_coef_somme(2*m)
+                self.add("x")
+                self.add_nombre_somme(h)
+                self.add("$$")
+            else :
+                self.add("f'(x)= ")
+                self.add_nombre(l)
+                self.add("\\times \\textcolor{blue}{3x^2} ")
+                self.add_nombre_somme(m)
+                self.add("\\times \\textcolor{blue}{2x}")
+                self.add_nombre_somme(h)
+                self.add("\\times \\textcolor{blue}{1}+\\textcolor{blue}{0}=")
+                self.add_coef(3*l)
+                self.add("x^2")
+                self.add_nombre_somme(2*m)
+                self.add("x")
+                self.add_nombre_somme(h)
+                self.add("$$")
+self.add("\n \t \\item Soit $x \in \R$, \\begin{align*} \n ")
+self.add_coef(a)
+self.add("(")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add(")(")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add(") & = ")
+self.add_coef(a)
+self.add("\\left( ")
+self.add_coef(b*d)
+self.add("x^2 ")
+self.add_coef_somme(e*b)
+self.add("x ")
+self.add_coef_somme(c*d)
+self.add("x ")
+self.add_nombre_somme(e*c)
+self.add("\\right) \\\ \n &=  ")
+self.add_coef(a)
+self.add("\\left( ")
+self.add_coef(b*d)
+self.add("x^2 ")
+self.add_coef_somme(e*b+c*d)
+self.add("x ")
+self.add_nombre_somme(e*c)
+self.add("\\right) \\\ \n &= ")
+self.add_coef(a*b*d)
+self.add("x^2 ")
+self.add_coef_somme(a*e*b+a*c*d)
+self.add("x ")
+self.add_nombre_somme(a*e*c)
+self.add("\n \\end{align*} ")
+
+self.add("\\end{enumerate} \n \n \\end{frame} \n \n \\begin{frame} \n \n \\begin{enumerate} \n \\setcounter{enumi}{2} \n ")
+self.add("\n \t \\item On pose $A(x)= ")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("$ et $B(x) = ")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("$.\n \\bigskip \n \\begin{itemize}\n\t\\item $A$ est une fonction affine avec $m =")
+self.add_nombre(b)
+if b > 0:
+    self.add(">0")
+else:
+    self.add("<0")
+self.add("$. $f$ est donc ")
+if b > 0:
+    self.add("croissante sur $\\mathbb{R}$. Elle est donc d'abord négative puis positive.")
+else:
+    self.add("décroissante sur $\\mathbb{R}$. Elle est donc d'abord positive puis négative.")
+self.add(" .\n\n\t De plus $A(x) = 0 \\Leftrightarrow x = ")
+self.add_frac(Fraction(-c, b))
+self.add("$. \n \\bigskip \n\t\\item $B$ est une fonction affine avec $m =")
+self.add_nombre(d)
+if d > 0:
+    self.add(">0")
+else:
+    self.add("<0")
+self.add("$. $B$ est donc ")
+if d > 0:
+    self.add("croissante sur $\\mathbb{R}$. Elle est donc d'abord négative puis positive.")
+else:
+    self.add("décroissante sur $\\mathbb{R}$. Elle est donc d'abord positive puis négative.")
+self.add(" sur $\\mathbb{R}$.\n\n\t De plus $B(x) = 0 \\Leftrightarrow x = ")
+self.add_frac(Fraction(-e, d))
+self.add("$.\n\\end{itemize}\n On compare les deux racines obtenues : $ ")
+self.add_frac(Fraction(-c, b))
+self.add(" < ")
+self.add_frac(Fraction(-e, d))
+self.add("$ \n \\end{enumerate} \n \n \\end{frame}\n\n\n\\begin{frame}")
+self.add("On rappelle que $A(x) = ")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add("$ et $B(x) = ")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add("$ et $f'(x) = ")
+self.add_coef(a)
+self.add("(")
+self.add_coef(b)
+self.add("x")
+self.add_nombre_somme(c)
+self.add(")(")
+self.add_coef(d)
+self.add("x")
+self.add_nombre_somme(e)
+self.add(")$. Son tableau de signe est alors \n\n\\medskip ")
+self.add("\hfil\n\\begin{tikzpicture}[scale = 0.75]\n\t\\tkzTabInit[lgt = 1.5]{$x$/1.25, $")
+self.add_nombre(a)
+self.add("$/ 1, $A(x)")
+self.add("$ / 1, $B(x)")
+self.add("$ / 1, $f'(x)$/1}{$-\\infty$, $")
+if Fraction(-c, b) < Fraction(-e, d):
+    self.add_frac(Fraction(-c, b))
+    self.add("$, $")
+    self.add_frac(Fraction(-e, d))
+elif Fraction(-c, b) > Fraction(-e, d):
+    self.add_frac(Fraction(-e, d))
+    self.add("$, $")
+    self.add_frac(Fraction(-c, b))
+else:
+    self.add_frac(Fraction(-c, b))
+self.add("$, $+\\infty$}\n\t")
+if Fraction(-c, b) == Fraction(-e, d):
+    if a > 0:
+        if b>0 and d>0:
+            self.add("\\tkzTabLine{ , +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, +, }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabLine{ , +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, -, }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabLine{ , +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, -, }\n\t")
+        else:
+            self.add("\\tkzTabLine{ , +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, +, }\n\t")
+    else:
+        if b>0 and d>0:
+            self.add("\\tkzTabLine{ , -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, -, }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabLine{ , -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, +, }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabLine{ , -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, +, }\n\t")
+        else:
+            self.add("\\tkzTabLine{ , -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, -, }\n\t")
+
+
+elif Fraction(-c, b) <= Fraction(-e, d):
+    if a > 0:
+        if b>0 and d>0:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+        else:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+    else:
+        if b>0 and d>0:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+        else:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+
+else:
+    if a > 0:
+        if b>0 and d>0:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, +, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+        else:
+            self.add("\\tkzTabLine{ , +, t, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+    else:
+        if b>0 and d>0:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, t, -, z, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, t, +, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, z, +, }\n\t")
+        else:
+            self.add("\\tkzTabLine{ , -, t, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, t, +, z, -, }\n\t")
+            self.add("\\tkzTabLine{ , +, z, -, t, -, }\n\t")
+            self.add("\\tkzTabLine{ , -, z, +, z, -, }\n\t")
+self.add("\\end{tikzpicture}\n\n")
+
+self.add(" \\begin{enumerate} \n \\setcounter{enumi}{3} \n \t \\item On en déduit les variations de la fonction $f$ : \n\n  \\medskip ")
+self.add("\hfil\n\\begin{tikzpicture}[scale = 0.75]\n\t\\tkzTabInit[lgt = 1.5]{$x$/1.25, $f$/1}{$-\\infty$, $")
+if Fraction(-c, b) < Fraction(-e, d):
+    self.add_frac(Fraction(-c, b))
+    self.add("$, $")
+    self.add_frac(Fraction(-e, d))
+elif Fraction(-c, b) > Fraction(-e, d):
+    self.add_frac(Fraction(-e, d))
+    self.add("$, $")
+    self.add_frac(Fraction(-c, b))
+else:
+    self.add_frac(Fraction(-c, b))
+self.add("$, $+\\infty$}\n\t")
+if Fraction(-c, b) == Fraction(-e, d):
+    if a > 0:
+        if b>0 and d>0:
+            self.add("\\tkzTabVar{-/ , +/ }\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabVar{+/ , -/ ,}\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabVar{+/ , -/ ,}\n\t")
+        else:
+            self.add("\\tkzTabVar{-/ , +/ }\n\t")
+    else:
+        if b>0 and d>0:
+            self.add("\\tkzTabVar{+/ , -/ ,}\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabVar{-/ , +/ }\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabVar{-/ , +/ ,}\n\t")
+        else:
+            self.add("\\tkzTabVar{+/ , -/ ,}\n\t")
+
+
+elif Fraction(-c, b) <= Fraction(-e, d):
+    if a > 0:
+        if b>0 and d>0:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+        else:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+    else:
+        if b>0 and d>0:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+        else:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+
+else:
+    if a > 0:
+        if b>0 and d>0:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+        else:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+    else:
+        if b>0 and d>0:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+
+        elif b>0 and d<0:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+        elif b<0 and d>0:
+            self.add("\\tkzTabVar{-/ , +/ ,-/,+/}\n\t")
+        else:
+            self.add("\\tkzTabVar{+/ , -/ ,+/,-/}\n\t")
+self.add("\n \\end{tikzpicture}\n\n \\end{enumerate} \n \n")
+self.frame_end()

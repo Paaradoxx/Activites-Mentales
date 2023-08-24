@@ -1,0 +1,288 @@
+x, y = randint(-15, 15), randint(-15, 15)
+while x == 0 or y == 0:
+    x, y = randint(-15, 15), randint(-15, 15)
+
+a, b = randint(-9, 9), randint(-9, 9)
+while a == 0 or a == 1:
+    a = randint(-9, 9)
+while b == 0 or b == 1:
+    b = randint(-9, 9)  
+
+c=-b
+d=a
+
+r = a*x+b*y
+s=c*x+d*y
+
+e=randint(-10,10)
+f=(s-c*e)/d
+
+while int(f)!=f or a*e+b*f==r:
+    e=randint(-10,10)
+    f=(s-c*e)/d
+
+f=round(f)
+
+a = Fraction(a, 1)
+b = Fraction(b, 1)
+c = Fraction(c, 1)
+d = Fraction(d, 1)
+r = Fraction(r, 1)
+s = Fraction(s, 1)
+
+
+
+self.frame_init()
+self.add("Soit $d$ la droite d'équation cartésienne $",False)
+self.add_coef(a, False)
+self.add("x",False)
+self.add_coef_somme(b, False)
+self.add("y",False)
+self.add_coef_somme(-r, False)
+self.add("=0$ et le point $A(",False)
+self.add_nombre(e, False)
+self.add(";",False)
+self.add_nombre(f, False)
+self.add(")$. \n Déterminer les coordonnées du projeté orthogonal $H$ de $A$ sur $d$.", False)
+
+self.add("\\vspace*{0.5cm} \n Tout d'abord, $A \\notin d$ car $")
+self.add_coef(a)
+self.add("\\times ")
+self.add_nombre_produit(e)
+self.add_coef_somme(b)
+self.add("\\times ")
+self.add_nombre_produit(f)
+self.add_nombre_somme(-r)
+self.add("=")
+self.add_nombre(a*e+b*f-r)
+self.add(" \\neq0$. \n $H$ est l'intersection des deux droites $d$ et $(AH)$. \n Déterminons une équation cartésienne de la droite $(AH)$ :   $d$ admet comme vecteur directeur $\\vec{u} \\begin{pmatrix} ")
+self.add_nombre(c)
+self.add(" \\\ ")
+self.add_nombre(d)
+self.add("\\end{pmatrix}$. Donc $\\vec{u}$ est un vecteur normal à $(AH)$ et une équation cartésienne de $(AH)$ est : $$ ")
+self.add_coef(c)
+self.add("x ")
+self.add_coef_somme(d)
+self.add("y+c=0 \\quad \\text{où $c$ est un réel à déterminer.}$$ $(AH)$ passe par $A$ si et seulement si :\n \\begin{Eq} \n \t \\Ligneq{")
+self.add_nombre(c)
+self.add("\\times ")
+self.add_nombre_produit(e)
+self.add_nombre_somme(d)
+self.add("\\times ")
+self.add_nombre_produit(f)
+self.add("+c}{0} \n \t \\ligneq{")
+self.add_nombre(c*e+d*f)
+self.add("+c}{0} \n \t \\ligneq{c}{")
+self.add_nombre(-s)
+self.add("} \n \\end{Eq} $(AH)$ admet pour équation cartésienne $")
+self.add_coef(c)
+self.add("x ")
+self.add_coef_somme(d)
+self.add("y")
+self.add_nombre_somme(-s)
+self.add("=0$.")
+
+self.add(" \n \n \\end{frame} \n \n \\begin{frame} \n $H$ est l'intersection des deux droites $d$ et $(AH)$ donc ses coordonnées $(x;y)$ vérifient le système :\n\\begin{align*}\n\t(S)&\\Leftrightarrow\\begin{cases}")
+self.add_frac(a, True)
+self.add("x \\quad ")
+if b < 0:
+    self.add("- \\quad ")
+    self.add_frac(-b, True)
+else:
+    self.add("+ \\quad ")
+    self.add_frac(b, True)
+self.add("y \\quad ")
+self.add_frac_somme(-r)
+self.add(" \\quad &= \\quad 0\\\\")
+self.add_frac(c, True)
+self.add("x \\quad ")
+if d < 0:
+    self.add("- \\quad ")
+    self.add_frac(-d, True)
+else:
+    self.add("+ \\quad ")
+    self.add_frac(d, True)
+self.add("y \\quad ")
+self.add_frac_somme(-s)
+self.add(" \\quad &= \\quad 0\\end{cases}\\\\&\\Leftrightarrow\\begin{eq}")
+self.add_frac(a, True)
+self.add("x&")
+if b < 0:
+    self.add("-&")
+    self.add_frac(-b, True)
+else:
+    self.add("+&")
+    self.add_frac(b, True)
+self.add("y&=&")
+self.add_frac(r)
+self.add("\\\\")
+self.add_frac(c, True)
+self.add("x&")
+if d < 0:
+    self.add("-&")
+    self.add_frac(-d, True)
+else:
+    self.add("+&")
+    self.add_frac(d, True)
+self.add("y&=&")
+self.add_frac(s)
+self.add("\\end{eq}\\\\&\\Leftrightarrow\\begin{eql}")
+self.add_frac(a*c, True)
+self.add("x&")
+if b*c < 0:
+    self.add("-&")
+    self.add_frac(-b*c, True)
+else:
+    self.add("+&")
+    self.add_frac(b*c, True)
+self.add("y&=&")
+self.add_frac(r*c)
+self.add("& (L_1) \\leftarrow ")
+self.add_frac(c)
+self.add("\\times (L_1) \\\\")
+self.add_frac(c*a, True)
+self.add("x&")
+if d*a < 0:
+    self.add("-&")
+    self.add_frac(-d*a, True)
+else:
+    self.add("+&")
+    self.add_frac(d*a, True)
+self.add("y&=&")
+self.add_frac(s*a)
+self.add("& (L_2) \\leftarrow ")
+self.add_frac(a)
+self.add("\\times (L_2)\\end{eql} \\\\\n\t&\\Leftrightarrow\\begin{eql}")
+
+self.add_frac(a*c, True)
+self.add("x&")
+if b*c < 0:
+    self.add("-&")
+    self.add_frac(-b*c, True)
+else:
+    self.add("+&")
+    self.add_frac(b*c, True)
+self.add("y&=&")
+self.add_frac(r*c)
+self.add("& (L_1) \\\\")
+self.add_frac(a*c, True)
+self.add("x")
+self.add_frac_somme(-c*a, True)
+self.add("x&")
+if d*a < 0:
+    self.add("-&")
+    self.add_frac(-d*a, True)
+else:
+    self.add("+&")
+    self.add_frac(d*a, True)
+self.add("y")
+self.add_frac_somme(-b*c)
+self.add("y&=&")
+self.add_frac(s*a)
+self.add_frac_somme(-r*c)
+self.add("& (L_2) \\leftarrow (L_2) - (L_1)\\end{eql} \\\\\n\t&\\Leftrightarrow\\begin{eql}")
+
+self.add_frac(a*c, True)
+self.add("x&")
+if b*c < 0:
+    self.add("-&")
+    self.add_frac(-b*c, True)
+else:
+    self.add("+&")
+    self.add_frac(b*c, True)
+self.add("y&=&")
+self.add_frac(r*c)
+self.add("& (L_1) \\\\")
+self.add("&")
+if d*a-b*c < 0:
+    self.add("-&")
+    self.add_frac(-(d*a-b*c), True)
+else:
+    self.add("&")
+    self.add_frac(d*a-b*c, True)
+self.add("y&=&")
+self.add_frac(s*a-r*c)
+
+self.add("& (L_2)\\end{eql} ")
+self.add("\n\\end{align*} \n\n \\end{frame} \n \n \\begin{frame} \n \\vspace*{-1cm} \n\\begin{align*}\n\t(S)&\\Leftrightarrow\\begin{eql}")
+self.add_frac(a*c, True)
+self.add("x&")
+if b*c < 0:
+    self.add("-&")
+    self.add_frac(-b*c, True)
+else:
+    self.add("+&")
+    self.add_frac(b*c, True)
+self.add("y&=&")
+self.add_frac(r*c)
+self.add("& (L_1) \\\\")
+self.add("&")
+if d*a-b*c < 0:
+    self.add("-&")
+    self.add_frac(-(d*a-b*c), True)
+else:
+    self.add("&")
+    self.add_frac(d*a-b*c, True)
+self.add("y&=&")
+self.add_frac(s*a-r*c)
+
+self.add("& (L_2)\\end{eql} \\\\ &\\Leftrightarrow \\begin{eql} ")
+self.add_frac(a*c, True)
+self.add("x&")
+if b*c < 0:
+    self.add("-&")
+    self.add_frac(-b*c, True)
+else:
+    self.add("+&")
+    self.add_frac(b*c, True)
+self.add("y&=&")
+self.add_frac(r*c)
+self.add(" & \\\\")
+self.add("& &y&=&\\dfrac{")
+self.add_frac(s*a-r*c)
+self.add("}{")
+self.add_frac(d*a-b*c)
+self.add("} &= ")
+self.add_frac(y)
+self.add("\\end{eql}\\\\&\\Leftrightarrow \\begin{eqrl}")
+
+self.add_frac(a*c, True)
+self.add("x")
+self.add_frac_somme(b*c, True)
+self.add("\\times")
+self.add_frac_produit(y)
+self.add("&=")
+self.add_frac(r*c)
+self.add("\\\\")
+self.add("y&=")
+self.add_frac(y)
+self.add("\\end{eqrl}\\\\\n\t&\\Leftrightarrow \\begin{eqrl}")
+
+self.add_frac(a*c, True)
+self.add("x&=")
+self.add_frac(r*c)
+self.add_frac_somme(-b*c*y)
+self.add("\\\\")
+self.add("y&=")
+self.add_frac(y)
+
+self.add("\\end{eqrl}\\\\\n\t&\\Leftrightarrow \\begin{eqrl}")
+self.add("x&=\\dfrac{")
+self.add_frac(r*c-b*c*y)
+self.add("}{")
+self.add_frac(a*c)
+self.add("} = ")
+self.add_frac(x)
+self.add("\\\\y&=")
+self.add_frac(y)
+self.add("\\end{eqrl}\n\\end{align*} D'où les solutions de $(S)$ sont $\\left\\{(")
+self.add_frac(x)
+self.add("~;~")
+self.add_frac(y)
+self.add(")\\right\\}$. Donc $H$ a pour coordonnées $(")
+self.add_frac(x)
+self.add("~;~")
+self.add_frac(y)
+self.add(")$.")
+
+self.frame_end()

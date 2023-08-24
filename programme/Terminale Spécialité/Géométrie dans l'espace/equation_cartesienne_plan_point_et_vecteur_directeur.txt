@@ -1,0 +1,145 @@
+xm = randint(-10, 10)
+ym = randint(-10, 10)
+zm = randint(-10, 10)
+
+xn = randint(-5, 5)
+yn = randint(-5, 5)
+zn = randint(-5, 5)
+    
+while xn == 0 and yn == 0 and zn == 0:
+    xn = randint(-10, 10)
+    yn = randint(-10, 10)
+    zn = randint(-10, 10)
+    
+self.frame_init()
+self.add("On considère le vecteur $\\vv{n}\\begin{pmatrix}", False)
+self.add_nombre(xn, False)
+self.add("\\\\", False)
+self.add_nombre(yn, False)
+self.add("\\\\", False)
+self.add_nombre(zn, False)
+self.add("\\end{pmatrix}$ et le point $M (", False)
+self.add_nombre(xm, False)
+self.add("~;~", False)
+self.add_nombre(ym, False)
+self.add("~;~", False)        
+self.add_nombre(zm, False)
+self.add(")$.\n\n\tDéterminer une équation cartésienne du plan $\\mathcal{P}$ passant par $M$ et de vecteur normal $\\vv{n}$.", False)
+
+self.add("On a $\\vv{n}\\begin{pmatrix}")
+self.add_nombre(xn)
+self.add("\\\\")
+self.add_nombre(yn)
+self.add("\\\\")
+self.add_nombre(zn)
+self.add("\\end{pmatrix}$ et $M (")
+self.add_nombre(xm)
+self.add("~;~")
+self.add_nombre(ym)
+self.add("~;~")        
+self.add_nombre(zm)
+self.add(")$. Une équation cartésienne de $\\mathcal{P}$ est de la forme \\[ax + by + cz + d = 0 \\quad \\Rightarrow \\quad ")
+if xn != 0:
+    self.add_coef(xn)
+    self.add("x")
+if yn != 0 and xn != 0:
+    self.add_coef_somme(yn)
+    self.add("y")
+elif yn != 0 and xn == 0:
+    self.add_coef(yn)
+    self.add("y")
+if zn != 0 and (xn != 0 or yn != 0):
+    self.add_coef_somme(zn)
+    self.add("z")   
+elif zn != 0 and (xn == 0 or yn == 0):    
+    self.add_coef(zn)
+    self.add("z")
+self.add("+d = 0 \\] avec $d \\in \\mathbb{R}$ un réel à déterminer. On a alors  \n\\begin{align*} \n\tM (")
+self.add_nombre(xm)
+self.add("~;~")
+self.add_nombre(ym)
+self.add("~;~")        
+self.add_nombre(zm)
+self.add(") \\in \\mathcal{P} &\\Leftrightarrow ")
+if xn != 0:
+    if xn == 1:
+        self.add_nombre(xm)
+    elif xn == -1:
+        self.add_nombre(-xm)
+    else:
+        self.add_nombre_produit(xn)
+        self.add("\\times")
+        self.add_nombre_produit(xm)
+
+    if yn != 0:
+        if yn == 1:
+            self.add_nombre(ym)
+        elif yn == -1:
+            self.add_nombre(-ym)
+        else:
+            self.add("+")
+            self.add_nombre_produit(yn)
+            self.add("\\times")
+            self.add_nombre_produit(ym)
+    if zn == 1:
+        self.add_nombre(zm)
+    elif zn == -1:
+        self.add_nombre(-zm)
+    else:
+        self.add("+")
+        self.add_nombre_produit(zn)
+        self.add("\\times")
+        self.add_nombre_produit(zm)
+
+else:
+    if yn != 0:
+        if yn == 1:
+            self.add_nombre(ym)
+        elif yn == -1:
+            self.add_nombre(-ym)
+        else:
+            self.add_nombre_produit(yn)
+            self.add("\\times")
+            self.add_nombre_produit(ym)
+        
+        if zn == 1:
+            self.add_nombre(zm)
+        elif zn == -1:
+            self.add_nombre(-zm)
+        else:
+            self.add("+")
+            self.add_nombre_produit(zn)
+            self.add("\\times")
+            self.add_nombre_produit(zm)
+    else:
+        if zn == 1:
+            self.add_nombre(zm)
+        elif zn == -1:
+            self.add_nombre(-zm)
+        else:
+            self.add_nombre_produit(zn)
+            self.add("\\times")
+            self.add_nombre_produit(zm)
+self.add("+d = 0 \\\\\n\t&\\Leftrightarrow ")
+self.add_nombre(xm*xn+yn*ym+zn*zm)
+self.add("+d = 0 \\\\\n\t&\\Leftrightarrow d = ")
+self.add_nombre(-(xm*xn+yn*ym+zn*zm))
+self.add(".\n\\end{align*}\n\nFinalement, on a $\mathcal{P}:~")
+if xn != 0:
+    self.add_coef(xn)
+    self.add("x")
+if yn != 0 and xn != 0:
+    self.add_coef_somme(yn)
+    self.add("y")
+elif yn != 0 and xn == 0:
+    self.add_coef(yn)
+    self.add("y")
+if zn != 0 and (xn != 0 or yn != 0):
+    self.add_coef_somme(zn)
+    self.add("z")   
+elif zn != 0 and (xn == 0 or yn == 0):    
+    self.add_coef(zn)
+    self.add("z")
+self.add_nombre_somme(-(xn*xm+yn*ym+zn*zm))
+self.add("=0 $.")
+self.frame_end()

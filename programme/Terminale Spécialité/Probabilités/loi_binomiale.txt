@@ -1,0 +1,171 @@
+a=randint(1, 3)
+
+situation1 = [[32, 52][randint(0,1)], ["coeur", "carreau", "pique", "trèfle"][randint(0,3)]]
+
+couleur = ["Bleue", "Rouge", "Verte", "Jaune", "Violette"]
+couleur1 = couleur[randint(0,len(couleur)-1)]
+couleur2 = couleur[randint(0,len(couleur)-1)]
+while couleur1 == couleur2:
+    couleur2 = couleur[randint(0,len(couleur)-1)]
+situation2 = [randint(15, 60), [couleur1, couleur2]]
+
+location = ["voitures", "trotinettes", "planches à voile", "vélos", "pianos"]
+situation3 = [location[randint(0,len(location)-1)], randint(2, 15)]
+
+if a == 1:
+    self.frame_init()
+    nbr_cartes = situation1[0]
+    couleur_succes = situation1[1]
+    if nbr_cartes == 32:
+        pioche = randint(0, 8)
+    else:
+        pioche = randint(0, 13)
+    p = Fraction(1, 4)
+    n = randint(pioche, 20)
+    k = pioche
+    self.add("On dispose d'un jeu de " + str(nbr_cartes) + " cartes. On pioche successivement " + str(n) + " cartes avec remise. Les tirages sont indépendants.\n\n\\medskip\n\nQuelle la probabilité d'avoir tiré " + str(pioche), False)
+    if pioche > 1:
+        self.add(" cartes", False)
+    else: 
+        self.add(" carte", False)
+    self.add(" avec un " + couleur_succes + " dessiné dessus?", False)
+    
+    self.add("On répète $" + str(n) + "$ fois de façon identique et indépendante l'épreuve de Bernoulli \"On tire une carte au hasard\" de succès S: \"la carte est un " + couleur_succes + "\"  de probabilité $p =")
+    self.add_frac(p)
+    self.add("$.\n\nSoit $X$ la variable aléatoire qui compte le nombre de succès à l'issue des $" + str(n) + "$ répétitions.\n\n Alors $X \\leadsto \\mathcal{B}\\left(")
+    self.add_nombre(n)
+    self.add(",")
+    self.add_frac(p)
+    self.add("\\right)$.\n\nAinsi on cherche $\\mathbb{P}(X = ")
+    self.add_nombre(k)
+    self.add(") = \\begin{pmatrix}")
+    self.add_nombre(n)
+    self.add("\\\\")
+    self.add_nombre(k)
+    self.add("\\end{pmatrix}\\times\\left(")
+    self.add_frac(p)
+    self.add("\\right)^{")
+    self.add_nombre(k)
+    self.add("}\\times\\left(")
+    self.add_frac(1-p)
+    self.add("\\right)^{")
+    self.add_nombre(n)
+    self.add_nombre_somme(-k)
+    self.add("}$.")
+
+
+elif a == 2:
+    self.frame_init()
+    nbr_urne = situation2[0]
+    nbr_1 = randint(3, nbr_urne-3)
+    n = randint(5, 20)
+    k = randint(0, n)
+    succes = randint(0, 1)
+    if succes == 0:
+        p = Fraction(nbr_1, nbr_urne)
+    else:
+        p = Fraction(nbr_urne-nbr_1, nbr_urne)
+    self.add("On dispose d'une urne contenant " + str(nbr_urne) + " boules de couleur. Dans cette urne il y a " + str(nbr_1) + " boules " + situation2[1][0] + "s et " + str(nbr_urne-nbr_1) + " boules " + situation2[1][1] + "s.\n\nOn tire successivement et avec remise $" + str(n) + "$ boules.\n\n\\medskip\n\nQuelle est la probabilité d'obtenir exactement ", False)
+    self.add_nombre(k, False)
+    if k>1:
+        self.add(" boules de couleur ", False)
+    else:
+        self.add(" boule de couleur ", False)
+    self.add(situation2[1][succes], False)
+    self.add(" ?", False)
+    
+    
+    self.add("On répète $" + str(n) + "$ fois de façon identique et indépendante l'épreuve de Bernoulli \"On tire une boule de l'urne\" de succès S: \"la boule est " + situation2[1][succes] + "\"  de probabilité $p =")
+    self.add_frac(p)
+    self.add("$.\n\nSoit $X$ la variable aléatoire qui compte le nombre de succès à l'issue des $" + str(n) + "$ répétitions.\n\n Alors $X \\leadsto \\mathcal{B}\\left(")
+    self.add_nombre(n)
+    self.add(",")
+    self.add_frac(p)
+    self.add("\\right)$.\n\nAinsi on cherche $\\mathbb{P}(X = ")
+    self.add_nombre(k)
+    self.add(") = \\begin{pmatrix}")
+    self.add_nombre(n)
+    self.add("\\\\")
+    self.add_nombre(k)
+    self.add("\\end{pmatrix}\\times\\left(")
+    self.add_frac(p)
+    self.add("\\right)^{")
+    self.add_nombre(k)
+    self.add("}\\times\\left(")
+    self.add_frac(1-p)
+    self.add("\\right)^{")
+    self.add_nombre(n)
+    self.add_nombre_somme(-k)
+    self.add("}$.")
+
+else:
+    self.frame_init()
+    n = randint(10, 20)
+    k = randint(0, n)
+    self.add("On s'intéresse à une entreprise de location de " + situation3[0] + ". D'expérience, " + str(situation3[1]) + "\\% des " + situation3[0] + " sont ", False)
+    if (situation3[0] == "voitures" or situation3[0] == "trotinettes" or situation3[0] == "planches à voile"):
+        self.add(" endommagées.", False)
+    else:
+        self.add(" endommagés.", False)
+
+    
+    
+    self.add("\n\n Un contrôleur décide de tester les produits de l'entreprise il choisit au hasard " + str(n) + " " + situation3[0] + ". La grande quantité de " + situation3[0] + " fait qu'on peut assimiler cette expérience à un tirage avec remise.\n\n\\medskip\n\nQuelle est la probabilité que le contrôleur ait en sa possession " + str(k) + " ", False)
+    if k>1 and (situation3[0] == "voitures" or situation3[0] == "trotinettes" or situation3[0] == "planches à voile"):
+        self.add(situation3[0] + " endommagées?", False)
+    elif k>1:
+        self.add(situation3[0] + " endommagés?", False)
+    elif k <= 1 and (situation3[0] == "voitures" or situation3[0] == "trotinettes" or situation3[0] == "planches à voile"):
+        if situation3[0] != "planches à voile":
+            self.add(situation3[0][0:len(situation3[0])-1] + " endommagée?", False)
+        else:
+            self.add("planche à voile endommagée?", False)
+    else:
+        self.add(situation3[0][0:len(situation3[0])-1] + " endommagé?", False)
+    
+    p = Fraction(situation3[1], 100)
+    
+    self.add("On répète $" + str(n) + "$ fois de façon identique et indépendante l'épreuve de Bernoulli \"On contrôle")
+    if (situation3[0] == "voitures" or situation3[0] == "trotinettes" or situation3[0] == "planches à voile"):
+        if situation3[0] != "planches à voile":
+            self.add(" une " + situation3[0][0:len(situation3[0])-1])
+        else:
+            self.add(" une planche à voile")
+    else:
+        self.add(" un " + situation3[0][0:len(situation3[0])-1])
+                
+                
+                
+    self.add("\" de succès S: \"")
+    if (situation3[0] == "voitures" or situation3[0] == "trotinettes" or situation3[0] == "planches à voile"):
+        if situation3[0] != "planches à voile":
+            self.add("La " + situation3[0][0:len(situation3[0])-1])
+        else:
+            self.add("La planche à voile")
+        self.add(" est endommagée\" ")
+    else:
+        self.add("Le " + situation3[0][0:len(situation3[0])-1] + " est endommagé\" ")
+    self.add("de probabilité $p =")
+    self.add_frac(p)
+    self.add("$.\n\nSoit $X$ la variable aléatoire qui compte le nombre de succès à l'issue des $" + str(n) + "$ répétitions.\n\n Alors $X \\leadsto \\mathcal{B}\\left(")
+    self.add_nombre(n)
+    self.add(",")
+    self.add_frac(p)
+    self.add("\\right)$.\n\nAinsi on cherche $\\mathbb{P}(X = ")
+    self.add_nombre(k)
+    self.add(") = \\begin{pmatrix}")
+    self.add_nombre(n)
+    self.add("\\\\")
+    self.add_nombre(k)
+    self.add("\\end{pmatrix}\\times\\left(")
+    self.add_frac(p)
+    self.add("\\right)^{")
+    self.add_nombre(k)
+    self.add("}\\times\\left(")
+    self.add_frac(1-p)
+    self.add("\\right)^{")
+    self.add_nombre(n)
+    self.add_nombre_somme(-k)
+    self.add("}$.")
+        
+self.frame_end()

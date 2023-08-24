@@ -1,0 +1,129 @@
+exo_type = randint(0, 3)
+if exo_type == 0:
+    a = randint(-15, 15)
+    while a == 0:
+        a = randint(-15, 15)
+    signe = randint(0, 1)
+    if signe == 0:
+        b = -1
+    else:
+        b = 1
+    self.frame_init()
+    self.add("Déterminer la limite de $f(x) = ", False)
+    self.add_nombre(a, False)
+    self.add("+e^{", False)
+    self.add_coef(b, False)
+    self.add("x}$ en $+\\infty$.", False)
+    
+    
+    self.add("On cherche la limite de la fonction $f$ d'expression $f(x) = ")
+    self.add_nombre(a)
+    self.add("+e^{")
+    self.add_coef(b)
+    self.add("x}$ en $+\\infty$.\n\n")
+    self.add("On a $\\lim\\limits_{x \\rightarrow +\\infty} e^{")
+    self.add_coef(b)
+    self.add("x} = ")
+    if b == 1:
+        self.add("+\\infty$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow +\\infty}f(x) = +\\infty.\\]\n")
+    else:
+        self.add("0$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow +\\infty}f(x) = ")
+        self.add_nombre(a)
+        self.add(".\\]\n")
+    self.frame_end()
+elif exo_type == 1:
+    a = randint(-15, 15)
+    while a == 0:
+        a = randint(-15, 15)
+    signe = randint(0, 1)
+    if signe == 0:
+        b = -1
+    else:
+        b = 1
+    self.frame_init()
+    self.add("Déterminer la limite de $f(x) = ", False)
+    self.add_nombre(a, False)
+    self.add("-e^{", False)
+    self.add_coef(b, False)
+    self.add("x}$ en $+\\infty$.", False)
+    
+    
+    self.add("On cherche la limite de la fonction $f$ d'expression $f(x) = ")
+    self.add_nombre(a)
+    self.add("-e^{")
+    self.add_coef(b)
+    self.add("x}$ en $+\\infty$.\n\n")
+    self.add("On a $\\lim\\limits_{x \\rightarrow +\\infty} e^{")
+    self.add_coef(b)
+    self.add("x} = ")
+    if b == 1:
+        self.add("+\\infty$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow +\\infty}f(x) = -\\infty.\\]\n")
+    else:
+        self.add("0$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow +\\infty}f(x) = ")
+        self.add_nombre(a)
+        self.add(".\\]\n")
+    self.frame_end()
+if exo_type == 2:
+    a = randint(-15, 15)
+    while a == 0:
+        a = randint(-15, 15)
+    signe = randint(0, 1)
+    if signe == 0:
+        b = -1
+    else:
+        b = 1
+    self.frame_init()
+    self.add("Déterminer la limite de $f(x) = ", False)
+    self.add_nombre(a, False)
+    self.add("+e^{", False)
+    self.add_coef(b, False)
+    self.add("x}$ en $-\\infty$.", False)
+    
+    
+    self.add("On cherche la limite de la fonction $f$ d'expression $f(x) = ")
+    self.add_nombre(a)
+    self.add("+e^{")
+    self.add_coef(b)
+    self.add("x}$ en $-\\infty$.\n\n")
+    self.add("On a $\\lim\\limits_{x \\rightarrow -\\infty} e^{")
+    self.add_coef(b)
+    self.add("x} = ")
+    if b == -1:
+        self.add("+\\infty$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow -\\infty}f(x) = +\\infty.\\]\n")
+    else:
+        self.add("0$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow -\\infty}f(x) = ")
+        self.add_nombre(a)
+        self.add(".\\]\n")
+    self.frame_end()
+elif exo_type == 3:
+    a = randint(-15, 15)
+    while a == 0:
+        a = randint(-15, 15)
+    signe = randint(0, 1)
+    if signe == 0:
+        b = -1
+    else:
+        b = 1
+    self.frame_init()
+    self.add("Déterminer la limite de $f(x) = ", False)
+    self.add_nombre(a, False)
+    self.add("-e^{", False)
+    self.add_coef(b, False)
+    self.add("x}$ en $-\\infty$.", False)
+    
+    
+    self.add("On cherche la limite de la fonction $f$ d'expression $f(x) = ")
+    self.add_nombre(a)
+    self.add("-e^{")
+    self.add_coef(b)
+    self.add("x}$ en $-\\infty$.\n\n")
+    self.add("On a $\\lim\\limits_{x \\rightarrow -\\infty} e^{")
+    self.add_coef(b)
+    self.add("x} = ")
+    if b == -1:
+        self.add("+\\infty$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow -\\infty}f(x) = -\\infty.\\]\n")
+    else:
+        self.add("0$ et finalement on a par composition sur les limites \\[\\lim\\limits_{x \\rightarrow -\\infty}f(x) = ")
+        self.add_nombre(a)
+        self.add(".\\]\n")
+    self.frame_end()

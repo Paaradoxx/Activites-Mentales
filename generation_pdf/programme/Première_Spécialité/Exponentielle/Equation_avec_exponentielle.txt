@@ -1,0 +1,614 @@
+e=randint(0,1)
+if e==0:
+    a = randint(-10, 10)
+    b = randint(-10, 10)
+    c = randint(-10, 10)
+    d = randint(-10 ,10)
+
+    while b == 0:
+        b = randint(-10, 10)
+
+    while -3 < a < 3:
+        a = randint(-10, 10)
+    while -3 < c < 3:
+        c = randint(-10, 10)
+
+    self.frame_init()
+    self.add("\tRésoudre dans $\\mathbb{R}$ l'équation suivante: \\[(E):~ \\e^{", False)
+    self.add_coef(a, cor = False)
+    self.add("x", False)
+    self.add_nombre_somme(b, False)
+    self.add("}-\\e^{", False)
+    self.add_coef(c, cor = False)
+    self.add("x", False)
+    self.add_nombre_somme(d, False)
+    self.add("}=0\\]", False)
+
+    self.add("\t\\begin{align*} (E)& \\Leftrightarrow \\e^{")
+    self.add_coef(a)
+    self.add("x")
+    self.add_nombre_somme(b)
+    self.add("}-\\e^{")
+    self.add_coef(c)
+    self.add("x")
+    self.add_nombre_somme(d)
+    self.add("}=0 \\\\\n\t\t&\\Leftrightarrow \\e^{")
+    self.add_coef(a)
+    self.add("x")
+    self.add_nombre_somme(b)
+    self.add("}=\\e^{")
+    self.add_coef(c)
+    self.add("x")
+    self.add_nombre_somme(d)
+    self.add("} \\\\\n\t\t&\\Leftrightarrow ")
+    self.add_coef(a)
+    self.add("x")
+    self.add_nombre_somme(b)
+    self.add("=")
+    self.add_coef(c)
+    self.add("x")
+    self.add_nombre_somme(d)
+    self.add("\\\\\n\t\t&\\Leftrightarrow ")
+
+    self.add_coef(a)
+    self.add("x")
+    self.add_nombre_somme(b)
+    self.add_frac_somme(Fraction(-c, 1), coef = True)
+    self.add("x")
+    self.add("=")
+    self.add_coef(c)
+    self.add("x")
+    self.add_nombre_somme(d)
+    self.add_frac_somme(Fraction(-c, 1), coef = True)
+    self.add("x")
+    self.add("\\\\\n\t\t&\\Leftrightarrow ")
+
+    if a != c:
+        self.add_coef(a-c)
+        self.add("x")
+        self.add_nombre_somme(b)
+        self.add("=")
+        self.add_nombre(d)
+        self.add("\\\\\n\t\t&\\Leftrightarrow ")
+
+        self.add_coef(a-c)
+        self.add("x")
+        self.add_nombre_somme(b)
+        self.add_nombre_somme(-b)
+        self.add("=")
+        self.add_nombre(d)
+        self.add_nombre_somme(-b)
+        self.add("\\\\\n\t\t&\\Leftrightarrow ")
+
+        if a-c == 1 and b == 0:
+            self.add("\n\t\\end{align*}\n\n\tFinalement l'ensemble des solutions de $(E)$ est $S = \\{")
+            self.add_nombre(d)
+            self.add("\\}$.\n")
+
+        else:
+            if b != d:
+                self.add_coef(a-c)
+                self.add("x")
+                self.add("=")
+                self.add_nombre(d-b)
+
+                if a-c != 1:
+                    self.add("\\\\\n\t\t&\\Leftrightarrow ")
+                    self.add("\\dfrac{")
+                    self.add_coef(a-c)
+                    self.add("x}{")
+                    self.add_nombre(a-c)
+                    self.add("}=\\dfrac{")
+                    self.add_nombre(d-b)
+                    self.add("}{")
+                    self.add_nombre(a-c)
+                    self.add("} \\\\\n\t\t&\\Leftrightarrow x= ")
+                    self.add_frac(Fraction(d-b, a-c))
+                    self.add("\n\t\\end{align*}\n\tFinalement l'ensemble des solutions de $(E)$ est $S = \\left\\{")
+                    self.add_frac(Fraction(d-b, a-c))
+                    self.add("\\right\\}$.\n")
+
+                else:
+                    self.add("\n\t\\end{align*}\n\tFinalement l'ensemble des solutions de $(E)$ est $S = \\left\\{")
+                    self.add_nombre(d-b)
+                    self.add("\\right\\}$.\n")
+            else:
+                if b != 0:
+                    self.add_coef(a-c)
+                    self.add("x")
+                    self.add("=")
+                    self.add_nombre(d-b)
+                self.add("\\\\\n\t\t&\\Leftrightarrow x = 0\n\t\\end{align*}\n\tFinalement l'ensemble des solutions de $(E)$ est $S = \\{0\\}$\n")
+    else:
+        self.add_nombre(b)
+        self.add("=")
+        self.add_nombre(d)
+
+        if b == d:
+            self.add("\n\t\\end{align*}\n\tL'équation est toujours vérifiée.\n\nFinalement l'ensemble des solutions de $(E)$ est $S = \\mathbb{R}$.\n")
+        else:
+            self.add("\n\t\\end{align*}\n\tL'équation n'est jamais vérifiée.\n\nFinalement l'ensemble des solutions de $(E)$ est $S = \\emptyset$.\n")
+    self.frame_end()
+if e==1:
+    i = randint(3, 6)
+    if i ==  0:
+        a = randint(-10, 10)
+        b = randint(-10, 10)
+        while a == 0 or a == 1:
+            a = randint(-10, 10)
+        a = Fraction(a, 1)
+        b = Fraction(b, 1)
+        c = Fraction(0, 1)
+    elif i == 1:
+        a = randint(-10, 10)
+        c = randint(-20, 20)
+        while a == 0 or a == 1 or a*c >= 0 or c == 0:
+            a = randint(-10, 10)
+            c = randint(-10, 10)
+        a = Fraction(a, 1)
+        b = Fraction(0, 1)
+        c = Fraction(c, 1)
+    elif i == 2:
+        a = randint(-10, 10)
+        c = randint(-10, 10)
+        while (a == 0 or a == 1) or a*c <= 0 or c == 0:
+            a = randint(-10, 10)
+            c = randint(-10, 10)
+        a = Fraction(a, 1)
+        b = Fraction(0, 1)
+        c = Fraction(c, 1)
+    elif i == 3:
+        a = randint(-10, 10)
+        b = randint(-10, 10)
+        c = randint(-10, 10)
+        while (a == 0 or a == 1) or (b**2-4*a*c >= 0) or b == 0 or c == 0:
+            a = randint(-10, 10)
+            b = randint(-10, 10)
+            c = randint(-10, 10)
+        a = Fraction(a, 1)
+        b = Fraction(b, 1)
+        c = Fraction(c, 1)
+    elif i == 4:
+        a = randint(-10, 10)
+        b = randint(-10, 10)
+        c = randint(-10, 10)
+        while (a == 0 or a == 1) or (b**2-4*a*c != 0) or b == 0 or c == 0:
+            a = randint(-10, 10)
+            b = randint(-10, 10)
+            c = randint(-10, 10)
+        a = Fraction(a, 1)
+        b = Fraction(b, 1)
+        c = Fraction(c, 1)
+    elif i == 5:
+        a = randint(-10, 10)
+        x1 = randint(-10, 10)
+        x2 = randint(-10, 10)
+        while a == 0:
+            a = randint(-10, 10)
+        while x1 == 0:   
+            x1 = randint(-10, 10)
+        while x2 == 0 or x2 == -x1:  
+            x2 = randint(-10, 10)
+        a = Fraction(a, 1)
+        b = Fraction(-a*(x1+x2), 1)
+        c = Fraction(a*x1*x2, 1)
+    else:
+        a = randint(-10, 10)
+        b = randint(-10, 10)
+        c = randint(-10, 10)
+        d1, d2 = simplification_racine(1, b**2-4*a*c)
+        while (a == 0 or a == 1) or (b**2-4*a*c <= 0) or d2 == 1 or b == 0 or c == 0:
+            a = randint(-10, 10)
+            b = randint(-10, 10)
+            c = randint(-10, 10)  
+            d1, d2 = simplification_racine(1, b**2-4*a*c)
+
+        a = Fraction(a, 1)
+        b = Fraction(b, 1)
+        c = Fraction(c, 1)
+
+    f=randint(-3,3)
+    while f==0:
+        f=randint(-3,3)
+    self.frame_init()
+    self.add("Résoudre dans $\\mathbb{R}$ l'équation suivante: \\[(E):~ \\e^{ ", cor=False)
+    self.add_frac(a, coef = True, cor=False)
+    self.add("x^2", cor=False)
+    if b.numerator-f != 0:
+        self.add_frac_somme(b-f, coef = True, cor=False)
+        self.add("x", cor=False)
+    self.add("}-\\e^{",False)
+    if f != 0:
+        self.add_frac(-f, coef = True, cor=False)
+        self.add("x", cor=False)
+    if c.numerator != 0:
+        self.add_frac_somme(-c, cor=False)
+    self.add("}=0 \\] \n\n", cor=False)
+
+    self.add("\t\\begin{align*} (E)& \\Leftrightarrow \\e^{")
+    self.add_frac(a, coef = True)
+    self.add("x^2")
+    if b.numerator-f != 0:
+        self.add_frac_somme(b-f, coef = True)
+        self.add("x")
+    self.add("}-\\e^{")
+    if f != 0:
+        self.add_frac(-f, coef = True)
+        self.add("x")
+    if c.numerator != 0:
+        self.add_frac_somme(-c)
+    self.add("}=0 \\\\\n\t\t&\\Leftrightarrow \\e^{")
+    self.add_frac(a, coef = True)
+    self.add("x^2")
+    if b.numerator-f != 0:
+        self.add_frac_somme(b-f, coef = True)
+        self.add("x")
+    self.add("}=\\e^{")
+    if f != 0:
+        self.add_frac(-f, coef = True)
+        self.add("x")
+    if c.numerator != 0:
+        self.add_frac_somme(-c)
+    self.add("} \\\\\n\t\t&\\Leftrightarrow ")
+    self.add_frac(a, coef = True)
+    self.add("x^2")
+    if b.numerator-f != 0:
+        self.add_frac_somme(b-f, coef = True)
+        self.add("x")
+    self.add("=")
+    if f != 0:
+        self.add_frac(-f, coef = True)
+        self.add("x")
+    if c.numerator != 0:
+        self.add_frac_somme(-c)
+    self.add("\\\\\n\t\t&\\Leftrightarrow ")
+    self.add_frac(a, coef = True)
+    self.add("x^2")
+    if b.numerator != 0:
+        self.add_frac_somme(b, coef = True)
+        self.add("x")
+    if c.numerator != 0:
+        self.add_frac_somme(c)
+    self.add("=0 \n \\end{align*} \n \n ")
+
+    self.add("On note $f$ la fonction définie sur $\R$ par $f(x)=")
+    self.add_frac(a, coef = True)
+    self.add("x^2")
+    if b.numerator != 0:
+        self.add_frac_somme(b, coef = True)
+        self.add("x")
+    if c.numerator != 0:
+        self.add_frac_somme(c)
+    self.add("$ \n \n ")
+
+    self.add("$f$ est un polynôme de degré $2$ dont les coefficients sont $a =")
+    self.add_frac(a)
+    self.add(", \\; b =")
+    self.add_frac(b)
+    self.add("$ et $c =")
+    self.add_frac(c)
+    self.add("$.")
+
+    if c.numerator == 0: #Cas 1: f(x) = ax^2+bx
+        self.add(" J'observe que le coefficient du terme constant de $f$ est égal à $0$. \n \n Je factorise donc par $")
+        self.add_frac(a, True)
+        self.add("x$ et je trouve la forme factorisée de $f$: \\[ f(x) = ")
+
+        self.add_frac(a, True)
+        self.add("x^2")
+        self.add_frac_somme(b, True)
+        self.add("x = ")
+
+        self.add_frac(a, True)
+        self.add("x \\left(x")
+        self.add_frac_somme(b/a)
+        self.add("\\right)\\] \n\n\\bigskip")
+
+    elif b.numerator == 0 and a*c < 0: #cas 2
+        self.add("\n \\begin{multicols}{2} \n \t J'observe que le coefficient du terme en $x$ de $f$ est égal à $0$. \n \n De plus le coefficient devant $x^2$ et le terme constant n'ont pas le même signe. \n \n  Je peux donc factoriser à l'aide d'une identité remarquable:\n \\columnbreak \n ")
+
+        self.add("\\begin{align*} f(x) &=")
+        self.add_frac(a, True)
+        self.add("x^2")
+        self.add_frac_somme(c)
+        self.add("\\\\ \n &=")
+
+        self.add_frac(a, True)
+        self.add("\\left(x^2")
+        self.add_frac_somme(c/a)
+        self.add("\\right) \\\\ \n &=")
+
+        self.add_frac(a, True)
+        self.add("\\left[x^2-")
+        if (c/a).denominator != 1:
+            self.add("\\left(\\sqrt{")
+            self.add_frac(-c/a)
+            self.add("}\\right)^2")
+        else:
+            self.add("\\left(\\sqrt{")
+            self.add_frac(-c/a)
+            self.add("}\\right)^2")
+        self.add("\\right] \\\\ \n &=")
+
+        self.add_frac(a, True)
+        self.add("\\left(x-")
+        self.add_racine_frac(-c/a)
+        self.add("\\right)\\left(x+")
+        self.add_racine_frac(-c/a)
+        self.add("\\right)")
+
+        self.add("\\end{align*} \n \\end{multicols}")
+
+    elif b.numerator == 0 and a*c > 0:
+        self.add("J'observe que le coefficient du terme en $x$ de $f$ est égal à $0$. \n \n  De plus le coefficient devant $x^2$ et le terme constant ont le même signe. \n\n Pour tout réel $x$, $$f(x)=")
+        self.add_frac(a, True)
+        self.add("x^2")
+        self.add_frac_somme(c)
+        if a.numerator < 0:
+            self.add("<")
+        else:
+            self.add(">")
+
+        self.add("0$$. Ainsi, $f$ ne possède pas de racines réelles. \n\n Donc $f$ n'admet pas de forme factorisée dans $\\mathbb{R}$.\n \n \\bigskip \n \n")
+
+
+    else:
+        self.add("\n \n On a $\\Delta = b^2-4ac =")
+        if b.numerator < 0:
+            self.add("(")
+            self.add_frac(b)
+            self.add(")")
+        else:
+            self.add_frac(b)
+
+        self.add("^2-4 \\times")
+        if a.numerator < 0:
+            self.add("\\left(")
+            self.add_frac(a)
+            self.add("\\right)")
+        else:
+            self.add_frac(a)
+        self.add("\\times")
+        if c.numerator < 0:
+            self.add("\\left(")
+            self.add_frac(c)
+            self.add("\\right)")
+        else:
+            self.add_frac(c)
+        self.add("=")
+        self.add_frac(b**2)
+        self.add_frac_somme(-4*a*c)
+        self.add(" = ")
+        self.add_frac(b**2-4*a*c)
+
+        if (b**2-4*a*c).numerator < 0:
+            self.add("<0")
+        elif (b**2-4*a*c).numerator > 0:
+            self.add(">0")
+
+        self.add("$.\n\n")
+
+        if (b**2-4*a*c).numerator < 0:
+            self.add("\n \n Comme $\\Delta <0$, $f$ ne possède pas de racines réelles et l'équation n'admet pas de solution : $S=\\emptyset$.")
+        elif (b**2-4*a*c).numerator == 0:
+            self.add("\n \n Comme $\\Delta =0$,  $f$ admet une unique racine $$x_0 = \\dfrac{-b}{2a} = \\dfrac{-")
+            self.add_nombre_produit(b.numerator)
+            self.add("}{2 \\times ")
+            self.add_nombre_produit(a.numerator)
+            self.add("} = ")
+            self.add_frac(-b/(2*a))
+            self.add("$$ L'ensemble des solutions de l'équation $(E)$ est donc $S=\\left\\{ ")
+            self.add_frac(-b/(2*a))
+            self.add("\\right\\}$")
+        else: #Discriminant positif
+            self.add(" \n \\end{frame} \n \n \\begin{frame} \n \n")
+            if i == 5:
+                self.add("\n \n Comme $\\Delta>0$, $f$ admet deux racines distinctes. \n\n")
+            
+                d1, d2 = simplification_racine(1, (b**2-4*a*c).numerator)
+
+                
+                self.add("\\[ x_1 = \\dfrac{-b-\\sqrt{\\Delta}}{2a} = \\dfrac{-")
+                self.add_nombre_produit(b.numerator)
+                self.add("-")
+                self.add_nombre(d1)
+                self.add("}{2 \\times ")
+                self.add_nombre_produit(a.numerator)
+                self.add("} = \\dfrac{")
+                self.add_nombre(-b.numerator - d1)
+                self.add("}{")
+                self.add_nombre(2*a.numerator)
+                self.add("} = ")         
+                self.add_frac(Fraction(-b.numerator - d1, 2*a.numerator))
+                self.add(" \\] et \\[")
+                self.add(" x_2 = \\dfrac{-b+\\sqrt{\\Delta}}{2a} = \\dfrac{-")
+                self.add_nombre_produit(b.numerator)
+                self.add("+")
+                self.add_nombre(d1)
+                self.add("}{2 \\times ")
+                self.add_nombre_produit(a.numerator)
+                self.add("} = \\dfrac{")
+                self.add_nombre(-b.numerator + d1)
+                self.add("}{")
+                self.add_nombre(2*a.numerator)
+                self.add("}=")
+                self.add_frac(Fraction(-b.numerator + d1, 2*a.numerator))
+                self.add("\\]")
+                self.add("L'ensemble des solutions de l'équation $(E)$ est donc $S=\\left\\{ ")         
+                self.add_frac(Fraction(-b.numerator - d1, 2*a.numerator))
+                self.add(";")
+                self.add_frac(Fraction(-b.numerator + d1, 2*a.numerator))
+                self.add("\\right\\}$")
+            else: #Cas discriminant positif avec racines réelles
+                self.add("\n \n Comme $\\Delta > 0$, $f$ admet deux racines distinctes. \n\n")
+            
+                d1, d2 = simplification_racine(1, (b**2-4*a*c).numerator)
+
+                self.add("\\[x_1 = \\dfrac{-b-\\sqrt{\\Delta}}{2a} = \\dfrac{-")
+                self.add_nombre_produit(b.numerator)
+                self.add("-")
+                self.racine(d1, d2)
+                self.add("}{2 \\times ")
+                self.add_nombre_produit(a.numerator)
+                self.add("} = \\dfrac{")
+                self.add_nombre(-b.numerator)
+                self.add("-")
+                self.racine(d1, d2)
+                self.add("}{")
+                self.add_nombre(2*a.numerator)
+                self.add("}")
+                
+                if (-b/(2*a)).denominator == 1 and Fraction(-d1,2*a.numerator).denominator == 1:
+                    self.add("=")
+                    self.add_frac(-b/(2*a))
+                    self.add_frac_somme(Fraction(-d1,2*a.numerator), True)
+                    self.racine(1,d2)
+                else:
+                    if (gcd(-b.numerator, 2*a.numerator) == gcd(-d1, 2*a.numerator)) or (gcd(-b.numerator, 2*a.numerator) % gcd(-d1, 2*a.numerator) == 0) or (gcd(-d1, 2*a.numerator)  % gcd(-b.numerator, 2*a.numerator) == 0):
+                        a1 = 2*a.numerator
+                        if a1 < 0:
+                            a1 = -a1
+                            b1 = -b.numerator
+                            dd1 = False
+                        else:
+                            b1 = b.numerator
+                            dd1 = True
+                        if gcd(-d1, 2*a.numerator) > gcd(-b.numerator, 2*a.numerator):
+                            g1 = gcd(b1, a1)
+                        else:
+                            g1 = gcd(d1, a1)
+                        a1 = a1//g1
+                        b1 = b1//g1
+                        ddd1 = d1//g1
+                        self.add("= \\dfrac{")
+                        self.add_nombre(-b1)
+                        if not dd1:
+                            self.add("+")
+                        else:
+                            self.add("-")
+                        self.racine(ddd1, d2)
+                        self.add("}{")
+                        self.add_nombre(a1)
+                        self.add("}")
+                    elif a.numerator < 0:
+                        self.add("= \\dfrac{")
+                        self.add_nombre(b.numerator)
+                        self.add("+")
+                        self.racine(d1, d2)
+                        self.add("}{")
+                        self.add_nombre(-2*a.numerator)
+                        self.add("}")
+
+                self.add("\\] et \\[")
+                self.add(" x_2 = \\dfrac{-b+\\sqrt{\\Delta}}{2a} = \\dfrac{-")
+                self.add_nombre_produit(b.numerator)
+                self.add("+")
+                self.racine(d1, d2)
+                self.add("}{2 \\times ")
+                self.add_nombre_produit(a.numerator)
+                self.add("} = \\dfrac{")
+                self.add_nombre(-b.numerator)
+                self.add("+")
+                self.racine(d1, d2)
+                self.add("}{")
+                self.add_nombre(2*a.numerator)
+                self.add("}  ")
+                if (-b/(2*a)).denominator == 1 and Fraction(d1,2*a.numerator).denominator == 1:
+                    self.add("=")
+                    self.add_frac(-b/(2*a))
+                    self.add_frac_somme(Fraction(d1,2*a.numerator), True)
+                    self.racine(1,d2)
+                else:
+                    if gcd(-b.numerator, 2*a.numerator) == gcd(d1, 2*a.numerator) or (gcd(-b.numerator, 2*a.numerator) % gcd(-d1, 2*a.numerator) == 0) or (gcd(-d1, 2*a.numerator)  % gcd(-b.numerator, 2*a.numerator) == 0):
+                        self.add("= \\dfrac{")
+                        self.add_nombre(-b1)
+                        if dd1:
+                            self.add("+")
+                        else:
+                            self.add("-")
+                        self.racine(ddd1, d2)                       
+                        self.add("}{")
+                        self.add_nombre(a1)
+                        self.add("}")
+                    elif a.numerator < 0:
+                        self.add("= \\dfrac{")
+                        self.add_nombre(b.numerator)
+                        self.add("-")
+                        self.racine(d1, d2)
+                        self.add("}{")
+                        self.add_nombre(-2*a.numerator)
+                        self.add("}$")
+
+
+                self.add("\\] L'ensemble des solutions de l'équation $(E)$ est $S=\\left\\{ ")
+
+                if (-b/(2*a)).denominator == 1 and Fraction(-d1,2*a.numerator).denominator == 1:
+                    self.add_frac(-b/(2*a))
+                    self.add_frac_somme(Fraction(-d1,2*a.numerator), True)
+                    self.racine(1,d2)
+                else:
+                    if (gcd(-b.numerator, 2*a.numerator) == gcd(-d1, 2*a.numerator)) or (gcd(-b.numerator, 2*a.numerator) % gcd(-d1, 2*a.numerator) == 0) or (gcd(-d1, 2*a.numerator)  % gcd(-b.numerator, 2*a.numerator) == 0):
+                        self.add("\\dfrac{")
+                        self.add_nombre(-b1)
+                        if not dd1:
+                            self.add("+")
+                        else:
+                            self.add("-")
+                        self.racine(ddd1, d2)
+                        self.add("}{")
+                        self.add_nombre(a1)
+                        self.add("}")
+                    elif a.numerator < 0:
+                        self.add("\\dfrac{")
+                        self.add_nombre(b.numerator)
+                        self.add("+")
+                        self.racine(d1, d2)
+                        self.add("}{")
+                        self.add_nombre(-2*a.numerator)
+                        self.add("}")
+                    else:
+                        self.add("\\dfrac{")
+                        self.add_nombre(-b.numerator)
+                        self.add("-")
+                        self.racine(d1, d2)
+                        self.add("}{")
+                        self.add_nombre(2*a.numerator)
+                        self.add("}")
+
+
+                self.add(";")
+                if (-b/(2*a)).denominator == 1 and Fraction(d1,2*a.numerator).denominator == 1:
+                    self.add_frac(-b/(2*a))
+                    self.add_frac_somme(Fraction(d1,2*a.numerator), True)
+                    self.racine(1,d2)
+                else:
+                    if gcd(-b.numerator, 2*a.numerator) == gcd(d1, 2*a.numerator) or (gcd(-b.numerator, 2*a.numerator) % gcd(-d1, 2*a.numerator) == 0) or (gcd(-d1, 2*a.numerator)  % gcd(-b.numerator, 2*a.numerator) == 0):
+                        self.add("\\dfrac{")
+                        self.add_nombre(-b1)
+                        if dd1:
+                            self.add("+")
+                        else:
+                            self.add("-")
+                        self.racine(ddd1, d2)                       
+                        self.add("}{")
+                        self.add_nombre(a1)
+                        self.add("}")
+                    elif a.numerator < 0:
+                        self.add(" \\dfrac{")
+                        self.add_nombre(b.numerator)
+                        self.add("-")
+                        self.racine(d1, d2)
+                        self.add("}{")
+                        self.add_nombre(-2*a.numerator)
+                        self.add("}")
+                    else:
+                        self.add("\\dfrac{")
+                        self.add_nombre(-b.numerator)
+                        self.add("+")
+                        self.racine(d1, d2)
+                        self.add("}{")
+                        self.add_nombre(2*a.numerator)
+                        self.add("}")
+                self.add("\\right\\}")
+                self.add("$")
+    self.frame_end()  

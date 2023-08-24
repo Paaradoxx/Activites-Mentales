@@ -1,0 +1,63 @@
+xm = randint(-10, 10)
+ym = randint(-10, 10)
+zm = randint(-10, 10)
+
+xu = randint(-5, 5)
+yu = randint(-5, 5)
+zu = randint(-5, 5)
+while xm == 0:
+    xm = randint(-10, 10)
+while ym == 0:
+    ym = randint(-10, 10)
+while zm == 0:
+    zm = randint(-10, 10)
+    
+while xu == 0 and yu == 0 and zu == 0:
+    xu = randint(-10, 10)
+    yu = randint(-10, 10)
+    zu = randint(-10, 10)
+    
+self.frame_init()
+self.add("On considère le vecteur $\\vv{u}\\begin{pmatrix}", False)
+self.add_nombre(xu, False)
+self.add("\\\\", False)
+self.add_nombre(yu, False)
+self.add("\\\\", False)
+self.add_nombre(zu, False)
+self.add("\\end{pmatrix}$ et le point $M (", False)
+self.add_nombre(xm, False)
+self.add("~;~", False)
+self.add_nombre(ym, False)
+self.add("~;~", False)        
+self.add_nombre(zm, False)
+self.add(")$.\n\n\tDéterminer une représentation paramétrique de la droite $d$ passant par $M$ et de vecteur directeur $\\vv{u}$.", False)
+
+self.add("On a $\\vv{u}\\begin{pmatrix}")
+self.add_nombre(xu)
+self.add("\\\\")
+self.add_nombre(yu)
+self.add("\\\\")
+self.add_nombre(zu)
+self.add("\\end{pmatrix}$ et $M (")
+self.add_nombre(xm)
+self.add("~;~")
+self.add_nombre(ym)
+self.add("~;~")        
+self.add_nombre(zm)
+self.add(")$.\n\n\tUne représentation paramétrique de la droite $d$ de vecteur directeur $\\vv{u}$ passant par $M$ est de la forme: \\[\\begin{cases} x = x_M + tx_{\\vv{u}}\\\\ y = y_M + ty_{\\vv{u}} \\\\ z = z_M + tz_{\\vv{u}} \\end{cases}, t\\in\\mathbb{R} \\quad \\Rightarrow \\quad \\begin{cases} x =")
+self.add_nombre(xm)
+if xu != 0:
+    self.add_coef_somme(xu)
+    self.add("t")
+self.add(" \\\\ y = ")
+self.add_nombre(ym)
+if yu != 0:
+    self.add_coef_somme(yu)
+    self.add("t")
+self.add(" \\\\ z = ")
+self.add_nombre(zm)
+if zu != 0:
+    self.add_coef_somme(zu)
+    self.add("t")
+self.add("\\end{cases}, t \\in \\mathbb{R}.\\]")
+self.frame_end()

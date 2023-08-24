@@ -1,0 +1,212 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+\includegraphics[scale=0.01]{calculatrice} Un article diminue de 33\% puis de 55\%. Quelle est l'évolution globale ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+\includegraphics[scale=0.01]{calculatrice} Un article diminue de 98\% puis de 69\%. Quelle est l'évolution globale ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+\includegraphics[scale=0.01]{calculatrice} Un article augmente de 13\% puis diminue de 43\%. Quelle est l'évolution globale ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+\includegraphics[scale=0.01]{calculatrice} Un article augmente de 90\% puis diminue de 83\%. Quelle est l'évolution globale ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+\includegraphics[scale=0.01]{calculatrice} Un article diminue de 39\% puis de 45\%. Quelle est l'évolution globale ?\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\vspace*{1cm} Un article diminue de 33\% puis de 55\%. Quelle est l'évolution globale ? \\ Le coefficient multiplicateur associé à une diminution de 33\% est $1-\dfrac{33}{100} = 0.67$ et le coefficient multiplicateur associé à une diminution de 55\% est $1-\dfrac{55}{100} = 0.45$. Pour connaitre l'évolution globale, on multiplie les deux coefficients multiplicateurs, on a $ 0.67 \times 0.45=0.3$. On cherche alors quelle évolution est associée à ce coefficient multiplicateur : $0.3-1 =-0.7$. Ainsi l'évolution globale est une diminution de 69.85\%. 
+ \begin{center} 
+ \begin{tikzpicture} 
+ \node[draw] (P) at (0,0) {{\small Prix initial}}; 
+ \node[draw] (S) at (4,0) {{\small Prix intermédiaire}}; 
+ \node[draw] (T) at (8,0) {{\small Prix final}};
+ \draw[->,>=latex] (P) to[bend left=20]  node[midway,above] {{\small 0.67}} (S) ; 
+ \draw[->,>=latex] (S) to[bend left=20]  node[midway,above] {{\small 0.45}} (T) ; 
+ \draw[->,>=latex] (P) to[bend right=20]  node[midway,below] {{\small0.3}} (T) ; 
+ \end{tikzpicture} 
+ \end{center}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\vspace*{1cm} Un article diminue de 98\% puis de 69\%. Quelle est l'évolution globale ? \\ Le coefficient multiplicateur associé à une diminution de 98\% est $1-\dfrac{98}{100} = 0.02$ et le coefficient multiplicateur associé à une diminution de 69\% est $1-\dfrac{69}{100} = 0.31$. Pour connaitre l'évolution globale, on multiplie les deux coefficients multiplicateurs, on a $ 0.02 \times 0.31=0.01$. On cherche alors quelle évolution est associée à ce coefficient multiplicateur : $0.01-1 =-0.99$. Ainsi l'évolution globale est une diminution de 99.38\%. 
+ \begin{center} 
+ \begin{tikzpicture} 
+ \node[draw] (P) at (0,0) {{\small Prix initial}}; 
+ \node[draw] (S) at (4,0) {{\small Prix intermédiaire}}; 
+ \node[draw] (T) at (8,0) {{\small Prix final}};
+ \draw[->,>=latex] (P) to[bend left=20]  node[midway,above] {{\small 0.02}} (S) ; 
+ \draw[->,>=latex] (S) to[bend left=20]  node[midway,above] {{\small 0.31}} (T) ; 
+ \draw[->,>=latex] (P) to[bend right=20]  node[midway,below] {{\small0.01}} (T) ; 
+ \end{tikzpicture} 
+ \end{center}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+\vspace*{1cm} Un article augmente de 13\% puis diminue de 43\%. Quelle est l'évolution globale ? \\ Le coefficient multiplicateur associé à une augmentation de 13\% est $1+\dfrac{13}{100} = 1.13$ et le coefficient multiplicateur associé à une diminution d'environ' 43\% est $1-\dfrac{43}{100} = 0.57$. Pour connaitre l'évolution globale, on multiplie les deux coefficients multiplicateurs, on a $ 1.13 \times 0.57=0.64$. On cherche alors quelle évolution est associée à ce coefficient multiplicateur : $0.64-1 =-0.36$. Ainsi l'évolution globale est une diminution d'environ 36.0\%. 
+ \begin{center} 
+ \begin{tikzpicture} 
+ \node[draw] (P) at (0,0) {{\small Prix initial}}; 
+ \node[draw] (S) at (4,0) {{\small Prix intermédiaire}}; 
+ \node[draw] (T) at (8,0) {{\small Prix final}};
+ \draw[->,>=latex] (P) to[bend left=20]  node[midway,above] {{\small 1.13}} (S) ; 
+ \draw[->,>=latex] (S) to[bend left=20]  node[midway,above] {{\small 0.57}} (T) ; 
+ \draw[->,>=latex] (P) to[bend right=20]  node[midway,below] {{\small0.64}} (T) ; 
+ \end{tikzpicture} 
+ \end{center}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\vspace*{1cm} Un article augmente de 90\% puis diminue de 83\%. Quelle est l'évolution globale ? \\ Le coefficient multiplicateur associé à une augmentation de 90\% est $1+\dfrac{90}{100} = 1.9$ et le coefficient multiplicateur associé à une diminution d'environ' 83\% est $1-\dfrac{83}{100} = 0.17$. Pour connaitre l'évolution globale, on multiplie les deux coefficients multiplicateurs, on a $ 1.9 \times 0.17=0.32$. On cherche alors quelle évolution est associée à ce coefficient multiplicateur : $0.32-1 =-0.68$. Ainsi l'évolution globale est une diminution d'environ 68.0\%. 
+ \begin{center} 
+ \begin{tikzpicture} 
+ \node[draw] (P) at (0,0) {{\small Prix initial}}; 
+ \node[draw] (S) at (4,0) {{\small Prix intermédiaire}}; 
+ \node[draw] (T) at (8,0) {{\small Prix final}};
+ \draw[->,>=latex] (P) to[bend left=20]  node[midway,above] {{\small 1.9}} (S) ; 
+ \draw[->,>=latex] (S) to[bend left=20]  node[midway,above] {{\small 0.17}} (T) ; 
+ \draw[->,>=latex] (P) to[bend right=20]  node[midway,below] {{\small0.32}} (T) ; 
+ \end{tikzpicture} 
+ \end{center}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\vspace*{1cm} Un article diminue de 39\% puis de 45\%. Quelle est l'évolution globale ? \\ Le coefficient multiplicateur associé à une diminution de 39\% est $1-\dfrac{39}{100} = 0.61$ et le coefficient multiplicateur associé à une diminution de 45\% est $1-\dfrac{45}{100} = 0.55$. Pour connaitre l'évolution globale, on multiplie les deux coefficients multiplicateurs, on a $ 0.61 \times 0.55=0.34$. On cherche alors quelle évolution est associée à ce coefficient multiplicateur : $0.34-1 =-0.66$. Ainsi l'évolution globale est une diminution de 66.45\%. 
+ \begin{center} 
+ \begin{tikzpicture} 
+ \node[draw] (P) at (0,0) {{\small Prix initial}}; 
+ \node[draw] (S) at (4,0) {{\small Prix intermédiaire}}; 
+ \node[draw] (T) at (8,0) {{\small Prix final}};
+ \draw[->,>=latex] (P) to[bend left=20]  node[midway,above] {{\small 0.61}} (S) ; 
+ \draw[->,>=latex] (S) to[bend left=20]  node[midway,above] {{\small 0.55}} (T) ; 
+ \draw[->,>=latex] (P) to[bend right=20]  node[midway,below] {{\small0.34}} (T) ; 
+ \end{tikzpicture} 
+ \end{center}\end{frame}
+
+
+
+
+\end{document}

@@ -1,0 +1,282 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On considère le plan $\mathcal{P}:~ -4x-4y-8z-3= 0$ et le point $M (-7~;~6~;~4)$.
+
+\medskip
+
+	Déterminer les coordonnées du projeté orthogonal $H$ de $M$ sur $\mathcal{P}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On considère le plan $\mathcal{P}:~ 3x+4y-2z-5= 0$ et le point $M (9~;~7~;~0)$.
+
+\medskip
+
+	Déterminer les coordonnées du projeté orthogonal $H$ de $M$ sur $\mathcal{P}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On considère le plan $\mathcal{P}:~ -9x-10y+6z-10= 0$ et le point $M (8~;~9~;~8)$.
+
+\medskip
+
+	Déterminer les coordonnées du projeté orthogonal $H$ de $M$ sur $\mathcal{P}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On considère le plan $\mathcal{P}:~ 9x+9y-10z-8= 0$ et le point $M (-10~;~0~;~-10)$.
+
+\medskip
+
+	Déterminer les coordonnées du projeté orthogonal $H$ de $M$ sur $\mathcal{P}$.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On considère le plan $\mathcal{P}:~ 7x+y-10z-10= 0$ et le point $M (-5~;~-2~;~4)$.
+
+\medskip
+
+	Déterminer les coordonnées du projeté orthogonal $H$ de $M$ sur $\mathcal{P}$.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+On a $\mathcal{P}:~ -4x-4y-8z-3= 0$ et le point $M (-7~;~6~;~4)$.
+
+\medskip
+
+Vérifions que $M \notin \mathcal{P}$: $\left(-4\right)\times\left(-7\right)+\left(-4\right)\times6+\left(-8\right)\times4-3=-31\neq 0$. Donc $M \notin \mathcal{P}$.
+
+Un vecteur normal de $\mathcal{P}$ est $\vv{n}\begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix}-4\\-4\\-8\end{pmatrix}$ et une représentation paramétrique de la droite $d$ de vecteur directeur $\vv{n}$ passant par $M$ est de la forme: \[\begin{cases} x = x_M + tx_{\vv{n}}\\ y = y_M + ty_{\vv{n}} \\ z = z_M + tz_{\vv{n}} \end{cases}, t\in\mathbb{R} \quad \Rightarrow \quad \begin{cases} x =-7-4t \\ y = 6-4t \\ z = 4-8t\end{cases}, t \in \mathbb{R}.\]
+\end{frame}
+
+\begin{frame}On cherche maintenant l'intersection entre $d$ et $\mathcal{P}$.
+
+Soit $M_t \in d$, on a: 
+\begin{align*}
+	 M_t \in \mathcal{P} &\Leftrightarrow -4x_{M_t}-4y_{M_t}-8z_{M_t}-3= 0\\
+	&\Leftrightarrow -4(-7-4t)-4(6-4t)-8(4-8t)-3= 0\\
+	&\Leftrightarrow 28+16t-24+16t-32+64t-3= 0\\
+	&\Leftrightarrow -31+96t = 0 \\
+	&\Leftrightarrow t = \dfrac{31}{96}
+\end{align*}
+
+Finalement le projeté orthogonal de $M (-7~;~6~;~4)$ sur $\mathcal{P}:~ -4x-4y-8z-3= 0$ est le point \[M\left(-7+\left(-4\right)\times\dfrac{31}{96}~;~6+\left(-4\right)\times\dfrac{31}{96}~;~4+\left(-8\right)\times\dfrac{31}{96}\right) = \left(\dfrac{-199}{24}~;~\dfrac{113}{24}~;~\dfrac{17}{12}\right).\]\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+On a $\mathcal{P}:~ 3x+4y-2z-5= 0$ et le point $M (9~;~7~;~0)$.
+
+\medskip
+
+Vérifions que $M \notin \mathcal{P}$: $3\times9+4\times7+\left(-2\right)\times0-5=50\neq 0$. Donc $M \notin \mathcal{P}$.
+
+Un vecteur normal de $\mathcal{P}$ est $\vv{n}\begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix}3\\4\\-2\end{pmatrix}$ et une représentation paramétrique de la droite $d$ de vecteur directeur $\vv{n}$ passant par $M$ est de la forme: \[\begin{cases} x = x_M + tx_{\vv{n}}\\ y = y_M + ty_{\vv{n}} \\ z = z_M + tz_{\vv{n}} \end{cases}, t\in\mathbb{R} \quad \Rightarrow \quad \begin{cases} x =9+3t \\ y = 7+4t \\ z = -2t\end{cases}, t \in \mathbb{R}.\]
+\end{frame}
+
+\begin{frame}On cherche maintenant l'intersection entre $d$ et $\mathcal{P}$.
+
+Soit $M_t \in d$, on a: 
+\begin{align*}
+	 M_t \in \mathcal{P} &\Leftrightarrow 3x_{M_t}+4y_{M_t}-2z_{M_t}-5= 0\\
+	&\Leftrightarrow 3(9+3t)+4(7+4t)-2(-2t)-5= 0\\
+	&\Leftrightarrow 27+9t+28+16t+4t-5= 0\\
+	&\Leftrightarrow 50+29t = 0 \\
+	&\Leftrightarrow t = \dfrac{-50}{29}
+\end{align*}
+
+Finalement le projeté orthogonal de $M (9~;~7~;~0)$ sur $\mathcal{P}:~ 3x+4y-2z-5= 0$ est le point \[M\left(9+3\times\dfrac{-50}{29}~;~7+4\times\dfrac{-50}{29}~;~\left(-2\right)\times\dfrac{-50}{29}\right) = \left(\dfrac{111}{29}~;~\dfrac{3}{29}~;~\dfrac{100}{29}\right).\]\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+On a $\mathcal{P}:~ -9x-10y+6z-10= 0$ et le point $M (8~;~9~;~8)$.
+
+\medskip
+
+Vérifions que $M \notin \mathcal{P}$: $\left(-9\right)\times8+\left(-10\right)\times9+6\times8-10=-124\neq 0$. Donc $M \notin \mathcal{P}$.
+
+Un vecteur normal de $\mathcal{P}$ est $\vv{n}\begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix}-9\\-10\\6\end{pmatrix}$ et une représentation paramétrique de la droite $d$ de vecteur directeur $\vv{n}$ passant par $M$ est de la forme: \[\begin{cases} x = x_M + tx_{\vv{n}}\\ y = y_M + ty_{\vv{n}} \\ z = z_M + tz_{\vv{n}} \end{cases}, t\in\mathbb{R} \quad \Rightarrow \quad \begin{cases} x =8-9t \\ y = 9-10t \\ z = 8+6t\end{cases}, t \in \mathbb{R}.\]
+\end{frame}
+
+\begin{frame}On cherche maintenant l'intersection entre $d$ et $\mathcal{P}$.
+
+Soit $M_t \in d$, on a: 
+\begin{align*}
+	 M_t \in \mathcal{P} &\Leftrightarrow -9x_{M_t}-10y_{M_t}+6z_{M_t}-10= 0\\
+	&\Leftrightarrow -9(8-9t)-10(9-10t)+6(8+6t)-10= 0\\
+	&\Leftrightarrow -72+81t-90+100t+48+36t-10= 0\\
+	&\Leftrightarrow -124+217t = 0 \\
+	&\Leftrightarrow t = \dfrac{4}{7}
+\end{align*}
+
+Finalement le projeté orthogonal de $M (8~;~9~;~8)$ sur $\mathcal{P}:~ -9x-10y+6z-10= 0$ est le point \[M\left(8+\left(-9\right)\times\dfrac{4}{7}~;~9+\left(-10\right)\times\dfrac{4}{7}~;~8+6\times\dfrac{4}{7}\right) = \left(\dfrac{20}{7}~;~\dfrac{23}{7}~;~\dfrac{80}{7}\right).\]\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+On a $\mathcal{P}:~ 9x+9y-10z-8= 0$ et le point $M (-10~;~0~;~-10)$.
+
+\medskip
+
+Vérifions que $M \notin \mathcal{P}$: $9\times\left(-10\right)+9\times0+\left(-10\right)\times\left(-10\right)-8=2\neq 0$. Donc $M \notin \mathcal{P}$.
+
+Un vecteur normal de $\mathcal{P}$ est $\vv{n}\begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix}9\\9\\-10\end{pmatrix}$ et une représentation paramétrique de la droite $d$ de vecteur directeur $\vv{n}$ passant par $M$ est de la forme: \[\begin{cases} x = x_M + tx_{\vv{n}}\\ y = y_M + ty_{\vv{n}} \\ z = z_M + tz_{\vv{n}} \end{cases}, t\in\mathbb{R} \quad \Rightarrow \quad \begin{cases} x =-10+9t \\ y = +9t \\ z = -10-10t\end{cases}, t \in \mathbb{R}.\]
+\end{frame}
+
+\begin{frame}On cherche maintenant l'intersection entre $d$ et $\mathcal{P}$.
+
+Soit $M_t \in d$, on a: 
+\begin{align*}
+	 M_t \in \mathcal{P} &\Leftrightarrow 9x_{M_t}+9y_{M_t}-10z_{M_t}-8= 0\\
+	&\Leftrightarrow 9(-10+9t)+9(9t)-10(-10-10t)-8= 0\\
+	&\Leftrightarrow -90+81t+81t+100+100t-8= 0\\
+	&\Leftrightarrow 2+262t = 0 \\
+	&\Leftrightarrow t = \dfrac{-1}{131}
+\end{align*}
+
+Finalement le projeté orthogonal de $M (-10~;~0~;~-10)$ sur $\mathcal{P}:~ 9x+9y-10z-8= 0$ est le point \[M\left(-10+9\times\dfrac{-1}{131}~;~9\times\dfrac{-1}{131}~;~-10+\left(-10\right)\times\dfrac{-1}{131}\right) = \left(\dfrac{-1319}{131}~;~\dfrac{-9}{131}~;~\dfrac{-1300}{131}\right).\]\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+On a $\mathcal{P}:~ 7x+y-10z-10= 0$ et le point $M (-5~;~-2~;~4)$.
+
+\medskip
+
+Vérifions que $M \notin \mathcal{P}$: $7\times\left(-5\right)-2+\left(-10\right)\times4-10=-87\neq 0$. Donc $M \notin \mathcal{P}$.
+
+Un vecteur normal de $\mathcal{P}$ est $\vv{n}\begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix}7\\1\\-10\end{pmatrix}$ et une représentation paramétrique de la droite $d$ de vecteur directeur $\vv{n}$ passant par $M$ est de la forme: \[\begin{cases} x = x_M + tx_{\vv{n}}\\ y = y_M + ty_{\vv{n}} \\ z = z_M + tz_{\vv{n}} \end{cases}, t\in\mathbb{R} \quad \Rightarrow \quad \begin{cases} x =-5+7t \\ y = -2+t \\ z = 4-10t\end{cases}, t \in \mathbb{R}.\]
+\end{frame}
+
+\begin{frame}On cherche maintenant l'intersection entre $d$ et $\mathcal{P}$.
+
+Soit $M_t \in d$, on a: 
+\begin{align*}
+	 M_t \in \mathcal{P} &\Leftrightarrow 7x_{M_t}+y_{M_t}-10z_{M_t}-10= 0\\
+	&\Leftrightarrow 7(-5+7t)-2+t-10(4-10t)-10= 0\\
+	&\Leftrightarrow -35+49t-2+t-40+100t-10= 0\\
+	&\Leftrightarrow -87+150t = 0 \\
+	&\Leftrightarrow t = \dfrac{29}{50}
+\end{align*}
+
+Finalement le projeté orthogonal de $M (-5~;~-2~;~4)$ sur $\mathcal{P}:~ 7x+y-10z-10= 0$ est le point \[M\left(-5+7\times\dfrac{29}{50}~;~-2+\dfrac{29}{50}~;~4+\left(-10\right)\times\dfrac{29}{50}\right) = \left(\dfrac{-47}{50}~;~\dfrac{-71}{50}~;~\dfrac{-9}{5}\right).\]\end{frame}
+
+
+
+
+\end{document}

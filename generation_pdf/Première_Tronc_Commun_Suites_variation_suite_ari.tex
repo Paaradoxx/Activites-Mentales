@@ -1,0 +1,265 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+  
+ Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_{n+1}=u_n+7n$ et $u_0= 5$.Après avoir conjecturé le sens de variation de la suite, le démontrer.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+  
+ Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_{n+1}=u_n-5n$ et $u_0= 1$.Après avoir conjecturé le sens de variation de la suite, le démontrer.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_n=4n+10$. Après avoir conjecturé le sens de variation de la suite, le démontrer.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+  
+ Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_{n+1}=u_n+3n$ et $u_0= 8$.Après avoir conjecturé le sens de variation de la suite, le démontrer.\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_n=-6n-5$. Après avoir conjecturé le sens de variation de la suite, le démontrer.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\bigskip 
+ Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_{n+1}=u_n+7n$ et $u_0=5$.Après avoir conjecturé le sens de variation de la suite, le démontrer. On commence par calculer les premiers termes de la suite. On a 
+ \begin{multicols}{4} 
+ $u_{n+1}=u_n+7n$ 
+ 
+  \columnbreak 
+ 
+ $u_1=5$ 
+ 
+ \columnbreak 
+ 
+ $u_2=12$ 
+ 
+ \columnbreak 
+ 
+ $u_3=26$ 
+  \end{multicols} $u_2 \geqslant u_1 \geqslant u_0$ donc il semblerait que la suite soit croissante. Pour le démontrer, il faut calculer la différence $u_{n+1} -u_n$ et montrer qu'elle est positive pour tout $n \in \N$. Ainsi : \begin{align*} \textcolor{blue}{u_{n+1}}-\textcolor{green}{u_n} &=\textcolor{blue}{  u_n+7n}-\textcolor{green}{u_n} \\ 
+ &=7n >0 
+ \end{align*} car $n>0$. 
+ 
+ Ainsi, la suite est bien croissante. \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\bigskip 
+ Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_{n+1}=u_n-5n$ et $u_0=1$.Après avoir conjecturé le sens de variation de la suite, le démontrer. On commence par calculer les premiers termes de la suite. On a 
+ \begin{multicols}{4} 
+ $u_{n+1}=u_n-5n$ 
+ 
+  \columnbreak 
+ 
+ $u_1=1$ 
+ 
+ \columnbreak 
+ 
+ $u_2=-4$ 
+ 
+ \columnbreak 
+ 
+ $u_3=-14$ 
+  \end{multicols} $u_0 \geqslant u_1 \geqslant u_2$ donc il semblerait que la suite soit décroissante. Pour le démontrer, il faut calculer la différence $u_{n+1} -u_n$ et montrer qu'elle est négative pour tout $n \in \N$. Ainsi : \begin{align*} \textcolor{blue}{u_{n+1}}-\textcolor{green}{u_n} &=\textcolor{blue}{u_n-5n}-\textcolor{green}{u_n} \\ 
+ &=-5n <0 
+ \end{align*} car $n>0$. 
+ 
+ Ainsi, la suite est bien décroissante. \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+ \vspace*{1cm} 
+ On commence par calculer les premiers termes de la suite. On a 
+ \begin{multicols}{4} 
+ $u_{\textcolor{purple}{n}}=4\textcolor{purple}{n}+10$ 
+ 
+  \columnbreak 
+ 
+  $u_0=10$ 
+ 
+  \columnbreak 
+ 
+ $u_1=14$ 
+ 
+ \columnbreak 
+ 
+ $u_2=18$ 
+  \end{multicols} $u_2 \geqslant u_1 \geqslant u_0$ donc il semblerait que la suite soit croissante. Pour le démontrer, il faut calculer la différence $u_{n+1} -u_n$ et montrer qu'elle est positive pour tout $n \in \N$. Pour cela, il faut connaitre l'expression de $u_{n+1}$ : $$u_{\textcolor{purple}{n+1}} = 4\textcolor{purple}{(n+1)}+10=4n+4+10=4n+14$$ On peut maintenant calculer $\textcolor{blue}{u_{n+1}}-\textcolor{green}{u_n} $ : \begin{align*} \textcolor{blue}{(u_{n+1})}-\textcolor{green}{u_n} &=\textcolor{blue}{4n+14}-\textcolor{green}{(4n+10)} \\ 
+ &= 4n+14-4n-10\\ 
+ &= 4 >0 
+ \end{align*} 
+ La suite est donc croissante. \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\bigskip 
+ Soit $(u_n)_n$ la suite définie pour tout $n$ par $u_{n+1}=u_n+3n$ et $u_0=8$.Après avoir conjecturé le sens de variation de la suite, le démontrer. On commence par calculer les premiers termes de la suite. On a 
+ \begin{multicols}{4} 
+ $u_{n+1}=u_n+3n$ 
+ 
+  \columnbreak 
+ 
+ $u_1=8$ 
+ 
+ \columnbreak 
+ 
+ $u_2=11$ 
+ 
+ \columnbreak 
+ 
+ $u_3=17$ 
+  \end{multicols} $u_2 \geqslant u_1 \geqslant u_0$ donc il semblerait que la suite soit croissante. Pour le démontrer, il faut calculer la différence $u_{n+1} -u_n$ et montrer qu'elle est positive pour tout $n \in \N$. Ainsi : \begin{align*} \textcolor{blue}{u_{n+1}}-\textcolor{green}{u_n} &=\textcolor{blue}{  u_n+3n}-\textcolor{green}{u_n} \\ 
+ &=3n >0 
+ \end{align*} car $n>0$. 
+ 
+ Ainsi, la suite est bien croissante. \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+ \vspace*{1cm} 
+ On commence par calculer les premiers termes de la suite. On a 
+ \begin{multicols}{4} 
+ $u_{\textcolor{purple}{n}}=-6\textcolor{purple}{n}-5$ 
+ 
+  \columnbreak 
+ 
+  $u_0=-5$ 
+ 
+  \columnbreak 
+ 
+ $u_1=-11$ 
+ 
+ \columnbreak 
+ 
+ $u_2=-17$ 
+  \end{multicols} $u_0 \geqslant u_1 \geqslant u_2$ donc il semblerait que la suite soit décroissante. Pour le démontrer, il faut calculer la différence $u_{n+1} -u_n$ et montrer qu'elle est négative pour tout $n \in \N$. Pour cela, il faut connaitre l'expression de $u_{n+1}$ : $$u_{\textcolor{purple}{n+1}} = -6\textcolor{purple}{(n+1)}-5=-6n-6-5=-6n-11$$ On peut maintenant calculer $\textcolor{blue}{u_{n+1}}-\textcolor{green}{u_n} $ : \begin{align*} \textcolor{blue}{u_{n+1}}-\textcolor{green}{(u_n)} &=\textcolor{blue}{-6n-11}-\textcolor{green}{(-6n-5)} \\ 
+ &= -6n-11+6n+5\\ 
+ &= -6 <0 
+ \end{align*} 
+ La suite est donc croissante.\end{frame}
+
+
+
+
+\end{document}

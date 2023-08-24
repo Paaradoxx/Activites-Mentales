@@ -1,0 +1,190 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+\includegraphics[scale=0.01]{calculatrice}Un article était vendu 21.3\euro ~ est vendu 21.17\euro ~ après réduction. Quel est le pourcentage appliqué pour la réduction? \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+\includegraphics[scale=0.01]{calculatrice}Un article était vendu 36.5\euro ~ est vendu 13.33\euro ~ après réduction. Quel est le pourcentage appliqué pour la réduction? \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+\includegraphics[scale=0.01]{calculatrice}Ci-dessous sont résumés les tarifs d'un parking en 2016 et en 2018. 
+ \begin{center} 
+ \begin{tabular}{|C{3cm}|c|c|} 
+ \hline 
+ Type de véhicule (pour 24h) & 2016 & 2018 \\ 
+ \hline 
+ Véhicule individuel & 10.48& 11.9\\ 
+ \hline 
+ Camping-car & 15.48& 16.9\\ 
+ \hline 
+ Moto & 5.24& 5.95\\ 
+ \hline 
+ \end{tabular} 
+\end{center} 
+  Quelle est l'évolution du prix du parking en \% pour les Camping-cars ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+\includegraphics[scale=0.01]{calculatrice}Un article était vendu 33.78\euro ~ est vendu 29.1\euro ~ après réduction. Quel est le pourcentage appliqué pour la réduction? \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+\includegraphics[scale=0.01]{calculatrice}Fabrice doit réaliser le contrôle technique de sa voiture. Il sait que chez son garagiste il va payer 69.72\euro ~ mais que si il prend son rendez-vous sur internet, le contrôle technique ne lui coutera que  65.39\euro. \\ Quel est le pourcentage appliqué pour la réduction lors de la réservation via internet ? \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+Un article était vendu 21.3\euro ~ est vendu 21.17\euro ~ après réduction. Quel est le pourcentage appliqué pour la réduction? \\ Ici le prix a changé dans le temps donc on doit calculer un taux d'évolution. On doit donc appliquer la formule $$\dfrac{V_f-V_i}{V_i}$$ avec $V_i =21.3$ et $V_f=21.17$. On a alors en remplaçant dans la formule $$\dfrac{21.17-21.3}{21.3}= \dfrac{-0.13}{21.3}=-0.0061$$ La réduction appliquée est donc de 0.61\%.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+Un article était vendu 36.5\euro ~ est vendu 13.33\euro ~ après réduction. Quel est le pourcentage appliqué pour la réduction? \\ Ici le prix a changé dans le temps donc on doit calculer un taux d'évolution. On doit donc appliquer la formule $$\dfrac{V_f-V_i}{V_i}$$ avec $V_i =36.5$ et $V_f=13.33$. On a alors en remplaçant dans la formule $$\dfrac{13.33-36.5}{36.5}= \dfrac{-23.17}{36.5}=-0.6348$$ La réduction appliquée est donc de 63.48\%.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+ 
+ \begin{center} 
+ \begin{tabular}{|C{3cm}|c|c|} 
+ \hline 
+ {\small Type de véhicule} & {\small 2016} & {\small 2018} \\ 
+ \hline 
+ {\small Véhicule individuel} & 10.48& 11.9\\ 
+ \hline 
+ {\small Camping-car } & 15.48& 16.9\\ 
+ \hline 
+ {\small Moto } & 5.24& 5.95\\ 
+ \hline 
+ \end{tabular} 
+\end{center} 
+  {\small Quelle est l'évolution du prix du parking en \% pour les Camping-cars ?\\ Ici on a une évolution du prix en fonction du temps. On doit donc appliquer la formule} $$\dfrac{V_f-V_i}{V_i}$$ avec $V_i =15.48$ et $V_f=16.9$. On a alors en remplaçant dans la formule $$\dfrac{16.9-15.48}{15.48}= \dfrac{1.42}{15.48} = 0.0917$$ {\small Le prix a donc augmenté de  9.17\% } \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+Un article était vendu 33.78\euro ~ est vendu 29.1\euro ~ après réduction. Quel est le pourcentage appliqué pour la réduction? \\ Ici le prix a changé dans le temps donc on doit calculer un taux d'évolution. On doit donc appliquer la formule $$\dfrac{V_f-V_i}{V_i}$$ avec $V_i =33.78$ et $V_f=29.1$. On a alors en remplaçant dans la formule $$\dfrac{29.1-33.78}{33.78}= \dfrac{-4.68}{33.78}=-0.1385$$ La réduction appliquée est donc de 13.85\%.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\vspace*{1cm} {\small Fabrice doit réaliser le contrôle technique de sa voiture. Il sait que chez son garagiste il va payer 69.72\euro ~ mais que si il prend son rendez-vous sur internet, le contrôle technique ne lui coutera que  65.39\euro ~. \\ Quel est le pourcentage appliqué pour la réduction lors de la réservation via internet ? \\ Ici le prix change en fonction de la manière de réserver. Il y a donc une évolution du prix dans le temps. On doit donc appliquer la formule } $$\dfrac{V_f-V_i}{V_i}$$ avec $V_i =69.72$ et $V_f=65.39$. {\small On a alors en remplaçant dans la formule } $$\dfrac{65.39-69.72}{69.72}= \dfrac{-4.33}{69.72}=-0.0621$$ {\small La réduction appliquée lors d'une réservation via internet est donc de 6.21\%.}\end{frame}
+
+
+
+
+\end{document}

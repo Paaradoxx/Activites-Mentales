@@ -1,0 +1,237 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+Dresser le tableau de signe de la fonction suivante : $$ f:x\mapsto10x+20$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+Dresser le tableau de signe de la fonction suivante : $$ f:x\mapsto2x-3$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+Dresser le tableau de signe de la fonction suivante : $$ f:x\mapsto19x-15$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+Dresser le tableau de signe de la fonction suivante : $$ f:x\mapsto13x-15$$\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+Dresser le tableau de signe de la fonction suivante : $$ f:x\mapsto3x+15$$\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\vspace*{1cm} 
+ \footnotesize{Dresser le tableau de signe de la fonction suivante : $ f:x\mapsto10x+20$} 
+ \begin{enumerate} 
+ \item $f$ est croissante car son coefficient directeur ($m=10)$ est positif.
+ \item On cherche ensuite à résoudre  $(E) : 10x+20=0 $	 
+ \begin{align*} (E)& \Leftrightarrow 10x+20=0\\
+		 	 & \Leftrightarrow 10x=-20\\
+			 & \Leftrightarrow x= \dfrac{-20}{10}=-2\\
+	 \end{align*} 
+ \item Ainsi : \\ 
+ \begin{tikzpicture}[scale=1]
+ \tkzTabInit{$x$/1, $f$/1}{$-\infty$, $-2$, $+\infty$} 
+ \tkzTabLine{, -, z, +,} 
+ \end{tikzpicture}
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\vspace*{1cm} 
+ \footnotesize{Dresser le tableau de signe de la fonction suivante : $ f:x\mapsto2x-3$} 
+ \begin{enumerate} 
+ \item $f$ est croissante car son coefficient directeur ($m=2)$ est positif.
+ \item On cherche ensuite à résoudre  $(E) : 2x-3=0 $	 
+ \begin{align*} (E)& \Leftrightarrow 2x-3=0\\
+		 	 & \Leftrightarrow 2x=3\\
+			 & \Leftrightarrow x= \dfrac{3}{2}=\dfrac{3}{2}\\
+	 \end{align*} 
+ \item Ainsi : \\ 
+ \begin{tikzpicture}[scale=1]
+ \tkzTabInit{$x$/1, $f$/1}{$-\infty$, $\dfrac{3}{2}$, $+\infty$} 
+ \tkzTabLine{, -, z, +,} 
+ \end{tikzpicture}
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+\vspace*{1cm} 
+ \footnotesize{Dresser le tableau de signe de la fonction suivante : $ f:x\mapsto19x-15$} 
+ \begin{enumerate} 
+ \item $f$ est croissante car son coefficient directeur ($m=19)$ est positif.
+ \item On cherche ensuite à résoudre  $(E) : 19x-15=0 $	 
+ \begin{align*} (E)& \Leftrightarrow 19x-15=0\\
+		 	 & \Leftrightarrow 19x=15\\
+			 & \Leftrightarrow x= \dfrac{15}{19}=\dfrac{15}{19}\\
+	 \end{align*} 
+ \item Ainsi : \\ 
+ \begin{tikzpicture}[scale=1]
+ \tkzTabInit{$x$/1, $f$/1}{$-\infty$, $\dfrac{15}{19}$, $+\infty$} 
+ \tkzTabLine{, -, z, +,} 
+ \end{tikzpicture}
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\vspace*{1cm} 
+ \footnotesize{Dresser le tableau de signe de la fonction suivante : $ f:x\mapsto13x-15$} 
+ \begin{enumerate} 
+ \item $f$ est croissante car son coefficient directeur ($m=13)$ est positif.
+ \item On cherche ensuite à résoudre  $(E) : 13x-15=0 $	 
+ \begin{align*} (E)& \Leftrightarrow 13x-15=0\\
+		 	 & \Leftrightarrow 13x=15\\
+			 & \Leftrightarrow x= \dfrac{15}{13}=\dfrac{15}{13}\\
+	 \end{align*} 
+ \item Ainsi : \\ 
+ \begin{tikzpicture}[scale=1]
+ \tkzTabInit{$x$/1, $f$/1}{$-\infty$, $\dfrac{15}{13}$, $+\infty$} 
+ \tkzTabLine{, -, z, +,} 
+ \end{tikzpicture}
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\vspace*{1cm} 
+ \footnotesize{Dresser le tableau de signe de la fonction suivante : $ f:x\mapsto3x+15$} 
+ \begin{enumerate} 
+ \item $f$ est croissante car son coefficient directeur ($m=3)$ est positif.
+ \item On cherche ensuite à résoudre  $(E) : 3x+15=0 $	 
+ \begin{align*} (E)& \Leftrightarrow 3x+15=0\\
+		 	 & \Leftrightarrow 3x=-15\\
+			 & \Leftrightarrow x= \dfrac{-15}{3}=-5\\
+	 \end{align*} 
+ \item Ainsi : \\ 
+ \begin{tikzpicture}[scale=1]
+ \tkzTabInit{$x$/1, $f$/1}{$-\infty$, $-5$, $+\infty$} 
+ \tkzTabLine{, -, z, +,} 
+ \end{tikzpicture}
+ \end{enumerate} 
+ \end{frame}
+
+
+
+
+\end{document}

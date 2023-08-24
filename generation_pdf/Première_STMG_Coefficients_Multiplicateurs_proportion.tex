@@ -1,0 +1,177 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+Dans paquet de 290 bonbons, il y a 70\% de bonbons jaunes. Quel est le nombre de bonbons jaunes dans le paquet ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+A la sortie d'un cinéma, on interroge 70 personnes, il y a 40\% des personnes qui ont aimé le film. Quel est le nombre de personne ayant aimé le film ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+Dans paquet de 70 bonbons, il y a 90\% de bonbons jaunes. Quel est le nombre de bonbons jaunes dans le paquet ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+Dans paquet de 750 bonbons, il y a 30\% de bonbons jaunes. Quel est le nombre de bonbons jaunes dans le paquet ?\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+Dans un groupe de 170 élèves, il y a 40\% de sportifs réguliers. Quel est le nombre de sportifs réguliers dans le groupe ?\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+Dans un paquet de 290 élèves, il y a 70\% de bonbons jaunes. Quel est le nombre de bonbons jaunes dans le paquet ? \begin{multicols}{2} \textbf{1ère méthode : \\} On multiplie 290 par 0,7. On obtient alors $290 \times 0,7=203$. \\ Il y a 203 bonbons jaunes dans le paquet. 
+ \columnbreak 
+ 
+ \textbf{2ème méthode :} \\ On a 70 pour 100 et 7 pour 10. On décompose 290 on calcule $2\times70+9\times7$ \\ Finalement, on obtient 203\\ Il y a donc 203 bonbons jaunes dans le paquet. \end{multicols}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+A la sortie d'un cinéma, on interroge 70 personnes, il y a 40\% des personnes qui ont aimé le film. Quel est le nombre de personne ayant aimé le film ? \begin{multicols}{2} \textbf{1ère méthode : \\} On multiplie 70 par 0,4. On obtient alors $70 \times 0,4=28$. \\ Il y a 28 personnes qui ont aimé le film. 
+ \columnbreak 
+ 
+ \textbf{2ème méthode :} \\ On a 40 pour 100 et 4 pour 10. On décompose 70 on calcule $0\times40+7\times4$ \\ Finalement, on obtient 28\\ Il y a donc 28 personnes qui ont aimé le film. \end{multicols}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+Dans un paquet de 70 élèves, il y a 90\% de bonbons jaunes. Quel est le nombre de bonbons jaunes dans le paquet ? \begin{multicols}{2} \textbf{1ère méthode : \\} On multiplie 70 par 0,9. On obtient alors $70 \times 0,9=63$. \\ Il y a 63 bonbons jaunes dans le paquet. 
+ \columnbreak 
+ 
+ \textbf{2ème méthode :} \\ On a 90 pour 100 et 9 pour 10. On décompose 70 on calcule $0\times90+7\times9$ \\ Finalement, on obtient 63\\ Il y a donc 63 bonbons jaunes dans le paquet. \end{multicols}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+Dans un paquet de 750 élèves, il y a 30\% de bonbons jaunes. Quel est le nombre de bonbons jaunes dans le paquet ? \begin{multicols}{2} \textbf{1ère méthode : \\} On multiplie 750 par 0,3. On obtient alors $750 \times 0,3=225$. \\ Il y a 225 bonbons jaunes dans le paquet. 
+ \columnbreak 
+ 
+ \textbf{2ème méthode :} \\ On a 30 pour 100 et 3 pour 10. On décompose 750 on calcule $7\times30+5\times3$ \\ Finalement, on obtient 225\\ Il y a donc 225 bonbons jaunes dans le paquet. \end{multicols}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+Dans un groupe de 170 élèves, il y a 40\% de sportifs réguliers. Quel est le nombre de sportifs réguliers dans le groupe ? \begin{multicols}{2} \textbf{1ère méthode : \\} On multiplie 170 par 0,4. On obtient alors $170 \times 0,4=68$. \\ Il y a 68 sportifs réguliers dans le groupe. 
+ \columnbreak 
+ 
+ \textbf{2ème méthode :} \\ On a 40 pour 100 et 4 pour 10. On décompose 170 on calcule $1\times40+7\times4$ \\ Finalement, on obtient 68\\ Il y a donc 68 sportifs réguliers dans le groupe. \end{multicols}\end{frame}
+
+
+
+
+\end{document}

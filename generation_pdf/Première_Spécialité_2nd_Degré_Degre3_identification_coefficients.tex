@@ -1,0 +1,657 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On considère la fonction polynôme de degré 3 $f$ définie sur $\R$ par : $$f(x)=-3x^3+12x^2+123x+108$$
+ 
+ \begin{enumerate} 
+ 	 \item Vérifier que -1 est racine de $f$. 
+ 	 \item Déterminer les valeurs de $a$, $b$ et $c$ tels que pour tout réel $x$: $$f(x)=(x+1)(ax^2+bx+c)$$ 
+ 	 \textit{On pourra développer l'expression et identifier les coefficients du polynôme.} 
+ \medskip 
+ 	 On pose $g(x)=-3x^2+15x+108$
+ 	 \item Déterminer la forme factorisée de $g$. 
+ 	 \item En déduire une forme factorisée de $f$.
+ 
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On considère la fonction polynôme de degré 3 $f$ définie sur $\R$ par : $$f(x)=x^3-12x^2+17x+90$$
+ 
+ \begin{enumerate} 
+ 	 \item Vérifier que -2 est racine de $f$. 
+ 	 \item Déterminer les valeurs de $a$, $b$ et $c$ tels que pour tout réel $x$: $$f(x)=(x+2)(ax^2+bx+c)$$ 
+ 	 \textit{On pourra développer l'expression et identifier les coefficients du polynôme.} 
+ \medskip 
+ 	 On pose $g(x)=x^2-14x+45$
+ 	 \item Déterminer la forme factorisée de $g$. 
+ 	 \item En déduire une forme factorisée de $f$.
+ 
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On considère la fonction polynôme de degré 3 $f$ définie sur $\R$ par : $$f(x)=x^3+14x^2+53x+40$$
+ 
+ \begin{enumerate} 
+ 	 \item Vérifier que -1 est racine de $f$. 
+ 	 \item Déterminer les valeurs de $a$, $b$ et $c$ tels que pour tout réel $x$: $$f(x)=(x+1)(ax^2+bx+c)$$ 
+ 	 \textit{On pourra développer l'expression et identifier les coefficients du polynôme.} 
+ \medskip 
+ 	 On pose $g(x)=x^2+13x+40$
+ 	 \item Déterminer la forme factorisée de $g$. 
+ 	 \item En déduire une forme factorisée de $f$.
+ 
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On considère la fonction polynôme de degré 3 $f$ définie sur $\R$ par : $$f(x)=-3x^3-21x^2+78x+216$$
+ 
+ \begin{enumerate} 
+ 	 \item Vérifier que -2 est racine de $f$. 
+ 	 \item Déterminer les valeurs de $a$, $b$ et $c$ tels que pour tout réel $x$: $$f(x)=(x+2)(ax^2+bx+c)$$ 
+ 	 \textit{On pourra développer l'expression et identifier les coefficients du polynôme.} 
+ \medskip 
+ 	 On pose $g(x)=-3x^2-15x+108$
+ 	 \item Déterminer la forme factorisée de $g$. 
+ 	 \item En déduire une forme factorisée de $f$.
+ 
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On considère la fonction polynôme de degré 3 $f$ définie sur $\R$ par : $$f(x)=3x^3-33x^2+93x-63$$
+ 
+ \begin{enumerate} 
+ 	 \item Vérifier que 1 est racine de $f$. 
+ 	 \item Déterminer les valeurs de $a$, $b$ et $c$ tels que pour tout réel $x$: $$f(x)=(x-1)(ax^2+bx+c)$$ 
+ 	 \textit{On pourra développer l'expression et identifier les coefficients du polynôme.} 
+ \medskip 
+ 	 On pose $g(x)=3x^2-30x+63$
+ 	 \item Déterminer la forme factorisée de $g$. 
+ 	 \item En déduire une forme factorisée de $f$.
+ 
+ \end{enumerate} 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\bigskip 
+ \begin{enumerate} 
+ 	 \item $-1$ est racine de $f$ si et seulement si $f(-1)=0$. On calcule : 
+ 	 	 \begin{align*}f(-1)&= -3 \times \left(-1\right)^3 +12 \times \left(-1\right)^2+123\times \left(-1\right)+108 \\ 
+ &= 3+12-123+108 \\ 
+ &= 0 
+ 	  \end{align*} 
+  $-1$ est bien racine de $f$. 
+ 	 \item On développe le membre de droite. Pour tout réel $x$, 
+ 	 \begin{align*} (x+1)(ax^2+bx+c) 
+ &= ax^3+bx^2+cx+ax^2+bx+c \\ 
+   &= ax^3 +(b+a)x^2+(c+b)x+c \\ 
+ &= -3x^3+12x^2+123x+108\\ 
+ &= f(x)
+ \end{align*} 
+ 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{2} 
+ 	 \item Par identification des coefficients (c'est-à-dire que les coefficients devant $x^3$ doivent être égaux, idem pour $x^2$ idem pour $x$ et la constante), on a le système suivant : 
+ 
+ \hfil $\begin{cases} 
+ a &=-3 \\ 
+  b+a &=12 \\ 
+  c+b &= 123 \\ 
+  c &= 108 
+ \end{cases} 
+ \Longleftrightarrow 
+ \begin{cases} a &=-3 \\ 
+ b-3&=12 \\ 
+  c+b &= 123 \\ 
+  c &= 108 
+ \end{cases} $ 
+ 
+ \hfil $ \Longleftrightarrow 
+ \begin{cases} a &=-3 \\ 
+ b &=15 \\ 
+  c+15 &= 123 \\ 
+  c &= 108 
+ \end{cases} 
+  \Longleftrightarrow 
+ \begin{cases}  a &=-3 \\ 
+ b &=15 \\ 
+  c &= 108 \\ 
+  c &= 108 
+ \end{cases}$ 
+ 
+ On a donc $a=-3$, $b=15$ et $c=108$ d'où $f(x)=(x+1)(-3x^2+15x+108)$ pour tout réel $x$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{3} 
+ 	\item $g$ est une fonction polynôme du second degré. Pour trouver sa forme factorisée on déterminer ses éventuelles racines.
+ 
+ On a $a=-3$, $b=15$ et $c=108$. On calcule son discriminant : \hfil $\Delta=b^2-4ac= 15^2 -4 \times \left(-3\right) \times 108= 1521 >0$ 
+ 
+ Ainsi $g$ admet racines réelles distinctes données par : \begin{minipage}{0.45\linewidth} 
+ \begin{align*} 
+ x_1 &= \dfrac{-b-\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{-15-\sqrt{1521}}{-6} \\ 
+ &= 9\end{align*} 
+ \end{minipage} 
+ \hfil \begin{minipage}{0.45\linewidth} 
+ \begin{align*}x_2 &= \dfrac{-b+\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{-15+\sqrt{1521}}{-6} \\ 
+ &= -4
+ \end{align*} 
+ \end{minipage} 
+ 
+ Ainsi pour tout réel $x$, $g(x)=a(x-x_1)(x-x_2)= -3\left(x-9\right)\left(x+4 \right)$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{4} 
+ 	 \item Pour tout réel $x$ on a :
+ \begin{align*} 
+ f(x)&=(x+1)\underbrace{(-3x^2+15x+108)}_{=g(x)} \\ 
+   &= (x-1) \times g(x) \\ 
+  &= (x+1) \times \left(-3\right)\left(x-9\right)\left(x+4 \right) \\ 
+ &= -3(x+1)\left(x-9\right)\left(x+4 \right)
+   \end{align*}
+ \end{enumerate} 
+ 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\bigskip 
+ \begin{enumerate} 
+ 	 \item $-2$ est racine de $f$ si et seulement si $f(-2)=0$. On calcule : 
+ 	 	 \begin{align*}f(-2)&= 1 \times \left(-2\right)^3 -12 \times \left(-2\right)^2+17\times \left(-2\right)+90 \\ 
+ &= -8-48-34+90 \\ 
+ &= 0 
+ 	  \end{align*} 
+  $-2$ est bien racine de $f$. 
+ 	 \item On développe le membre de droite. Pour tout réel $x$, 
+ 	 \begin{align*} (x+2)(ax^2+bx+c) 
+ &= ax^3+bx^2+cx+2ax^2+2bx+2c \\ 
+   &= ax^3 +(b+2a)x^2+(c+2b)x+2c \\ 
+ &= x^3-12x^2+17x+90\\ 
+ &= f(x)
+ \end{align*} 
+ 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{2} 
+ 	 \item Par identification des coefficients (c'est-à-dire que les coefficients devant $x^3$ doivent être égaux, idem pour $x^2$ idem pour $x$ et la constante), on a le système suivant : 
+ 
+ \hfil $\begin{cases} 
+ a &=1 \\ 
+  b+2a &=-12 \\ 
+  c+2b &= 17 \\ 
+  2c &= 90 
+ \end{cases} 
+ \Longleftrightarrow 
+ \begin{cases} a &=1 \\ 
+ b+2&=-12 \\ 
+  c+2b &= 17 \\ 
+  2c &= 90 
+ \end{cases} $ 
+ 
+ \hfil $ \Longleftrightarrow 
+ \begin{cases} a &=1 \\ 
+ b &=-14 \\ 
+  c-28 &= 17 \\ 
+  2c &= 90 
+ \end{cases} 
+  \Longleftrightarrow 
+ \begin{cases}  a &=1 \\ 
+ b &=-14 \\ 
+  c &= 45 \\ 
+  c &= 45 
+ \end{cases}$ 
+ 
+ On a donc $a=1$, $b=-14$ et $c=45$ d'où $f(x)=(x+2)(x^2-14x+45)$ pour tout réel $x$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{3} 
+ 	\item $g$ est une fonction polynôme du second degré. Pour trouver sa forme factorisée on déterminer ses éventuelles racines.
+ 
+ On a $a=1$, $b=-14$ et $c=45$. On calcule son discriminant : \hfil $\Delta=b^2-4ac= \left(-14\right)^2 -4 \times 1 \times 45= 16 >0$ 
+ 
+ Ainsi $g$ admet racines réelles distinctes données par : \begin{minipage}{0.45\linewidth} 
+ \begin{align*} 
+ x_1 &= \dfrac{-b-\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{14-\sqrt{16}}{2} \\ 
+ &= 5\end{align*} 
+ \end{minipage} 
+ \hfil \begin{minipage}{0.45\linewidth} 
+ \begin{align*}x_2 &= \dfrac{-b+\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{14+\sqrt{16}}{2} \\ 
+ &= 9
+ \end{align*} 
+ \end{minipage} 
+ 
+ Ainsi pour tout réel $x$, $g(x)=a(x-x_1)(x-x_2)= \left(x-5\right)\left(x-9 \right)$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{4} 
+ 	 \item Pour tout réel $x$ on a :
+ \begin{align*} 
+ f(x)&=(x+2)\underbrace{(x^2-14x+45)}_{=g(x)} \\ 
+   &= (x-2) \times g(x) \\ 
+  &= (x+2) \times 1\left(x-5\right)\left(x-9 \right) \\ 
+ &= (x+2)\left(x-5\right)\left(x-9 \right)
+   \end{align*}
+ \end{enumerate} 
+ 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+\bigskip 
+ \begin{enumerate} 
+ 	 \item $-1$ est racine de $f$ si et seulement si $f(-1)=0$. On calcule : 
+ 	 	 \begin{align*}f(-1)&= 1 \times \left(-1\right)^3 +14 \times \left(-1\right)^2+53\times \left(-1\right)+40 \\ 
+ &= -1+14-53+40 \\ 
+ &= 0 
+ 	  \end{align*} 
+  $-1$ est bien racine de $f$. 
+ 	 \item On développe le membre de droite. Pour tout réel $x$, 
+ 	 \begin{align*} (x+1)(ax^2+bx+c) 
+ &= ax^3+bx^2+cx+ax^2+bx+c \\ 
+   &= ax^3 +(b+a)x^2+(c+b)x+c \\ 
+ &= x^3+14x^2+53x+40\\ 
+ &= f(x)
+ \end{align*} 
+ 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{2} 
+ 	 \item Par identification des coefficients (c'est-à-dire que les coefficients devant $x^3$ doivent être égaux, idem pour $x^2$ idem pour $x$ et la constante), on a le système suivant : 
+ 
+ \hfil $\begin{cases} 
+ a &=1 \\ 
+  b+a &=14 \\ 
+  c+b &= 53 \\ 
+  c &= 40 
+ \end{cases} 
+ \Longleftrightarrow 
+ \begin{cases} a &=1 \\ 
+ b+1&=14 \\ 
+  c+b &= 53 \\ 
+  c &= 40 
+ \end{cases} $ 
+ 
+ \hfil $ \Longleftrightarrow 
+ \begin{cases} a &=1 \\ 
+ b &=13 \\ 
+  c+13 &= 53 \\ 
+  c &= 40 
+ \end{cases} 
+  \Longleftrightarrow 
+ \begin{cases}  a &=1 \\ 
+ b &=13 \\ 
+  c &= 40 \\ 
+  c &= 40 
+ \end{cases}$ 
+ 
+ On a donc $a=1$, $b=13$ et $c=40$ d'où $f(x)=(x+1)(x^2+13x+40)$ pour tout réel $x$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{3} 
+ 	\item $g$ est une fonction polynôme du second degré. Pour trouver sa forme factorisée on déterminer ses éventuelles racines.
+ 
+ On a $a=1$, $b=13$ et $c=40$. On calcule son discriminant : \hfil $\Delta=b^2-4ac= 13^2 -4 \times 1 \times 40= 9 >0$ 
+ 
+ Ainsi $g$ admet racines réelles distinctes données par : \begin{minipage}{0.45\linewidth} 
+ \begin{align*} 
+ x_1 &= \dfrac{-b-\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{-13-\sqrt{9}}{2} \\ 
+ &= -8\end{align*} 
+ \end{minipage} 
+ \hfil \begin{minipage}{0.45\linewidth} 
+ \begin{align*}x_2 &= \dfrac{-b+\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{-13+\sqrt{9}}{2} \\ 
+ &= -5
+ \end{align*} 
+ \end{minipage} 
+ 
+ Ainsi pour tout réel $x$, $g(x)=a(x-x_1)(x-x_2)= \left(x+8\right)\left(x+5 \right)$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{4} 
+ 	 \item Pour tout réel $x$ on a :
+ \begin{align*} 
+ f(x)&=(x+1)\underbrace{(x^2+13x+40)}_{=g(x)} \\ 
+   &= (x-1) \times g(x) \\ 
+  &= (x+1) \times 1\left(x+8\right)\left(x+5 \right) \\ 
+ &= (x+1)\left(x+8\right)\left(x+5 \right)
+   \end{align*}
+ \end{enumerate} 
+ 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\bigskip 
+ \begin{enumerate} 
+ 	 \item $-2$ est racine de $f$ si et seulement si $f(-2)=0$. On calcule : 
+ 	 	 \begin{align*}f(-2)&= -3 \times \left(-2\right)^3 -21 \times \left(-2\right)^2+78\times \left(-2\right)+216 \\ 
+ &= 24-84-156+216 \\ 
+ &= 0 
+ 	  \end{align*} 
+  $-2$ est bien racine de $f$. 
+ 	 \item On développe le membre de droite. Pour tout réel $x$, 
+ 	 \begin{align*} (x+2)(ax^2+bx+c) 
+ &= ax^3+bx^2+cx+2ax^2+2bx+2c \\ 
+   &= ax^3 +(b+2a)x^2+(c+2b)x+2c \\ 
+ &= -3x^3-21x^2+78x+216\\ 
+ &= f(x)
+ \end{align*} 
+ 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{2} 
+ 	 \item Par identification des coefficients (c'est-à-dire que les coefficients devant $x^3$ doivent être égaux, idem pour $x^2$ idem pour $x$ et la constante), on a le système suivant : 
+ 
+ \hfil $\begin{cases} 
+ a &=-3 \\ 
+  b+2a &=-21 \\ 
+  c+2b &= 78 \\ 
+  2c &= 216 
+ \end{cases} 
+ \Longleftrightarrow 
+ \begin{cases} a &=-3 \\ 
+ b-6&=-21 \\ 
+  c+2b &= 78 \\ 
+  2c &= 216 
+ \end{cases} $ 
+ 
+ \hfil $ \Longleftrightarrow 
+ \begin{cases} a &=-3 \\ 
+ b &=-15 \\ 
+  c-30 &= 78 \\ 
+  2c &= 216 
+ \end{cases} 
+  \Longleftrightarrow 
+ \begin{cases}  a &=-3 \\ 
+ b &=-15 \\ 
+  c &= 108 \\ 
+  c &= 108 
+ \end{cases}$ 
+ 
+ On a donc $a=-3$, $b=-15$ et $c=108$ d'où $f(x)=(x+2)(-3x^2-15x+108)$ pour tout réel $x$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{3} 
+ 	\item $g$ est une fonction polynôme du second degré. Pour trouver sa forme factorisée on déterminer ses éventuelles racines.
+ 
+ On a $a=-3$, $b=-15$ et $c=108$. On calcule son discriminant : \hfil $\Delta=b^2-4ac= \left(-15\right)^2 -4 \times \left(-3\right) \times 108= 1521 >0$ 
+ 
+ Ainsi $g$ admet racines réelles distinctes données par : \begin{minipage}{0.45\linewidth} 
+ \begin{align*} 
+ x_1 &= \dfrac{-b-\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{15-\sqrt{1521}}{-6} \\ 
+ &= 4\end{align*} 
+ \end{minipage} 
+ \hfil \begin{minipage}{0.45\linewidth} 
+ \begin{align*}x_2 &= \dfrac{-b+\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{15+\sqrt{1521}}{-6} \\ 
+ &= -9
+ \end{align*} 
+ \end{minipage} 
+ 
+ Ainsi pour tout réel $x$, $g(x)=a(x-x_1)(x-x_2)= -3\left(x-4\right)\left(x+9 \right)$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{4} 
+ 	 \item Pour tout réel $x$ on a :
+ \begin{align*} 
+ f(x)&=(x+2)\underbrace{(-3x^2-15x+108)}_{=g(x)} \\ 
+   &= (x-2) \times g(x) \\ 
+  &= (x+2) \times \left(-3\right)\left(x-4\right)\left(x+9 \right) \\ 
+ &= -3(x+2)\left(x-4\right)\left(x+9 \right)
+   \end{align*}
+ \end{enumerate} 
+ 
+ \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\bigskip 
+ \begin{enumerate} 
+ 	 \item $1$ est racine de $f$ si et seulement si $f(1)=0$. On calcule : 
+ 	 	 \begin{align*}f(1)&= 3 \times 1^3 -33 \times 1^2+93\times 1-63 \\ 
+ &= 3-33+93-63 \\ 
+ &= 0 
+ 	  \end{align*} 
+  $1$ est bien racine de $f$. 
+ 	 \item On développe le membre de droite. Pour tout réel $x$, 
+ 	 \begin{align*} (x-1)(ax^2+bx+c) 
+ &= ax^3+bx^2+cx-ax^2-bx-c \\ 
+   &= ax^3 +(b-a)x^2+(c-b)x-c \\ 
+ &= 3x^3-33x^2+93x-63\\ 
+ &= f(x)
+ \end{align*} 
+ 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{2} 
+ 	 \item Par identification des coefficients (c'est-à-dire que les coefficients devant $x^3$ doivent être égaux, idem pour $x^2$ idem pour $x$ et la constante), on a le système suivant : 
+ 
+ \hfil $\begin{cases} 
+ a &=3 \\ 
+  b-a &=-33 \\ 
+  c-b &= 93 \\ 
+  -c &= -63 
+ \end{cases} 
+ \Longleftrightarrow 
+ \begin{cases} a &=3 \\ 
+ b-3&=-33 \\ 
+  c-b &= 93 \\ 
+  -c &= -63 
+ \end{cases} $ 
+ 
+ \hfil $ \Longleftrightarrow 
+ \begin{cases} a &=3 \\ 
+ b &=-30 \\ 
+  c+30 &= 93 \\ 
+  -c &= -63 
+ \end{cases} 
+  \Longleftrightarrow 
+ \begin{cases}  a &=3 \\ 
+ b &=-30 \\ 
+  c &= 63 \\ 
+  c &= 63 
+ \end{cases}$ 
+ 
+ On a donc $a=3$, $b=-30$ et $c=63$ d'où $f(x)=(x-1)(3x^2-30x+63)$ pour tout réel $x$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{3} 
+ 	\item $g$ est une fonction polynôme du second degré. Pour trouver sa forme factorisée on déterminer ses éventuelles racines.
+ 
+ On a $a=3$, $b=-30$ et $c=63$. On calcule son discriminant : \hfil $\Delta=b^2-4ac= \left(-30\right)^2 -4 \times 3 \times 63= 144 >0$ 
+ 
+ Ainsi $g$ admet racines réelles distinctes données par : \begin{minipage}{0.45\linewidth} 
+ \begin{align*} 
+ x_1 &= \dfrac{-b-\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{30-\sqrt{144}}{6} \\ 
+ &= 3\end{align*} 
+ \end{minipage} 
+ \hfil \begin{minipage}{0.45\linewidth} 
+ \begin{align*}x_2 &= \dfrac{-b+\sqrt{\Delta}}{2a} \\ 
+ &= \dfrac{30+\sqrt{144}}{6} \\ 
+ &= 7
+ \end{align*} 
+ \end{minipage} 
+ 
+ Ainsi pour tout réel $x$, $g(x)=a(x-x_1)(x-x_2)= 3\left(x-3\right)\left(x-7 \right)$. 
+ \end{enumerate}
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} 
+ \setcounter{enumi}{4} 
+ 	 \item Pour tout réel $x$ on a :
+ \begin{align*} 
+ f(x)&=(x-1)\underbrace{(3x^2-30x+63)}_{=g(x)} \\ 
+   &= (x+1) \times g(x) \\ 
+  &= (x-1) \times 3\left(x-3\right)\left(x-7 \right) \\ 
+ &= 3(x-1)\left(x-3\right)\left(x-7 \right)
+   \end{align*}
+ \end{enumerate} 
+ 
+ \end{frame}
+
+
+
+
+\end{document}

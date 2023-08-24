@@ -1,0 +1,277 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = 2u_n+30\\ u_0 = -17\end{cases}.\]
+
+Démontrer par récurrence que la suite $(u_n)_{n\in\mathbb{N}}$ est  croissante .\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = 6u_n+15\\ u_0 = 13\end{cases}.\]
+
+Démontrer par récurrence que la suite $(u_n)_{n\in\mathbb{N}}$ est  croissante .\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = 5u_n+25\\ u_0 = -17\end{cases}.\]
+
+Démontrer par récurrence que la suite $(u_n)_{n\in\mathbb{N}}$ est  croissante .\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = 10u_n+37\\ u_0 = -3\end{cases}.\]
+
+Démontrer par récurrence que la suite $(u_n)_{n\in\mathbb{N}}$ est  croissante .\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = 6u_n+39\\ u_0 = -15\end{cases}.\]
+
+Démontrer par récurrence que la suite $(u_n)_{n\in\mathbb{N}}$ est  croissante .\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+\vspace{6.5mm}
+
+On rappelle que $\begin{cases} u_{n+1} = 2u_n+30\\ u_0 = -17\end{cases}$.
+
+\medskip
+
+ On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"u_n  \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =-17$ et $u_1 = 2u_0+30= 2\times\left(-17\right)+30=-4$.
+
+ Comme $-17 \leq -4$, on a bien $u_0  \leq u_{0+1}$ et $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k  \leq u_{k+1}$ alors $u_{k+1}  \leq u_{k+2}$.Or \begin{align*} u_k  \leq u_{k+1} &\Rightarrow 2u_k \leq 2u_{k+1}\quad \text{car } 2>0\\
+	 &\Rightarrow2u_k+30 \leq 2u_{k+1}+30\\
+	 &\Rightarrow u_{k+1}  \leq u_{k+2}
+\end{align*}
+
+Donc $H_{k} \Rightarrow H_{k+1}$. On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et la suite est donc croissante.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+\vspace{6.5mm}
+
+On rappelle que $\begin{cases} u_{n+1} = 6u_n+15\\ u_0 = 13\end{cases}$.
+
+\medskip
+
+ On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"u_n  \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =13$ et $u_1 = 6u_0+15= 6\times13+15=93$.
+
+ Comme $13 \leq 93$, on a bien $u_0  \leq u_{0+1}$ et $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k  \leq u_{k+1}$ alors $u_{k+1}  \leq u_{k+2}$.Or \begin{align*} u_k  \leq u_{k+1} &\Rightarrow 6u_k \leq 6u_{k+1}\quad \text{car } 6>0\\
+	 &\Rightarrow6u_k+15 \leq 6u_{k+1}+15\\
+	 &\Rightarrow u_{k+1}  \leq u_{k+2}
+\end{align*}
+
+Donc $H_{k} \Rightarrow H_{k+1}$. On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et la suite est donc croissante.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+\vspace{6.5mm}
+
+On rappelle que $\begin{cases} u_{n+1} = 5u_n+25\\ u_0 = -17\end{cases}$.
+
+\medskip
+
+ On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"u_n  \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =-17$ et $u_1 = 5u_0+25= 5\times\left(-17\right)+25=-60$.
+
+ Comme $-17 \leq -60$, on a bien $u_0  \leq u_{0+1}$ et $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k  \leq u_{k+1}$ alors $u_{k+1}  \leq u_{k+2}$.Or \begin{align*} u_k  \leq u_{k+1} &\Rightarrow 5u_k \leq 5u_{k+1}\quad \text{car } 5>0\\
+	 &\Rightarrow5u_k+25 \leq 5u_{k+1}+25\\
+	 &\Rightarrow u_{k+1}  \leq u_{k+2}
+\end{align*}
+
+Donc $H_{k} \Rightarrow H_{k+1}$. On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et la suite est donc croissante.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+\vspace{6.5mm}
+
+On rappelle que $\begin{cases} u_{n+1} = 10u_n+37\\ u_0 = -3\end{cases}$.
+
+\medskip
+
+ On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"u_n  \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =-3$ et $u_1 = 10u_0+37= 10\times\left(-3\right)+37=7$.
+
+ Comme $-3 \leq 7$, on a bien $u_0  \leq u_{0+1}$ et $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k  \leq u_{k+1}$ alors $u_{k+1}  \leq u_{k+2}$.Or \begin{align*} u_k  \leq u_{k+1} &\Rightarrow 10u_k \leq 10u_{k+1}\quad \text{car } 10>0\\
+	 &\Rightarrow10u_k+37 \leq 10u_{k+1}+37\\
+	 &\Rightarrow u_{k+1}  \leq u_{k+2}
+\end{align*}
+
+Donc $H_{k} \Rightarrow H_{k+1}$. On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et la suite est donc croissante.\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+\vspace{6.5mm}
+
+On rappelle que $\begin{cases} u_{n+1} = 6u_n+39\\ u_0 = -15\end{cases}$.
+
+\medskip
+
+ On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"u_n  \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =-15$ et $u_1 = 6u_0+39= 6\times\left(-15\right)+39=-51$.
+
+ Comme $-15 \leq -51$, on a bien $u_0  \leq u_{0+1}$ et $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k  \leq u_{k+1}$ alors $u_{k+1}  \leq u_{k+2}$.Or \begin{align*} u_k  \leq u_{k+1} &\Rightarrow 6u_k \leq 6u_{k+1}\quad \text{car } 6>0\\
+	 &\Rightarrow6u_k+39 \leq 6u_{k+1}+39\\
+	 &\Rightarrow u_{k+1}  \leq u_{k+2}
+\end{align*}
+
+Donc $H_{k} \Rightarrow H_{k+1}$. On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et la suite est donc croissante.\end{frame}
+
+
+
+
+\end{document}

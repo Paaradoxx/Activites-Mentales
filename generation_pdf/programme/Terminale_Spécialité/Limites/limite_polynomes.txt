@@ -1,0 +1,116 @@
+degres = [i for i in range(21)]
+nbr_monome = randint(3, 7)
+liste_monome = sample(degres, nbr_monome)
+coeff_monome = []
+for i in liste_monome:
+    coef = randint(-10, 10)
+    while coef == 0:
+        coef = randint(-10, 10)
+    coeff_monome.append(coef)
+limite = randint(0, 1)
+if limite == 0:
+    limite = "+"
+else:
+    limite = "-"
+indice_max = 0
+for i in range(1, len(liste_monome)):
+    if liste_monome[i] > liste_monome[indice_max]:
+        indice_max = i
+self.frame_init()
+self.add("Déterminer la limite en $" + limite + "\\infty$ de la fonction $f$ d'expression \\[f(x)=", False)
+if liste_monome[0] == 0:
+    self.add_nombre(coeff_monome[0], False)
+elif liste_monome[0] == 1:
+    self.add_coef(coeff_monome[0], False)
+    self.add("x", False)
+else:
+    self.add_coef(coeff_monome[0], False)
+    self.add("x^{", False)
+    self.add_nombre(liste_monome[0], False)
+    self.add("}", False)
+for i in range(1, len(liste_monome)):
+    if liste_monome[i] == 0:
+        self.add_nombre_somme(coeff_monome[i], False)
+    elif liste_monome[i] == 1:
+        self.add_coef_somme(coeff_monome[i], False)
+        self.add("x", False)
+    else:
+        self.add_coef_somme(coeff_monome[i], False)
+        self.add("x^{", False)
+        self.add_nombre(liste_monome[i], False)
+        self.add("}", False)
+self.add(".\\]", False)
+
+
+
+self.add("On cherche à déterminer la limite en $" + limite + "\\infty$ de la fonction $f$ d'expression \n\n\\hfil $f(x)=")
+if liste_monome[0] == 0:
+    self.add_nombre(coeff_monome[0])
+elif liste_monome[0] == 1:
+    self.add_coef(coeff_monome[0])
+    self.add("x")
+else:
+    self.add_coef(coeff_monome[0])
+    self.add("x^{")
+    self.add_nombre(liste_monome[0])
+    self.add("}")
+for i in range(1, len(liste_monome)):
+    if liste_monome[i] == 0:
+        self.add_nombre_somme(coeff_monome[i])
+    elif liste_monome[i] == 1:
+        self.add_coef_somme(coeff_monome[i])
+        self.add("x")
+    else:
+        self.add_coef_somme(coeff_monome[i])
+        self.add("x^{")
+        self.add_nombre(liste_monome[i])
+        self.add("}")
+self.add(".$\n\n\n")
+
+self.add("D'après la règle des monomes de plus haut degré, \\[ \\lim_{x \\rightarrow " + limite + "\\infty} f(x) = \\lim_{x \\rightarrow " + limite + "\\infty}")
+self.add_coef(coeff_monome[indice_max])
+self.add("x^{")
+self.add_nombre(liste_monome[indice_max])
+self.add("}.\\]")
+if limite == "+":
+    self.add("Or $\\displaystyle\\lim_{x \\rightarrow " + limite + "\\infty}")
+    self.add("x^{")
+    self.add_nombre(liste_monome[indice_max])
+    self.add("} = +\\infty$,")
+else:
+    self.add("Or comme " + str(liste_monome[indice_max]) + " est une puissance ")
+    if liste_monome[indice_max] % 2 == 0:
+        self.add("paire ")
+    else:
+        self.add("impaire ")
+    self.add("$\\displaystyle\\lim_{x \\rightarrow " + limite + "\\infty}")
+    self.add("x^{")
+    self.add_nombre(liste_monome[indice_max])
+    if liste_monome[indice_max] % 2 == 0:
+        self.add("} = +\\infty$,")
+    else:
+        self.add("} = -\\infty$,")
+self.add(" on a finalement \\[ \\lim_{x \\rightarrow " + limite + "\\infty} f(x) = \\lim_{x \\rightarrow " + limite + "\\infty}")
+self.add_coef(coeff_monome[indice_max])
+self.add("x^{")
+self.add_nombre(liste_monome[indice_max])
+self.add("} = ")
+if limite == "+":
+    if coeff_monome[indice_max] > 0:
+        self.add("+")
+    else:
+        self.add("-")
+else:
+    if coeff_monome[indice_max] > 0:
+        if liste_monome[indice_max] % 2 == 0:
+            self.add("+")
+        else:
+            self.add("-")
+    else:
+        if liste_monome[indice_max] % 2 == 0:
+            self.add("-")
+        else:
+            self.add("+")
+self.add("\\infty.\\]")
+
+self.frame_end()

@@ -1,0 +1,460 @@
+xm = randint(-10, 10)
+ym = randint(-10, 10)
+zm = randint(-10, 10)
+
+a = randint(-10, 10)
+b = randint(-10, 10)
+c = randint(-10, 10)
+d = randint(-10, 10)
+    
+while a == 0 and b == 0 and c == 0:
+    a = randint(-10, 10)
+    b = randint(-10, 10)
+    c = randint(-10, 10)
+    d = randint(-10, 10)
+    
+self.frame_init()
+self.add("On considère le plan $\\mathcal{P}:~ ", False)
+if a != 0:
+    self.add_coef(a, False)
+    self.add("x", False)
+if b != 0 and a != 0:
+    self.add_coef_somme(b, False)
+    self.add("y", False)
+elif b != 0 and a == 0:
+    self.add_coef(b, False)
+    self.add("y", False)
+if c != 0 and (a != 0 or b != 0):
+    self.add_coef_somme(c, False)
+    self.add("z", False)   
+elif c != 0 and (a == 0 or b == 0):    
+    self.add_coef(c, False)
+    self.add("z", False) 
+self.add_nombre_somme(d, False)
+self.add("= 0$ et le point $M (", False)
+self.add_nombre(xm, False)
+self.add("~;~", False)
+self.add_nombre(ym, False)
+self.add("~;~", False)        
+self.add_nombre(zm, False)
+self.add(")$.\n\n\\medskip\n\n\tDéterminer les coordonnées du projeté orthogonal $H$ de $M$ sur $\\mathcal{P}$.", False)
+
+self.add("On a $\\mathcal{P}:~ ")
+if a != 0:
+    self.add_coef(a)
+    self.add("x")
+if b != 0 and a != 0:
+    self.add_coef_somme(b)
+    self.add("y")
+elif b != 0 and a == 0:
+    self.add_coef(b)
+    self.add("y")
+if c != 0 and (a != 0 or b != 0):
+    self.add_coef_somme(c)
+    self.add("z")   
+elif c != 0 and (a == 0 or b == 0):    
+    self.add_coef(c)
+    self.add("z") 
+self.add_nombre_somme(d)
+self.add("= 0$ et le point $M (")
+self.add_nombre(xm)
+self.add("~;~")
+self.add_nombre(ym)
+self.add("~;~")        
+self.add_nombre(zm)
+self.add(")$.\n\n\\medskip\n\nVérifions que $M \\notin \\mathcal{P}$: $")
+if a != 0:
+    if a == 1:
+        self.add_nombre(xm)
+    elif a == -1:
+        self.add_nombre(-xm)
+    else:
+        self.add_nombre_produit(a)
+        self.add("\\times")
+        self.add_nombre_produit(xm)
+if b != 0 and a != 0:
+    if  b == 1:
+        self.add_nombre_somme(ym)
+    elif b == -1:
+        self.add_nombre_somme(-ym)
+    else:
+        self.add("+")
+        self.add_nombre_produit(b)
+        self.add("\\times")
+        self.add_nombre_produit(ym)
+elif b!=0 and a == 0:
+    if  b == 1:
+        self.add_nombre(ym)
+    elif b == -1:
+        self.add_nombre(-ym)
+    else:
+        self.add_nombre_produit(b)
+        self.add("\\times")
+        self.add_nombre_produit(ym)  
+
+if c!=0 and (a != 0 or b != 0):
+    if  c == 1:
+        self.add_nombre_somme(zm)
+    elif c == -1:
+        self.add_nombre_somme(-zm)
+    else:
+        self.add("+")
+        self.add_nombre_produit(c)
+        self.add("\\times")
+        self.add_nombre_produit(zm)
+elif c!=0 and (a == 0 or b == 0):
+    if  c == 1:
+        self.add_nombre(zm)
+    elif c == -1:
+        self.add_nombre(-zm)
+    else:
+        self.add_nombre_produit(c)
+        self.add("\\times")
+        self.add_nombre_produit(zm)
+
+self.add_nombre_somme(d)
+self.add("=")
+self.add_nombre(a*xm+b*ym+c*zm+d)
+if a*xm+b*ym+c*zm+d == 0:
+    self.add("$. \n\n Donc $M \\in \\mathcal{P}$ et $M$ est son propre projeté orthogonal.")
+else:
+    self.add("\\neq 0$. Donc $M \\notin \\mathcal{P}$.\n\nUn vecteur normal de $\\mathcal{P}$ est $\\vv{n}\\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix} = \\begin{pmatrix}")
+    self.add_nombre(a)
+    self.add("\\\\")
+    self.add_nombre(b)
+    self.add("\\\\")
+    self.add_nombre(c)
+    self.add("\\end{pmatrix}$ et une représentation paramétrique de la droite $d$ de vecteur directeur $\\vv{n}$ passant par $M$ est de la forme: \\[\\begin{cases} x = x_M + tx_{\\vv{n}}\\\\ y = y_M + ty_{\\vv{n}} \\\\ z = z_M + tz_{\\vv{n}} \\end{cases}, t\\in\\mathbb{R} \\quad \\Rightarrow \\quad \\begin{cases} x =")
+    if xm != 0:
+        self.add_nombre(xm)
+    if a != 0:
+        self.add_coef_somme(a)
+        self.add("t")
+    self.add(" \\\\ y = ")
+    if ym != 0:
+        self.add_nombre(ym)
+    if b != 0:
+        self.add_coef_somme(b)
+        self.add("t")
+    self.add(" \\\\ z = ")
+    if zm != 0:
+        self.add_nombre(zm)
+    if c != 0:
+        self.add_coef_somme(c)
+        self.add("t")
+    self.add("\\end{cases}, t \\in \\mathbb{R}.\\]\n\\end{frame}\n\n\\begin{frame}")
+    
+    self.add("On cherche maintenant l'intersection entre $d$ et $\\mathcal{P}$.\n\nSoit $M_t \\in d$, on a: \n\\begin{align*}\n\t M_t \\in \\mathcal{P} &\\Leftrightarrow ")
+    if a != 0:
+        self.add_coef(a)
+        self.add("x_{M_t}")
+        if b != 0:
+            self.add_coef_somme(b)
+            self.add("y_{M_t}")
+        if c!=0:
+            self.add_coef_somme(c)
+            self.add("z_{M_t}")
+    else:
+        if b != 0:
+            self.add_coef(b)
+            self.add("y_{M_t}")
+            if c!=0:
+                self.add_coef_somme(c)
+                self.add("z_{M_t}")
+        else:
+            self.add_coef(c)
+            self.add("z_{M_t}")
+    self.add_nombre_somme(d)
+    self.add("= 0\\\\\n\t&\\Leftrightarrow ")
+    if a != 0:
+        if a == 1:
+            if xm != 0:
+                self.add_nombre(xm)
+                self.add_coef_somme(a)
+            else:
+                self.add_coef(a)
+            self.add("t")
+        elif a == -1:
+            self.add("-(")
+            if xm != 0:
+                self.add_nombre(xm)
+                self.add_coef_somme(a)
+            else:
+                self.add_coef(a)
+            self.add("t)")
+        else:
+            self.add_nombre(a)
+            self.add("(")
+            if xm != 0:
+                self.add_nombre(xm)
+                self.add_coef_somme(a)
+            else:
+                self.add_coef(a)
+            self.add("t)")
+            
+        if b != 0:
+            if b == 1:
+                if ym != 0:
+                    self.add_nombre_somme(ym)
+                    self.add_coef_somme(b)
+                else:
+                    self.add_coef(b)
+                self.add("t")
+            elif b == -1:
+                self.add("-(")
+                if ym != 0:
+                    self.add_nombre(ym)
+                    self.add_coef_somme(b)
+                else:
+                    self.add_coef(b)
+                self.add("t)")
+            else:
+                self.add_nombre_somme(b)
+                self.add("(")
+                if ym != 0:
+                    self.add_nombre(ym)
+                    self.add_coef_somme(b)
+                else:
+                    self.add_coef(b)
+                self.add("t)")
+        if c != 0:
+            if c == 1:
+                if zm != 0:
+                    self.add_nombre_somme(zm)
+                    self.add_coef_somme(c)
+                else:
+                    self.add_coef(c)
+                self.add("t")
+            elif c == -1:
+                self.add("-(")
+                if zm != 0:
+                    self.add_nombre(zm)
+                    self.add_coef_somme(c)
+                else:
+                    self.add_coef(c)
+                self.add("t)")
+            else:
+                self.add_nombre_somme(c)
+                self.add("(")
+                if zm != 0:
+                    self.add_nombre(zm)
+                    self.add_coef_somme(c)
+                else:
+                    self.add_coef(c)
+                self.add("t)")
+    else:
+        if b != 0:
+            if b == 1:
+                if ym != 0:
+                    self.add_nombre(ym)
+                    self.add_coef_somme(b)
+                else:
+                    self.add_coef(b)
+                self.add("t")
+            elif b == -1:
+                self.add("-(")
+                if ym != 0:
+                    self.add_nombre(ym)
+                    self.add_coef_somme(b)
+                else:
+                    self.add_coef(b)
+                self.add("t)")
+            else:
+                self.add_nombre(b)
+                self.add("(")
+                if ym != 0:
+                    self.add_nombre(ym)
+                self.add_coef_somme(b)
+                self.add("t)")
+            if c != 0:
+                if c == 1:
+                    if zm != 0:
+                        self.add_nombre_somme(zm)
+                        self.add_coef_somme(c)
+                    else:
+                        self.add_coef(c)
+                    self.add("t")
+                elif c == -1:
+                    self.add("-(")
+                    if zm != 0:
+                        self.add_nombre(zm)
+                        self.add_coef_somme(c)
+                    else:
+                        self.add_coef(c)
+                    self.add("t)")
+                else:
+                    self.add_nombre_somme(c)
+                    self.add("(")
+                    if zm != 0:
+                        self.add_nombre(zm)
+                        self.add_coef_somme(c)
+                    else:
+                        self.add_coef(c)
+                    self.add("t)")
+        else:
+            if c != 0:
+                if c == 1:
+                    if zm != 0:
+                        self.add_nombre_somme(zm)
+                        self.add_coef_somme(c)
+                    else:
+                        self.add_coef(c)
+                    self.add("t")
+                elif c == -1:
+                    self.add("-(")
+                    if zm != 0:
+                        self.add_nombre(zm)
+                        self.add_coef_somme(c)
+                    else:
+                        self.add_coef(c)
+                    self.add("t)")
+                else:
+                    self.add_nombre(c)
+                    self.add("(")
+                    if zm != 0:
+                        self.add_nombre(zm)
+                        self.add_coef_somme(c)
+                    else:
+                        self.add_coef(c)
+                    self.add("t)")
+    self.add_nombre_somme(d)
+    self.add("= 0\\\\\n\t&\\Leftrightarrow ")
+    if a != 0:
+        if xm != 0:
+            self.add_nombre(a*xm)
+        self.add_coef_somme(a*a)
+        self.add("t")
+        if b != 0:
+            if ym != 0:
+                self.add_nombre_somme(b*ym)
+            self.add_coef_somme(b*b)
+            self.add("t")
+        if c!=0:
+            if zm != 0:
+                self.add_nombre_somme(c*zm)
+            self.add_coef_somme(c*c)
+            self.add("t")
+    else:
+        if b != 0:
+            if ym != 0:
+                self.add_nombre(b*ym)
+            self.add_coef_somme(b*b)
+            self.add("t")
+            if c!=0:
+                if zm != 0:
+                    self.add_nombre_somme(c*zm)
+                self.add_coef_somme(c*c)
+                self.add("t")
+        else:
+            if c!=0:
+                if zm != 0:
+                    self.add_nombre(c*zm)
+                self.add_coef_somme(c*c)
+                self.add("t")
+    self.add_nombre_somme(d)
+    self.add("= 0\\\\\n\t&\\Leftrightarrow ")
+    self.add_nombre(a*xm+b*ym+c*zm+d)
+    self.add_coef_somme(a**2+b**2+c**2)
+    self.add("t = 0 \\\\\n\t&\\Leftrightarrow t = ")
+    resultat = Fraction(-(a*xm+b*ym+c*zm+d), a**2+b**2+c**2)
+    self.add_frac(resultat)
+    self.add("\n\\end{align*}\n\nFinalement le projeté orthogonal de $M (")
+    self.add_nombre(xm)
+    self.add("~;~")
+    self.add_nombre(ym)
+    self.add("~;~")        
+    self.add_nombre(zm)
+    self.add(")$ sur $\\mathcal{P}:~ ")
+    if a != 0:
+        self.add_coef(a)
+        self.add("x")
+    if b != 0 and a != 0:
+        self.add_coef_somme(b)
+        self.add("y")
+    elif b != 0 and a == 0:
+        self.add_coef(b)
+        self.add("y")
+    if c != 0 and (a != 0 or b != 0):
+        self.add_coef_somme(c)
+        self.add("z")   
+    elif c != 0 and (a == 0 or b == 0):    
+        self.add_coef(c)
+        self.add("z") 
+    self.add_nombre_somme(d)
+    self.add("= 0$ est le point \\[M\\left(")
+    if xm != 0:
+        self.add_nombre(xm)
+        if a != 0:
+            if a == 1:
+                self.add_frac_somme(resultat)
+            elif a == -1:
+                self.add_frac_somme(-resultat)
+            else:
+                self.add("+")
+                self.add_nombre_produit(a)
+                self.add("\\times")
+                self.add_frac(resultat)
+    else:
+        if a != 0:
+            if a == 1:
+                self.add_frac(resultat)
+            elif a == -1:
+                self.add_frac(-resultat)
+            else:
+                self.add_nombre_produit(a)
+                self.add("\\times")
+                self.add_frac(resultat)
+    self.add("~;~")
+    if ym != 0:
+        self.add_nombre(ym)
+        if b != 0:
+            if b == 1:
+                self.add_frac_somme(resultat)
+            elif b == -1:
+                self.add_frac_somme(-resultat)
+            else:
+                self.add("+")
+                self.add_nombre_produit(b)
+                self.add("\\times")
+                self.add_frac(resultat)
+    else:
+        if b != 0:
+            if b == 1:
+                self.add_frac(resultat)
+            elif b == -1:
+                self.add_frac(-resultat)
+            else:
+                self.add_nombre_produit(b)
+                self.add("\\times")
+                self.add_frac(resultat)
+    self.add("~;~")
+    if zm != 0:
+        self.add_nombre(zm)
+        if c != 0:
+            if c == 1:
+                self.add_frac_somme(resultat)
+            elif c == -1:
+                self.add_frac_somme(-resultat)
+            else:
+                self.add("+")
+                self.add_nombre_produit(c)
+                self.add("\\times")
+                self.add_frac(resultat)
+    else:
+        if c != 0:
+            if c == 1:
+                self.add_frac(resultat)
+            elif c == -1:
+                self.add_frac(-resultat)
+            else:
+                self.add_nombre_produit(c)
+                self.add("\\times")
+                self.add_frac(resultat)
+    self.add("\\right) = \\left(")
+    self.add_frac(xm+a*resultat)
+    self.add("~;~")
+    self.add_frac(ym+b*resultat)
+    self.add("~;~")
+    self.add_frac(zm+c*resultat)
+    self.add("\\right).\\]")
+self.frame_end()

@@ -1,0 +1,557 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = -0.16u_n^2+1.16u_n\\[1em] u_0 = 0.54\end{cases}.\]
+
+On pose pour tout $x \in [0;1], f(x) = -0.16x^2+1.16x$.
+
+\begin{enumerate}
+	\item Étudier les variations de $f$ sur $[0;1]$.
+	\item Démontrer que pour tout $n \in \mathbb{N}, ~0 \leq u_n \leq 1$.
+	\item Démontrer que $(u_n)_{n\in\mathbb{N}}$ est décroissante.
+	\item En déduire finalement que $(u_n)_{n\in\mathbb{N}}$ est une suite convergente.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = -0.32u_n^2+1.32u_n\\[1em] u_0 = 0.69\end{cases}.\]
+
+On pose pour tout $x \in [0;1], f(x) = -0.32x^2+1.32x$.
+
+\begin{enumerate}
+	\item Étudier les variations de $f$ sur $[0;1]$.
+	\item Démontrer que pour tout $n \in \mathbb{N}, ~0 \leq u_n \leq 1$.
+	\item Démontrer que $(u_n)_{n\in\mathbb{N}}$ est décroissante.
+	\item En déduire finalement que $(u_n)_{n\in\mathbb{N}}$ est une suite convergente.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = -0.73u_n^2+1.73u_n\\[1em] u_0 = 0.52\end{cases}.\]
+
+On pose pour tout $x \in [0;1], f(x) = -0.73x^2+1.73x$.
+
+\begin{enumerate}
+	\item Étudier les variations de $f$ sur $[0;1]$.
+	\item Démontrer que pour tout $n \in \mathbb{N}, ~0 \leq u_n \leq 1$.
+	\item Démontrer que $(u_n)_{n\in\mathbb{N}}$ est décroissante.
+	\item En déduire finalement que $(u_n)_{n\in\mathbb{N}}$ est une suite convergente.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = u_n^2u_n\\[1em] u_0 = 0.21\end{cases}.\]
+
+On pose pour tout $x \in [0;1], f(x) = x^2x$.
+
+\begin{enumerate}
+	\item Étudier les variations de $f$ sur $[0;1]$.
+	\item Démontrer que pour tout $n \in \mathbb{N}, ~0 \leq u_n \leq 1$.
+	\item Démontrer que $(u_n)_{n\in\mathbb{N}}$ est croissante.
+	\item En déduire finalement que $(u_n)_{n\in\mathbb{N}}$ est une suite convergente.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie par la relation de récurrence suivante:\[\begin{cases} u_{n+1} = 0.21u_n^2+0.79u_n\\[1em] u_0 = 0.5\end{cases}.\]
+
+On pose pour tout $x \in [0;1], f(x) = 0.21x^2+0.79x$.
+
+\begin{enumerate}
+	\item Étudier les variations de $f$ sur $[0;1]$.
+	\item Démontrer que pour tout $n \in \mathbb{N}, ~0 \leq u_n \leq 1$.
+	\item Démontrer que $(u_n)_{n\in\mathbb{N}}$ est croissante.
+	\item En déduire finalement que $(u_n)_{n\in\mathbb{N}}$ est une suite convergente.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+On a $\begin{cases} u_{n+1} = -0.16u_n^2+1.16u_n\\[1em] u_0 = 0.54\end{cases}$ et $f(x) = -0.16x^2+1.16x$.
+
+\begin{enumerate}
+	\item $f$ est une fonction définie et dérivable sur $[0;1]$. On a \[\forall x \in [0;1], ~ f'(x) = -0.32x+1.16\]
+
+ Or $f'(x) \geq 0$ sur $[0;1]$ (étude du signe à réaliser). 
+
+La fonction $f$ est donc croissante sur $[0;1]$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = -0.16u_n^2+1.16u_n\\[1em] u_0 = 0.54\end{cases}$ et $f(x) = -0.16x^2+1.16x$.
+
+\begin{enumerate}\setcounter{enumi}{1}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"0 \leq u_n \leq 1"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.54 \in [0;1]$, donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $0 \leq u_k \leq 1$ alors $0 \leq u_{k+1} \leq 1$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$, on a \[0\leq u_k \leq 1 \quad \Rightarrow \quad f(0) \leq f(u_k) \leq f(1).\]
+
+ Or $f(0) = 0$, $f(1) = -0.16\times 1^2+1.16= 1$ et $f(u_k) = u_{k+1}$.
+
+ Finalement $0\leq u_k \leq 1 \Rightarrow 0 \leq u_{k+1} \leq 1$. Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ 0 \leq u_n \leq 1$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = -0.16u_n^2+1.16u_n\\[1em] u_0 = 0.54\end{cases}$ et $f(x) = -0.16x^2+1.16x$.
+
+\begin{enumerate}\setcounter{enumi}{2}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~" u_n \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.54$ et $u_1 = -0.16\times0.54^2+1.16\times0.54 = 0.5797439999999999\geq 0.54$ , donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k \leq  u_{k+1}$ alors $u_{k+1} \leq  u_{k+2}$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$ et puisque les termes en jeu sont dans $[0;1]$, on a \[ u_k \leq u_{k+1} \quad \Rightarrow \quad f(u_k) \leq  f(u_{k+1}) \quad \Rightarrow \quad  u_{k+1}\leq u_{k+2}. \]
+
+Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et donc $(u_n)_{n\in\mathbb{N}}$ est  croissante .
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{enumerate}\setcounter{enumi}{3}
+
+	\item D'après les questions $3)$ et $2)$ , $(u_n)_{n\in\mathbb{N}}$ est croissante et majorée. Donc d'après le théorème de convergence monotone, $(u_n)_{n\in\mathbb{N}}$ converge.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+On a $\begin{cases} u_{n+1} = -0.32u_n^2+1.32u_n\\[1em] u_0 = 0.69\end{cases}$ et $f(x) = -0.32x^2+1.32x$.
+
+\begin{enumerate}
+	\item $f$ est une fonction définie et dérivable sur $[0;1]$. On a \[\forall x \in [0;1], ~ f'(x) = -0.64x+1.32\]
+
+ Or $f'(x) \geq 0$ sur $[0;1]$ (étude du signe à réaliser). 
+
+La fonction $f$ est donc croissante sur $[0;1]$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = -0.32u_n^2+1.32u_n\\[1em] u_0 = 0.69\end{cases}$ et $f(x) = -0.32x^2+1.32x$.
+
+\begin{enumerate}\setcounter{enumi}{1}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"0 \leq u_n \leq 1"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.69 \in [0;1]$, donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $0 \leq u_k \leq 1$ alors $0 \leq u_{k+1} \leq 1$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$, on a \[0\leq u_k \leq 1 \quad \Rightarrow \quad f(0) \leq f(u_k) \leq f(1).\]
+
+ Or $f(0) = 0$, $f(1) = -0.32\times 1^2+1.32= 1$ et $f(u_k) = u_{k+1}$.
+
+ Finalement $0\leq u_k \leq 1 \Rightarrow 0 \leq u_{k+1} \leq 1$. Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ 0 \leq u_n \leq 1$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = -0.32u_n^2+1.32u_n\\[1em] u_0 = 0.69\end{cases}$ et $f(x) = -0.32x^2+1.32x$.
+
+\begin{enumerate}\setcounter{enumi}{2}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~" u_n \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.69$ et $u_1 = -0.32\times0.69^2+1.32\times0.69 = 0.758448\geq 0.69$ , donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k \leq  u_{k+1}$ alors $u_{k+1} \leq  u_{k+2}$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$ et puisque les termes en jeu sont dans $[0;1]$, on a \[ u_k \leq u_{k+1} \quad \Rightarrow \quad f(u_k) \leq  f(u_{k+1}) \quad \Rightarrow \quad  u_{k+1}\leq u_{k+2}. \]
+
+Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et donc $(u_n)_{n\in\mathbb{N}}$ est  croissante .
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{enumerate}\setcounter{enumi}{3}
+
+	\item D'après les questions $3)$ et $2)$ , $(u_n)_{n\in\mathbb{N}}$ est croissante et majorée. Donc d'après le théorème de convergence monotone, $(u_n)_{n\in\mathbb{N}}$ converge.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+On a $\begin{cases} u_{n+1} = -0.73u_n^2+1.73u_n\\[1em] u_0 = 0.52\end{cases}$ et $f(x) = -0.73x^2+1.73x$.
+
+\begin{enumerate}
+	\item $f$ est une fonction définie et dérivable sur $[0;1]$. On a \[\forall x \in [0;1], ~ f'(x) = -1.46x+1.73\]
+
+ Or $f'(x) \geq 0$ sur $[0;1]$ (étude du signe à réaliser). 
+
+La fonction $f$ est donc croissante sur $[0;1]$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = -0.73u_n^2+1.73u_n\\[1em] u_0 = 0.52\end{cases}$ et $f(x) = -0.73x^2+1.73x$.
+
+\begin{enumerate}\setcounter{enumi}{1}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"0 \leq u_n \leq 1"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.52 \in [0;1]$, donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $0 \leq u_k \leq 1$ alors $0 \leq u_{k+1} \leq 1$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$, on a \[0\leq u_k \leq 1 \quad \Rightarrow \quad f(0) \leq f(u_k) \leq f(1).\]
+
+ Or $f(0) = 0$, $f(1) = -0.73\times 1^2+1.73= 1$ et $f(u_k) = u_{k+1}$.
+
+ Finalement $0\leq u_k \leq 1 \Rightarrow 0 \leq u_{k+1} \leq 1$. Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ 0 \leq u_n \leq 1$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = -0.73u_n^2+1.73u_n\\[1em] u_0 = 0.52\end{cases}$ et $f(x) = -0.73x^2+1.73x$.
+
+\begin{enumerate}\setcounter{enumi}{2}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~" u_n \leq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.52$ et $u_1 = -0.73\times0.52^2+1.73\times0.52 = 0.702208\geq 0.52$ , donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k \leq  u_{k+1}$ alors $u_{k+1} \leq  u_{k+2}$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$ et puisque les termes en jeu sont dans $[0;1]$, on a \[ u_k \leq u_{k+1} \quad \Rightarrow \quad f(u_k) \leq  f(u_{k+1}) \quad \Rightarrow \quad  u_{k+1}\leq u_{k+2}. \]
+
+Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \leq u_{n+1}$ et donc $(u_n)_{n\in\mathbb{N}}$ est  croissante .
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{enumerate}\setcounter{enumi}{3}
+
+	\item D'après les questions $3)$ et $2)$ , $(u_n)_{n\in\mathbb{N}}$ est croissante et majorée. Donc d'après le théorème de convergence monotone, $(u_n)_{n\in\mathbb{N}}$ converge.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+On a $\begin{cases} u_{n+1} = u_n^2u_n\\[1em] u_0 = 0.21\end{cases}$ et $f(x) = x^2x$.
+
+\begin{enumerate}
+	\item $f$ est une fonction définie et dérivable sur $[0;1]$. On a \[\forall x \in [0;1], ~ f'(x) = 2.0x\]
+
+ Or $f'(x) \geq 0$ sur $[0;1]$ (étude du signe à réaliser). 
+
+La fonction $f$ est donc croissante sur $[0;1]$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = u_n^2u_n\\[1em] u_0 = 0.21\end{cases}$ et $f(x) = x^2x$.
+
+\begin{enumerate}\setcounter{enumi}{1}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"0 \leq u_n \leq 1"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.21 \in [0;1]$, donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $0 \leq u_k \leq 1$ alors $0 \leq u_{k+1} \leq 1$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$, on a \[0\leq u_k \leq 1 \quad \Rightarrow \quad f(0) \leq f(u_k) \leq f(1).\]
+
+ Or $f(0) = 0$, $f(1) = 1.0\times 1^2= 1$ et $f(u_k) = u_{k+1}$.
+
+ Finalement $0\leq u_k \leq 1 \Rightarrow 0 \leq u_{k+1} \leq 1$. Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ 0 \leq u_n \leq 1$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = u_n^2u_n\\[1em] u_0 = 0.21\end{cases}$ et $f(x) = x^2x$.
+
+\begin{enumerate}\setcounter{enumi}{2}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~" u_n \geq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.21$ et $u_1 = 1.0\times0.21^2+0.0\times0.21 = 0.04409999999999999\leq 0.21$ , donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k \geq  u_{k+1}$ alors $u_{k+1} \geq  u_{k+2}$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$ et puisque les termes en jeu sont dans $[0;1]$, on a \[ u_k \geq u_{k+1} \quad \Rightarrow \quad f(u_k) \geq  f(u_{k+1}) \quad \Rightarrow \quad  u_{k+1}\geq u_{k+2}. \]
+
+Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \geq u_{n+1}$ et donc $(u_n)_{n\in\mathbb{N}}$ est décroissante .
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{enumerate}\setcounter{enumi}{3}
+
+	\item D'après les questions $3)$ et $2)$ , $(u_n)_{n\in\mathbb{N}}$ est décroissante et minorée. Donc d'après le théorème de convergence monotone, $(u_n)_{n\in\mathbb{N}}$ converge.
+
+\end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+On a $\begin{cases} u_{n+1} = 0.21u_n^2+0.79u_n\\[1em] u_0 = 0.5\end{cases}$ et $f(x) = 0.21x^2+0.79x$.
+
+\begin{enumerate}
+	\item $f$ est une fonction définie et dérivable sur $[0;1]$. On a \[\forall x \in [0;1], ~ f'(x) = 0.42x+0.79\]
+
+ Or $f'(x) \geq 0$ sur $[0;1]$ (étude du signe à réaliser). 
+
+La fonction $f$ est donc croissante sur $[0;1]$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = 0.21u_n^2+0.79u_n\\[1em] u_0 = 0.5\end{cases}$ et $f(x) = 0.21x^2+0.79x$.
+
+\begin{enumerate}\setcounter{enumi}{1}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~"0 \leq u_n \leq 1"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.5 \in [0;1]$, donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $0 \leq u_k \leq 1$ alors $0 \leq u_{k+1} \leq 1$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$, on a \[0\leq u_k \leq 1 \quad \Rightarrow \quad f(0) \leq f(u_k) \leq f(1).\]
+
+ Or $f(0) = 0$, $f(1) = 0.21\times 1^2+0.79= 1$ et $f(u_k) = u_{k+1}$.
+
+ Finalement $0\leq u_k \leq 1 \Rightarrow 0 \leq u_{k+1} \leq 1$. Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ 0 \leq u_n \leq 1$.
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}On a $\begin{cases} u_{n+1} = 0.21u_n^2+0.79u_n\\[1em] u_0 = 0.5\end{cases}$ et $f(x) = 0.21x^2+0.79x$.
+
+\begin{enumerate}\setcounter{enumi}{2}
+
+	\item On pose pour tout entier $n \in \mathbb{N}$ l'hypothèse de récurrence $H_n:~" u_n \geq u_{n+1}"$.
+
+\medskip
+
+Initialisation: On a $u_0 =0.5$ et $u_1 = 0.21\times0.5^2+0.79\times0.5 = 0.4475\leq 0.5$ , donc $H_0$ est vraie.
+
+\medskip
+
+Hérédité: Supposons $H_k$ vraie pour \textbf\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k \geq  u_{k+1}$ alors $u_{k+1} \geq  u_{k+2}$.
+
+ Par croissance de la fonction $f$ sur l'intervalle $[0;1]$ et puisque les termes en jeu sont dans $[0;1]$, on a \[ u_k \geq u_{k+1} \quad \Rightarrow \quad f(u_k) \geq  f(u_{k+1}) \quad \Rightarrow \quad  u_{k+1}\geq u_{k+2}. \]
+
+Donc $H_{k} \Rightarrow H_{k+1}$.
+
+ On a finalement démontré par récurrence que pour tout $n \in\mathbb{N},~ u_n \geq u_{n+1}$ et donc $(u_n)_{n\in\mathbb{N}}$ est décroissante .
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{enumerate}\setcounter{enumi}{3}
+
+	\item D'après les questions $3)$ et $2)$ , $(u_n)_{n\in\mathbb{N}}$ est décroissante et minorée. Donc d'après le théorème de convergence monotone, $(u_n)_{n\in\mathbb{N}}$ converge.
+
+\end{enumerate}\end{frame}
+
+
+
+
+\end{document}

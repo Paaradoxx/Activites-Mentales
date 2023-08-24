@@ -1,0 +1,78 @@
+a = randint(2, 10)
+b = randint(1, 40)
+while b == 0:
+    b = randint(-40, 40)
+
+i = randint(0, 1)
+if a > 0:
+    variation = " croissante "
+    symb = " \\leq "
+else:
+    variation = " décroissante "
+    symb = " \\geq "
+
+i = randint(0, 1)
+u = randint(-20, 20)
+self.frame_init()
+self.add("On considère la suite $(u_n)_{n\\in\\mathbb{N}}$ définie par la relation de récurrence suivante:\\[\\begin{cases} u_{n+1} = ", False)
+self.add_coef(a, False)
+self.add("u_n", False)
+self.add_nombre_somme(b, False)
+self.add("\\\\ u_0 = ", False)
+self.add_nombre(u, False)
+self.add("\\end{cases}.\\]\n\nDémontrer par récurrence que la suite $(u_n)_{n\\in\\mathbb{N}}$ est " + variation + ".", False)
+
+
+self.add("\\vspace{6.5mm}\n\nOn rappelle que $\\begin{cases} u_{n+1} = ")
+self.add_coef(a)
+self.add("u_n")
+self.add_nombre_somme(b)
+self.add("\\\\ u_0 = ")
+self.add_nombre(u)
+self.add("\\end{cases}$.\n\n\\medskip\n\n On pose pour tout entier $n \\in \\mathbb{N}$ l'hypothèse de récurrence $H_n:~\"u_n " + symb + "u_{n+1}\"$.\n\n\\medskip\n\nInitialisation: On a $u_0 =")
+
+self.add_nombre(u)
+self.add("$ et $u_1 = ")
+self.add_coef(a)
+self.add("u_0")
+self.add_nombre_somme(b)
+self.add("= ")
+self.add_nombre_produit(a)
+self.add("\\times")
+self.add_nombre_produit(u)
+self.add_nombre_somme(b)
+self.add("=")
+self.add_nombre(a*u+b)
+self.add("$.\n\n Comme $")
+self.add_nombre(u)
+self.add(symb)
+self.add_nombre(a*u+b)
+self.add("$, on a bien $u_0 " + symb + "u_{0+1}$ et $H_0$ est vraie.\n\n\\medskip\n\nHérédité: Supposons $H_k$ vraie pour \\textbf\\underline{{$k$ fixé}} et montrons que $H_{k+1}$ est vraie. C'est-à-dire, montrons que si $u_k " + symb + "u_{k+1}$ alors $u_{k+1} " + symb + "u_{k+2}$.")
+if a == 1:
+    self.add("Or \\begin{align*} u_k " + symb + "u_{k+1} &\\Rightarrow ")
+    self.add("u_k")
+    self.add_nombre_somme(b)
+    self.add(symb)
+    self.add("u_{k+1}")
+    self.add_nombre_somme(b)
+    self.add("\\\\\n\t &\\Rightarrow u_{k+1} " + symb + "u_{k+2}\n\\end{align*}")
+elif a > 0:
+    self.add("Or \\begin{align*} u_k " + symb + "u_{k+1} &\\Rightarrow ")
+    self.add_coef(a)
+    self.add("u_k")
+    self.add(symb)
+    self.add_coef(a)
+    self.add("u_{k+1}\\quad \\text{car } ")
+    self.add_nombre(a)      
+    self.add(">0\\\\\n\t &\\Rightarrow")
+    self.add_coef(a)
+    self.add("u_k")
+    self.add_nombre_somme(b)
+    self.add(symb)
+    self.add_coef(a)
+    self.add("u_{k+1}")
+    self.add_nombre_somme(b)
+    self.add("\\\\\n\t &\\Rightarrow u_{k+1} " + symb + "u_{k+2}\n\\end{align*}")
+self.add("\n\nDonc $H_{k} \\Rightarrow H_{k+1}$. On a finalement démontré par récurrence que pour tout $n \\in\\mathbb{N},~ u_n \\leq u_{n+1}$ et la suite est donc croissante.")
+
+self.frame_end()

@@ -1,0 +1,497 @@
+\documentclass[15pt, mathserif]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{esvect}
+\usepackage{bm}
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{mindmap}
+\usepackage{multicol}
+\usepackage[tikz]{bclogo}
+\usepackage{tkz-tab}
+\usepackage{amsmath, tabu}
+\usepackage{esvect} %\vv{AB} pour le vecteur AB
+
+\DeclareMathOperator{\e}{e}
+
+%% Tableau
+
+\usepackage{makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
+%pour avoir des parenthèses rondes dans le package fourier
+\DeclareSymbolFont{cmoperators}   {OT1}{cmr} {m}{n}
+\DeclareSymbolFont{cmlargesymbols}{OMX}{cmex}{m}{n}
+
+\usefonttheme{professionalfonts} %permet d'enlever un bug avec fourier
+\usepackage{fourier}
+\DeclareMathDelimiter{(}{\mathopen} {cmoperators}{"28}{cmlargesymbols}{"00}
+\DeclareMathDelimiter{)}{\mathclose}{cmoperators}{"29}{cmlargesymbols}{"01}
+
+%Graphiques 
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{mindmap}
+
+%ensembles de nbres
+
+\newcommand{\R}{\mathbb{R}}			%permet d'écrire le R "ensemble des réels"'
+\newcommand{\N}{\mathbb{N}}			%permet d'écrire le N "ensemble des entiers naturels"
+\newcommand{\Z}{\mathbb{Z}}			%permet d'écrire le Z "ensemble des entiers relatifs"
+\newcommand{\Prem}{\mathbb{P}}	%permet d'écrire le P "ensemble des nombres premiers" (qui n'a pas marché avec le \P car il existe déjà)
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Df}{\mathcal{D}_f}
+\newcommand{\Cf}{\mathcal{C}_f}
+
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\st}[1]{$(#1_n)_{n \in \N}$}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.1, 0.25, 0.4} % UBC Blue (primary)
+\definecolor{bordeaux}{RGB}{128,0,0}
+\usecolortheme[named=UBCblue]{structure}
+
+\usepackage{color} % J'aime bien définir mes couleurs
+\definecolor{propcolor}{rgb}{0, 0.5, 1}
+\definecolor{thcolor}{rgb}{0.6, 0.07, 0.07}
+\colorlet{louis}{blue!70!green!60!white}
+\colorlet{sakura}{pink!40!red}
+
+\title{Activités Mentales}
+\date{24 Août 2023}
+
+\newcommand{\vco}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}} %Coordonnées de vecteur
+\newenvironment{eq}{\begin{cases}\begin{tabu}{ccccc}}{\end{tabu}\end{cases}}
+\newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
+\newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Question 1}
+On définit l'équation $(E):\dfrac{-2x-4}{-4x+1}=\dfrac{-3x-1}{-6x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{31x+17}{(-4x+1)(-6x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 2}
+On définit l'équation $(E):\dfrac{-6x-2}{2x-6}=\dfrac{-12x+4}{4x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{-64x+32}{(2x-6)(4x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 3}
+On définit l'équation $(E):\dfrac{6x-1}{-x-4}=\dfrac{24x+6}{-4x-2}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{94x+26}{(-x-4)(-4x-2)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 4}
+On définit l'équation $(E):\dfrac{6x+5}{-4x+6}=\dfrac{9x+3}{-6x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{-96x-38}{(-4x+6)(-6x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate}\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Question 5}
+On définit l'équation $(E):\dfrac{4x+2}{-2x-3}=\dfrac{-6x-6}{3x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{-40x-26}{(-2x-3)(3x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate}\end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 1}
+ \vspace*{1cm} 
+ 
+ On définit l'équation $(E):\dfrac{-2x-4}{-4x+1}=\dfrac{-3x-1}{-6x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{31x+17}{(-4x+1)(-6x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate} 
+ 
+ \begin{enumerate} 
+ 	 \item On cherche les valeurs interdites. Pour cela les dénominateurs ne doivent pas valoir 0 car on ne peut pas diviser par 0. 
+ 
+ 	 On résout : 
+ 
+  \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -4x+1& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-4x & = &-1\\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{-1}{-4}=\dfrac{1}{4}
+ 	 	 \end{array} $ 
+ 	 \end{minipage} \hfil \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -6x-4& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-6x & = &4 \\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{4}{-6}=\dfrac{-2}{3}
+ 	 	 \end{array} $ 
+ 
+ 	 \end{minipage} 
+ 
+ Donc l'équation $(E)$ existe pour $x \in \R \setminus \left\{\dfrac{1}{4};\dfrac{-2}{3}\right\}$. 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item On veut obtenir $0$ dans le membre de droite, et une seule fraction à gauche : 
+ 
+ 	 $\begin{array}{crcl} 
+ 	 	 & \dfrac{-2x-4}{-4x+1} & = &\dfrac{-3x-1}{-6x-4} \\ 
+ 	 \Leftrightarrow & \dfrac{-2x-4}{-4x+1}-\dfrac{-3x-1}{-6x-4} & = & 0 \\ 
+ 
+ \Leftrightarrow & \dfrac{(-2x-4)(-6x-4)-(-3x-1)(-4x+1)}{(-4x+1)(-6x-4)} & = & 0 \\ \Leftrightarrow & \dfrac{12x^2+8x+24x+16-(+12x^2+4x-3x-1)}{(-4x+1)(-6x-4)}& = & 0 \\ \Leftrightarrow & \dfrac{31x+17}{(-4x+1)(-6x-4)} & = & 0 
+ 	 \end{array}$ 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item C'est une équation quotient nul, on utilise donc la Règle du Quotient Nul :
+ 
+  \tiny{$\begin{array}{crclcrclcrcl} 
+ 
+ 	  & \dfrac{-2x-4}{-4x+1} & = &\dfrac{-3x-1}{-6x-4} & & & & & & & & \\ 
+ 	 \Leftrightarrow & \dfrac{31x+17}{(-4x+1)(-6x-4)} & = & 0 & & & & & & & & \\ 
+ 	 \Leftrightarrow & 31x+17 & =& 0 & \text{et} & (-4x+1)(-6x-4) & \neq & 0 \\ 
+ 	 \Leftrightarrow & 31x&=&-17& \text{et} & -4x+1& \neq & 0 & \text{et} & -6x-4& \neq & 0 \\ 
+ 	 \Leftrightarrow & x&=&\dfrac{-17}{31} & \text{et} & x &\neq&\dfrac{1}{4} & \text{et} & x & \neq&\dfrac{-2}{3}
+ 
+ \end{array}$} 
+ 
+ \bigskip 
+ 
+ \normalsize{ $ \dfrac{-17}{31} $ n'est pas une valeur interdite donc $S=\left\{ \dfrac{-17}{31}\right\}$.} 
+ 
+ \end{enumerate} \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 2}
+ \vspace*{1cm} 
+ 
+ On définit l'équation $(E):\dfrac{-6x-2}{2x-6}=\dfrac{-12x+4}{4x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{-64x+32}{(2x-6)(4x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate} 
+ 
+ \begin{enumerate} 
+ 	 \item On cherche les valeurs interdites. Pour cela les dénominateurs ne doivent pas valoir 0 car on ne peut pas diviser par 0. 
+ 
+ 	 On résout : 
+ 
+  \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & 2x-6& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &2x & = &6\\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{6}{2}=3
+ 	 	 \end{array} $ 
+ 	 \end{minipage} \hfil \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & 4x-4& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &4x & = &4 \\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{4}{4}=1
+ 	 	 \end{array} $ 
+ 
+ 	 \end{minipage} 
+ 
+ Donc l'équation $(E)$ existe pour $x \in \R \setminus \left\{3;1\right\}$. 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item On veut obtenir $0$ dans le membre de droite, et une seule fraction à gauche : 
+ 
+ 	 $\begin{array}{crcl} 
+ 	 	 & \dfrac{-6x-2}{2x-6} & = &\dfrac{-12x+4}{4x-4} \\ 
+ 	 \Leftrightarrow & \dfrac{-6x-2}{2x-6}-\dfrac{-12x+4}{4x-4} & = & 0 \\ 
+ 
+ \Leftrightarrow & \dfrac{(-6x-2)(4x-4)-(-12x+4)(2x-6)}{(2x-6)(4x-4)} & = & 0 \\ \Leftrightarrow & \dfrac{-24x^2+24x-8x+8-(-24x^2+8x+72x-24)}{(2x-6)(4x-4)}& = & 0 \\ \Leftrightarrow & \dfrac{-64x+32}{(2x-6)(4x-4)} & = & 0 
+ 	 \end{array}$ 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item C'est une équation quotient nul, on utilise donc la Règle du Quotient Nul :
+ 
+  \tiny{$\begin{array}{crclcrclcrcl} 
+ 
+ 	  & \dfrac{-6x-2}{2x-6} & = &\dfrac{-12x+4}{4x-4} & & & & & & & & \\ 
+ 	 \Leftrightarrow & \dfrac{-64x+32}{(2x-6)(4x-4)} & = & 0 & & & & & & & & \\ 
+ 	 \Leftrightarrow & -64x+32 & =& 0 & \text{et} & (2x-6)(4x-4) & \neq & 0 \\ 
+ 	 \Leftrightarrow & -64x&=&-32& \text{et} & 2x-6& \neq & 0 & \text{et} & 4x-4& \neq & 0 \\ 
+ 	 \Leftrightarrow & x&=&\dfrac{1}{2} & \text{et} & x &\neq&3 & \text{et} & x & \neq&1
+ 
+ \end{array}$} 
+ 
+ \bigskip 
+ 
+ \normalsize{ $ \dfrac{1}{2} $ n'est pas une valeur interdite donc $S=\left\{ \dfrac{1}{2}\right\}$.} 
+ 
+ \end{enumerate} \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 3}
+ \vspace*{1cm} 
+ 
+ On définit l'équation $(E):\dfrac{6x-1}{-x-4}=\dfrac{24x+6}{-4x-2}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{94x+26}{(-x-4)(-4x-2)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate} 
+ 
+ \begin{enumerate} 
+ 	 \item On cherche les valeurs interdites. Pour cela les dénominateurs ne doivent pas valoir 0 car on ne peut pas diviser par 0. 
+ 
+ 	 On résout : 
+ 
+  \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -x-4& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-x & = &4\\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{4}{-1}=-4
+ 	 	 \end{array} $ 
+ 	 \end{minipage} \hfil \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -4x-2& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-4x & = &2 \\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{2}{-4}=\dfrac{-1}{2}
+ 	 	 \end{array} $ 
+ 
+ 	 \end{minipage} 
+ 
+ Donc l'équation $(E)$ existe pour $x \in \R \setminus \left\{-4;-1\right\}$. 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item On veut obtenir $0$ dans le membre de droite, et une seule fraction à gauche : 
+ 
+ 	 $\begin{array}{crcl} 
+ 	 	 & \dfrac{6x-1}{-x-4} & = &\dfrac{24x+6}{-4x-2} \\ 
+ 	 \Leftrightarrow & \dfrac{6x-1}{-x-4}-\dfrac{24x+6}{-4x-2} & = & 0 \\ 
+ 
+ \Leftrightarrow & \dfrac{(6x-1)(-4x-2)-(24x+6)(-x-4)}{(-x-4)(-4x-2)} & = & 0 \\ \Leftrightarrow & \dfrac{-24x^2-12x+4x+2-(-24x^2-6x-96x-24)}{(-x-4)(-4x-2)}& = & 0 \\ \Leftrightarrow & \dfrac{94x+26}{(-x-4)(-4x-2)} & = & 0 
+ 	 \end{array}$ 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item C'est une équation quotient nul, on utilise donc la Règle du Quotient Nul :
+ 
+  \tiny{$\begin{array}{crclcrclcrcl} 
+ 
+ 	  & \dfrac{6x-1}{-x-4} & = &\dfrac{24x+6}{-4x-2} & & & & & & & & \\ 
+ 	 \Leftrightarrow & \dfrac{94x+26}{(-x-4)(-4x-2)} & = & 0 & & & & & & & & \\ 
+ 	 \Leftrightarrow & 94x+26 & =& 0 & \text{et} & (-x-4)(-4x-2) & \neq & 0 \\ 
+ 	 \Leftrightarrow & 94x&=&-26& \text{et} & -x-4& \neq & 0 & \text{et} & -4x-2& \neq & 0 \\ 
+ 	 \Leftrightarrow & x&=&\dfrac{-13}{47} & \text{et} & x &\neq&-4 & \text{et} & x & \neq&\dfrac{-1}{2}
+ 
+ \end{array}$} 
+ 
+ \bigskip 
+ 
+ \normalsize{ $ \dfrac{-13}{47} $ n'est pas une valeur interdite donc $S=\left\{ \dfrac{-13}{47}\right\}$.} 
+ 
+ \end{enumerate} \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 4}
+ \vspace*{1cm} 
+ 
+ On définit l'équation $(E):\dfrac{6x+5}{-4x+6}=\dfrac{9x+3}{-6x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{-96x-38}{(-4x+6)(-6x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate} 
+ 
+ \begin{enumerate} 
+ 	 \item On cherche les valeurs interdites. Pour cela les dénominateurs ne doivent pas valoir 0 car on ne peut pas diviser par 0. 
+ 
+ 	 On résout : 
+ 
+  \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -4x+6& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-4x & = &-6\\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{-6}{-4}=\dfrac{3}{2}
+ 	 	 \end{array} $ 
+ 	 \end{minipage} \hfil \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -6x-4& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-6x & = &4 \\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{4}{-6}=\dfrac{-2}{3}
+ 	 	 \end{array} $ 
+ 
+ 	 \end{minipage} 
+ 
+ Donc l'équation $(E)$ existe pour $x \in \R \setminus \left\{\dfrac{3}{2};\dfrac{-2}{3}\right\}$. 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item On veut obtenir $0$ dans le membre de droite, et une seule fraction à gauche : 
+ 
+ 	 $\begin{array}{crcl} 
+ 	 	 & \dfrac{6x+5}{-4x+6} & = &\dfrac{9x+3}{-6x-4} \\ 
+ 	 \Leftrightarrow & \dfrac{6x+5}{-4x+6}-\dfrac{9x+3}{-6x-4} & = & 0 \\ 
+ 
+ \Leftrightarrow & \dfrac{(6x+5)(-6x-4)-(9x+3)(-4x+6)}{(-4x+6)(-6x-4)} & = & 0 \\ \Leftrightarrow & \dfrac{-36x^2-24x-30x-20-(-36x^2-12x+54x+18)}{(-4x+6)(-6x-4)}& = & 0 \\ \Leftrightarrow & \dfrac{-96x-38}{(-4x+6)(-6x-4)} & = & 0 
+ 	 \end{array}$ 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item C'est une équation quotient nul, on utilise donc la Règle du Quotient Nul :
+ 
+  \tiny{$\begin{array}{crclcrclcrcl} 
+ 
+ 	  & \dfrac{6x+5}{-4x+6} & = &\dfrac{9x+3}{-6x-4} & & & & & & & & \\ 
+ 	 \Leftrightarrow & \dfrac{-96x-38}{(-4x+6)(-6x-4)} & = & 0 & & & & & & & & \\ 
+ 	 \Leftrightarrow & -96x-38 & =& 0 & \text{et} & (-4x+6)(-6x-4) & \neq & 0 \\ 
+ 	 \Leftrightarrow & -96x&=&+38& \text{et} & -4x+6& \neq & 0 & \text{et} & -6x-4& \neq & 0 \\ 
+ 	 \Leftrightarrow & x&=&\dfrac{-19}{48} & \text{et} & x &\neq&\dfrac{3}{2} & \text{et} & x & \neq&\dfrac{-2}{3}
+ 
+ \end{array}$} 
+ 
+ \bigskip 
+ 
+ \normalsize{ $ \dfrac{-19}{48} $ n'est pas une valeur interdite donc $S=\left\{ \dfrac{-19}{48}\right\}$.} 
+ 
+ \end{enumerate} \end{frame}
+
+
+\begin{frame}
+\vspace{-10mm}
+	\frametitle{Correction 5}
+ \vspace*{1cm} 
+ 
+ On définit l'équation $(E):\dfrac{4x+2}{-2x-3}=\dfrac{-6x-6}{3x-4}$. 
+ \begin{enumerate} 
+ 	 \item Pour quelle(s) valeur(s) de $x$ l'équation $(E)$ existe-t-elle ? 
+ 	 \item Montrer que $(E) \Leftrightarrow \dfrac{-40x-26}{(-2x-3)(3x-4)}=0$. 
+ 	 \item En déduire les solutions de $(E)$. 
+ \end{enumerate} 
+ 
+ \begin{enumerate} 
+ 	 \item On cherche les valeurs interdites. Pour cela les dénominateurs ne doivent pas valoir 0 car on ne peut pas diviser par 0. 
+ 
+ 	 On résout : 
+ 
+  \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & -2x-3& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &-2x & = &3\\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{3}{-2}=\dfrac{-3}{2}
+ 	 	 \end{array} $ 
+ 	 \end{minipage} \hfil \begin{minipage}{0.45\linewidth} 
+ 	 $\begin{array}{crcl} 
+ 	 	 & 3x-4& = & 0 \\ 
+ 	 	 	 \Leftrightarrow &3x & = &4 \\ 
+ 	 	 	 \Leftrightarrow & x & = & \dfrac{4}{3}
+ 	 	 \end{array} $ 
+ 
+ 	 \end{minipage} 
+ 
+ Donc l'équation $(E)$ existe pour $x \in \R \setminus \left\{\dfrac{-3}{2};\dfrac{4}{3}\right\}$. 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item On veut obtenir $0$ dans le membre de droite, et une seule fraction à gauche : 
+ 
+ 	 $\begin{array}{crcl} 
+ 	 	 & \dfrac{4x+2}{-2x-3} & = &\dfrac{-6x-6}{3x-4} \\ 
+ 	 \Leftrightarrow & \dfrac{4x+2}{-2x-3}-\dfrac{-6x-6}{3x-4} & = & 0 \\ 
+ 
+ \Leftrightarrow & \dfrac{(4x+2)(3x-4)-(-6x-6)(-2x-3)}{(-2x-3)(3x-4)} & = & 0 \\ \Leftrightarrow & \dfrac{12x^2-16x+6x-8-(+12x^2+12x+18x+18)}{(-2x-3)(3x-4)}& = & 0 \\ \Leftrightarrow & \dfrac{-40x-26}{(-2x-3)(3x-4)} & = & 0 
+ 	 \end{array}$ 
+ \end{enumerate} 
+ \end{frame} 
+ \begin{frame} 
+ \begin{enumerate} \setcounter{enumi}{1}  
+ 	 \item C'est une équation quotient nul, on utilise donc la Règle du Quotient Nul :
+ 
+  \tiny{$\begin{array}{crclcrclcrcl} 
+ 
+ 	  & \dfrac{4x+2}{-2x-3} & = &\dfrac{-6x-6}{3x-4} & & & & & & & & \\ 
+ 	 \Leftrightarrow & \dfrac{-40x-26}{(-2x-3)(3x-4)} & = & 0 & & & & & & & & \\ 
+ 	 \Leftrightarrow & -40x-26 & =& 0 & \text{et} & (-2x-3)(3x-4) & \neq & 0 \\ 
+ 	 \Leftrightarrow & -40x&=&+26& \text{et} & -2x-3& \neq & 0 & \text{et} & 3x-4& \neq & 0 \\ 
+ 	 \Leftrightarrow & x&=&\dfrac{-13}{20} & \text{et} & x &\neq&\dfrac{-3}{2} & \text{et} & x & \neq&\dfrac{4}{3}
+ 
+ \end{array}$} 
+ 
+ \bigskip 
+ 
+ \normalsize{ $ \dfrac{-13}{20} $ n'est pas une valeur interdite donc $S=\left\{ \dfrac{-13}{20}\right\}$.} 
+ 
+ \end{enumerate} \end{frame}
+
+
+
+
+\end{document}

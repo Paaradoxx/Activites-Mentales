@@ -1,0 +1,287 @@
+a=randint(-10,10)
+b=randint(-10,10)
+c=randint(-10,-10)
+while c==0 or b==0:
+    b=randint(-10,10)
+    c=randint(-10,-10)
+f=Fraction(b,c)
+self.frame_init()
+self.add("On considère la suite \\st{u} définie pour $n \in \\N$ par \n \n \\hfil$u_n=\e^{",False)
+if a!=0:
+    self.add_nombre(a,cor=False)
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{",cor=False)
+            self.add_coef(-f.numerator,cor=False)
+            self.add("n}{",cor=False)
+            self.add_nombre(f.denominator,cor=False)
+            self.add("}}.$",cor=False)
+        else:
+            self.add_coef(f.numerator,cor=False)
+            self.add("n}.$",cor=False)
+    else:
+        if f.denominator !=1:
+            self.add("+\\frac{",cor=False)
+            self.add_coef(f.numerator,cor=False)
+            self.add("n}{",cor=False)
+            self.add_nombre(f.denominator,cor=False)
+            self.add("}}.$",cor=False)
+        else :
+            self.add_coef(f.numerator,cor=False)
+            self.add("n}.$",cor=False)
+else :
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{",cor=False)
+            self.add_coef(-f.numerator,cor=False)
+            self.add("n}{",cor=False)
+            self.add_nombre(f.denominator,cor=False)
+            self.add("}}.$",cor=False)
+        else:
+            self.add_coef(f.numerator,cor=False)
+            self.add("n}.$",cor=False)
+    else:
+        if f.denominator !=1:
+            self.add("\\frac{",cor=False)
+            self.add_coef(f.numerator,cor=False)
+            self.add("n}{",cor=False)
+            self.add_nombre(f.denominator,cor=False)
+            self.add("}}.$",cor=False)
+        else :
+            self.add_coef(f.numerator,cor=False)
+            self.add("n}.$",cor=False)
+
+self.add("\n \\begin{enumerate} \n \t \\item Calculer les trois premiers termes de la suite puis conjecturer son sens de variation. \n \t \\item Montrer que la suite \\st{u} est une suite géométrique dont on déterminera la raison. \n \t \\item La conjecture précédente est-elle validée ? Justifier. \n \\end{enumerate}",cor=False)
+
+self.add("\n \\begin{enumerate} \n \t \\item  \\hfil$u_0=e^{")
+if a!=0:
+    self.add_nombre(a)
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_nombre(-f.numerator)
+            self.add("\\times 0}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_nombre(f.numerator)
+            self.add("\\times 0}")
+    else:
+        if f.denominator !=1:
+            self.add("+\\frac{")
+            self.add_nombre(f.numerator)
+            self.add("\\times 0}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_nombre(f.numerator)
+            self.add("\\times 0}")
+else :
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_nombre(-f.numerator)
+            self.add("\\times 0}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_nombre(f.numerator)
+            self.add("\\times 0}")
+    else:
+        if f.denominator !=1:
+            self.add("\\frac{")
+            self.add_nombre(f.numerator)
+            self.add("\\times 0}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_nombre(f.numerator)
+            self.add("\\times 0}")
+self.add("=\\e^{")
+self.add_nombre(a+b*0/c)
+if a+b*0/c==0:
+    self.add("}=1$ \\hfil$u_1=e^{")
+else:
+    self.add("}$ \\hfil$u_1=e^{")
+if a!=0:
+    self.add_nombre(a)
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_nombre(-f.numerator)
+            self.add("\\times 1}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_nombre(f.numerator)
+            self.add("\\times 1}")
+    else:
+        if f.denominator !=1:
+            self.add("+\\frac{")
+            self.add_nombre(f.numerator)
+            self.add("\\times 1}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_nombre(f.numerator)
+            self.add("\\times 1}")
+else :
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_nombre(-f.numerator)
+            self.add("\\times 1}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_nombre(f.numerator)
+            self.add("\\times 1}")
+    else:
+        if f.denominator !=1:
+            self.add("\\frac{")
+            self.add_nombre(f.numerator)
+            self.add("\\times 1}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_nombre(f.numerator)
+            self.add("\\times 1}")
+self.add("=\\e^{")
+self.add_nombre(a+b*1/c)
+self.add("} $ \\hfil $u_2=e^{")
+if a!=0:
+    self.add_nombre(a)
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_nombre(-f.numerator)
+            self.add("\\times 2}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_nombre(f.numerator)
+            self.add("\\times 2}")
+    else:
+        if f.denominator !=1:
+            self.add("+\\frac{")
+            self.add_nombre(f.numerator)
+            self.add("\\times 2}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_nombre(f.numerator)
+            self.add("\\times 2}")
+else :
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_nombre_produit(-f.numerator)
+            self.add("\\times 2}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_nombre(f.numerator)
+            self.add("\\times 2}")
+    else:
+        if f.denominator !=1:
+            self.add("\\frac{")
+            self.add_nombre(f.numerator)
+            self.add("\\times 2}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_nombre(f.numerator)
+            self.add("\\times 2}")
+self.add("=\\e^{")
+self.add_nombre(a+b*2/c)
+self.add("}$")
+if a+b*0/c<a+b*2/c:
+    self.add("\n \n Comme $u_0<u_1<u_2$, il semblerait que la suite soit croissante.")
+else:
+    self.add("\n \n Comme $u_0>u_1>u_2$, il semblerait que la suite soit décroissante.")
+self.add("\n \t \\item $u_n=\e^{")
+if a!=0:
+    self.add_nombre(a)
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_coef(-f.numerator)
+            self.add("n}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_coef(f.numerator)
+            self.add("n}")
+    else:
+        if f.denominator !=1:
+            self.add("+\\frac{")
+            self.add_coef(f.numerator)
+            self.add("n}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_coef(f.numerator)
+            self.add("n}")
+else :
+    if f.numerator <0:
+        if f.denominator !=1:
+            self.add("-\\frac{")
+            self.add_coef(-f.numerator)
+            self.add("n}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else:
+            self.add_coef(f.numerator)
+            self.add("n}")
+    else:
+        if f.denominator !=1:
+            self.add("\\frac{")
+            self.add_coef(f.numerator)
+            self.add("n}{")
+            self.add_nombre(f.denominator)
+            self.add("}}")
+        else :
+            self.add_coef(f.numerator)
+            self.add("n}")
+
+self.add("=\\e^{")
+self.add_nombre(a)
+self.add("} \\times \\e^{")
+self.add_frac(f,coef=True, cor=True)
+self.add("\\times n} =\\e^{")
+self.add_nombre(a)
+self.add("} \\times \\left( \\e^{")
+self.add_frac(f,coef=True, cor=True)
+self.add("} \\right)^n=u_0 \\times q^n$ \n \n \\st{u} est donc géométrique de raison $q= \\e^{")
+self.add_frac(f,coef=True, cor=True)
+self.add("}$ et de premier terme $u_0=\\e^{")
+self.add_nombre(a)
+self.add("}")
+if a==1:
+    self.add("=\\e")
+elif a==0:
+    self.add("=1")
+if f>0:
+    self.add("$ \n \t \\item Puisque $q= \\e^{")
+    self.add_frac(f,coef=True, cor=True)
+    self.add("}>1$ et puisque $u_0=\\e^{")
+    self.add_nombre(a)
+    self.add("}")
+    if a==1:
+        self.add("=\\e")
+    elif a==0:
+        self.add("=1")
+    self.add(">0$ la suite est bien croissante.")
+else :
+    self.add("$ \n \t \\item Puisque $0<q= \\e^{")
+    self.add_frac(f,coef=True, cor=True)
+    self.add("}<1$ et puisque $u_0=\\e^{")
+    self.add_nombre(a)
+    self.add("}")
+    if a==1:
+        self.add("=\\e")
+    elif a==0:
+        self.add("=1")
+    self.add(">0$ la suite est bien décroissante.")
+self.add("\n \\end{enumerate}")
+self.frame_end()

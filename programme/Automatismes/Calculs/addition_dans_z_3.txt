@@ -26,7 +26,7 @@ if d==1:
     self.add('-(',False)
     self.add_nombre(b,False)
     self.add_nombre_somme(c,False)
-    self.add(')$$', False)
+    self.add(')=\\lodts$$', False)
     self.add('$$')
     self.add_nombre(a)
     self.add('-(')

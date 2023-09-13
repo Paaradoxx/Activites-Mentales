@@ -78,6 +78,27 @@
 \newenvironment{eql}{\begin{cases}\begin{tabu}{cccccl}}{\end{tabu}\end{cases}}
 \newenvironment{eqrl}{\begin{cases}\begin{tabu}{rl}}{\end{tabu}\end{cases}}
 
+%% AJOUT %%
+
+\newenvironment{Eq}{\begin{center}\begin{tabular}{rrcl}}{\end{tabular}\end{center}}
+\newcommand{\ligneq}[2]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ \\}
+\newcommand{\Ligneq}[2]{ & $#1$ & $=$ & $#2$ \\}
+
+\newenvironment{RPN}{\begin{center}\begin{tabular}{rrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignerpn}[4]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+\newcommand{\lignerpn}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ \\}
+
+\newenvironment{TRPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Lignetrpn}[6]{ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+\newcommand{\lignetrpn}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & ou & $#5$ & $=$ & $#6$ \\}
+
+\newenvironment{RQPN}{\begin{center}\begin{tabular}{rrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\Ligneb}[4]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & et & $#3$ & $\neq$ & $#4$ \\}
+\newcommand{\ligneb}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & et & $#3$ & $\neq$ & $#4$ & et & $#5$ & $\neq$ & $#6$ \\}
+\newcommand{\lignep}[6]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & et & $#5$ & $\neq$ & $#6$ \\}
+
+\newenvironment{DRQPN}{\begin{center}\begin{tabular}{rrclcrclcrclcrcl}}{\end{tabular}\end{center}}
+\newcommand{\lignedrqpn}[8]{$\Longleftrightarrow$ & $#1$ & $=$ & $#2$ & ou & $#3$ & $=$ & $#4$ & et & $#5$ & $\neq$ & $#6$ & et & $#7$ & $\neq$ & $#8$ \\}
 
 \begin{document}
 
